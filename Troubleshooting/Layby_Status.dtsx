@@ -1,0 +1,1986 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2015 12:54:23 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="FANIEVDMHPW8"
+  DTS:CreatorName="JDG\790450"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{39D56217-33E6-4D83-A437-B16C9AB79FCA}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Layby_Status"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{27C7B0E2-B5DB-42C5-970F-333DA61E2F15}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F839CDE5-8D1E-4D7B-A73F-D07F0224F689}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices;Initial Catalog=Every_Angle;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EE89CBEA-0DE4-4292-8942-70618C4FF53B}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="\\jdgbeaprd00\Niel\A02.07 LAYBY STATUS BY STORE.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Office ·"
+              DTS:DTSID="{67FACE16-407B-46BE-AEE2-C9A92EBED538}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description (Sales Office)"
+              DTS:DTSID="{8CC44222-D02A-4D83-9AD9-252F47B66755}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created On"
+              DTS:DTSID="{CEBDFF37-64D1-4C2D-B909-4827AA6B5192}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales employee  PE "
+              DTS:DTSID="{248FD382-243F-43E0-81E9-220629AA6711}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Document Header ·"
+              DTS:DTSID="{B220E76C-DB6E-4850-951C-4DECD8035821}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name and description (Article)"
+              DTS:DTSID="{A93E6886-9DB1-48F8-BE8F-2719FC7CA4F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Site-Specific Article Status (Article Site - Reference Site)"
+              DTS:DTSID="{2A0E40B8-B516-4E9A-849E-73B1842AC237}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quantity"
+              DTS:DTSID="{78BDF08B-279D-465E-B33F-9BD67CB39951}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales value"
+              DTS:DTSID="{C8E9CAE5-B445-48B9-9BE7-508D79D8E1D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Stock quantity total (Article Site - Main Suppl Site)"
+              DTS:DTSID="{CFFC1C78-8420-44B6-B873-18AA282214A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Months So Far (Sales Document Header)"
+              DTS:DTSID="{FCDE0CC7-B91F-4951-8048-359680F8F532}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Months To Go (Sales Document Header)"
+              DTS:DTSID="{C9E7937A-5DF9-402D-BA3F-F9CE8798054C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Amount Paid So Far (Sales Document Header)"
+              DTS:DTSID="{F8E76B84-1AA5-44EF-9437-5203658CDE6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Required Payment So Far (Sales Document Header)"
+              DTS:DTSID="{77852E8A-DF6A-4AFB-8CA3-9D3A703D04E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Last Payment Date (Sales Document Header)"
+              DTS:DTSID="{8B791978-61CD-4584-AFF9-5C199760184E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LB - Balance Outstanding (Sales Document Header)"
+              DTS:DTSID="{05B1A41A-B327-40C1-9172-1827D9CD8DDA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer ·"
+              DTS:DTSID="{1CC072AB-70E1-42D1-9E63-8B3B7A337038}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0022__x002C__x0022_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description (Customer)"
+              DTS:DTSID="{99791953-E6A9-4543-AFBD-FF8B2D8A285F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="First telephone number (Customer)"
+              DTS:DTSID="{39660BA7-C6C1-4BA9-A686-B6FA61EE3EB8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5748FBF0-B38C-4F64-993D-21B18E3D00F5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task 1"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{0B02286D-919B-43B5-A021-84AF44CCBC07}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\Data Conversion"
+                  componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Sales Office ·]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sales Office ·"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Office ·]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Created On]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Created On"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Created On]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Sales Document Header ·]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sales Document Header ·"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Document Header ·]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Name and description (Article)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="Name and description (Article)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Name and description (Article)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Site-Specific Article Status (Article Site - Reference Site)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Site-Specific Article Status (Article Site - Reference Site)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Quantity]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Quantity"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Sales value]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sales value"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales value]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Stock quantity total (Article Site - Main Suppl Site)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Stock quantity total (Article Site - Main Suppl Site)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LB - Months So Far (Sales Document Header)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LB - Months So Far (Sales Document Header)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months So Far (Sales Document Header)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LB - Months To Go (Sales Document Header)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LB - Months To Go (Sales Document Header)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months To Go (Sales Document Header)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LB - Amount Paid So Far (Sales Document Header)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LB - Amount Paid So Far (Sales Document Header)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Amount Paid So Far (Sales Document Header)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LB - Required Payment So Far (Sales Document Header)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LB - Required Payment So Far (Sales Document Header)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Required Payment So Far (Sales Document Header)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Customer ·]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Customer ·"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Customer ·]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Description (Customer)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Description (Customer)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Customer)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[First telephone number (Customer)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="First telephone number (Customer)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[First telephone number (Customer)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Description (Sales Office)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Description (Sales Office)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Sales Office)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Sales employee  PE ]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sales employee  PE "
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales employee  PE ]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[LB - Last Payment Date (Sales Document Header)]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LB - Last Payment Date (Sales Document Header)"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Last Payment Date (Sales Document Header)]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Office]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Office]"
+                          name="Sales Office"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Office ·]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[CreatedOn]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[CreatedOn]"
+                          name="CreatedOn"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Created On]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Document]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Document]"
+                          name="Sales Document"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Document Header ·]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Article]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Article]"
+                          name="Article"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Name and description (Article)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Site-Specific Article Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Site-Specific Article Status]"
+                          name="Site-Specific Article Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Site-Specific Article Status (Article Site - Reference Site)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Quantity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Quantity]"
+                          name="Quantity"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Quantity]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales value]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales value]"
+                          name="Sales value"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales value]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Stock quantity total]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Stock quantity total]"
+                          name="Stock quantity total"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Stock quantity total (Article Site - Main Suppl Site)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months So Far]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months So Far]"
+                          name="LB - Months So Far"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months So Far (Sales Document Header)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months To Go]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months To Go]"
+                          name="LB - Months To Go"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months To Go (Sales Document Header)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Amount Paid So Far]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Amount Paid So Far]"
+                          name="LB - Amount Paid So Far"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Amount Paid So Far (Sales Document Header)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Required Payment So Far]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Required Payment So Far]"
+                          name="LB - Required Payment So Far"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Required Payment So Far (Sales Document Header)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Customer]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Customer]"
+                          name="Customer"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Customer ·]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Description (Customer)]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Description (Customer)]"
+                          name="Description (Customer)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Customer)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[First telephone number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[First telephone number]"
+                          name="First telephone number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[First telephone number (Customer)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description (Sales Office)]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description (Sales Office)]"
+                          name="Copy of Description (Sales Office)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Sales Office)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales employee  PE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales employee  PE]"
+                          name="Copy of Sales employee  PE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales employee  PE ]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LB - Last Payment Date (Sales Document Header)]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LB - Last Payment Date (Sales Document Header)]"
+                          name="Copy of LB - Last Payment Date (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Last Payment Date (Sales Document Header)]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Destination - stage_Layby_Status"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_Layby_Status]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Sales Office]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Sales Office"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales Office ·]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Office]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[CreatedOn]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="CreatedOn"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Created On]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[CreatedOn]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Sales Document]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Sales Document"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales Document Header ·]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales Document]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Article]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Article"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Name and description (Article)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Article]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Site-Specific Article Status]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Site-Specific Article Status"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Site-Specific Article Status]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Quantity]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Quantity"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Quantity]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Sales value]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Sales value"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales value]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Sales value]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Stock quantity total]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Stock quantity total"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Stock quantity total]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[LB - Months So Far]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="LB - Months So Far"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Months So Far (Sales Document Header)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months So Far]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[LB - Months To Go]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="LB - Months To Go"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Months To Go (Sales Document Header)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Months To Go]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[LB - Amount Paid So Far]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="LB - Amount Paid So Far"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Amount Paid So Far (Sales Document Header)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Amount Paid So Far]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[LB - Required Payment So Far]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="LB - Required Payment So Far"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Required Payment So Far (Sales Document Header)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[LB - Required Payment So Far]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Customer]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Customer"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Customer ·]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Customer]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Description (Customer)]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Description (Customer)"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Description (Customer)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Description (Customer)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[First telephone number]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="First telephone number"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[First telephone number (Customer)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[First telephone number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Copy of Description (Sales Office)]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Copy of Description (Sales Office)"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Name 1 (Sales Office)]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description (Sales Office)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Copy of Sales employee  PE]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Copy of Sales employee  PE"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales employee  PE ]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales employee  PE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].Columns[Copy of LB - Last Payment Date (Sales Document Header)]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Copy of LB - Last Payment Date (Sales Document Header)"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Last Payment Date]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LB - Last Payment Date (Sales Document Header)]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales Office ·]"
+                          dataType="wstr"
+                          length="500"
+                          name="Sales Office ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Name 1 (Sales Office)]"
+                          dataType="wstr"
+                          length="500"
+                          name="Name 1 (Sales Office)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Created On]"
+                          dataType="wstr"
+                          length="500"
+                          name="Created On" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales employee  PE ]"
+                          dataType="wstr"
+                          length="500"
+                          name="Sales employee  PE " />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales Document Header ·]"
+                          dataType="wstr"
+                          length="500"
+                          name="Sales Document Header ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Name and description (Article)]"
+                          dataType="wstr"
+                          length="500"
+                          name="Name and description (Article)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          dataType="wstr"
+                          length="500"
+                          name="Site-Specific Article Status (Article Site - Reference Site)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Quantity]"
+                          dataType="wstr"
+                          length="500"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Sales value]"
+                          dataType="wstr"
+                          length="500"
+                          name="Sales value" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          dataType="wstr"
+                          length="500"
+                          name="Stock quantity total (Article Site - Main Suppl Site)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Months So Far (Sales Document Header)]"
+                          dataType="wstr"
+                          length="500"
+                          name="LB - Months So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Months To Go (Sales Document Header)]"
+                          dataType="wstr"
+                          length="500"
+                          name="LB - Months To Go (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Amount Paid So Far (Sales Document Header)]"
+                          dataType="wstr"
+                          length="500"
+                          name="LB - Amount Paid So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Required Payment So Far (Sales Document Header)]"
+                          dataType="wstr"
+                          length="500"
+                          name="LB - Required Payment So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Customer ·]"
+                          dataType="wstr"
+                          length="500"
+                          name="Customer ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[Description (Customer)]"
+                          dataType="wstr"
+                          length="500"
+                          name="Description (Customer)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[First telephone number (Customer)]"
+                          dataType="wstr"
+                          length="500"
+                          name="First telephone number (Customer)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input].ExternalColumns[LB - Last Payment Date]"
+                          dataType="wstr"
+                          length="500"
+                          name="LB - Last Payment Date" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv"
+                  componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Source - A02_07 LAYBY STATUS BY STORE_csv"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                      connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Office ·]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales Office ·]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Office ·]"
+                          name="Sales Office ·"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Created On]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Created On]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Created On]"
+                          name="Created On"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales employee  PE ]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales employee  PE ]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales employee  PE ]"
+                          name="Sales employee  PE "
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Document Header ·]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales Document Header ·]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales Document Header ·]"
+                          name="Sales Document Header ·"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Name and description (Article)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Name and description (Article)]"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Name and description (Article)]"
+                          name="Name and description (Article)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          name="Site-Specific Article Status (Article Site - Reference Site)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Quantity]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Quantity]"
+                          name="Quantity"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales value]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales value]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Sales value]"
+                          name="Sales value"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          name="Stock quantity total (Article Site - Main Suppl Site)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Months So Far (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months So Far (Sales Document Header)]"
+                          name="LB - Months So Far (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months To Go (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Months To Go (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Months To Go (Sales Document Header)]"
+                          name="LB - Months To Go (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Amount Paid So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Amount Paid So Far (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Amount Paid So Far (Sales Document Header)]"
+                          name="LB - Amount Paid So Far (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Required Payment So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Required Payment So Far (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Required Payment So Far (Sales Document Header)]"
+                          name="LB - Required Payment So Far (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Customer ·]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Customer ·]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Customer ·]"
+                          name="Customer ·"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Customer)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Description (Customer)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Customer)]"
+                          name="Description (Customer)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[First telephone number (Customer)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[First telephone number (Customer)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[First telephone number (Customer)]"
+                          name="First telephone number (Customer)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Sales Office)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Description (Sales Office)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[Description (Sales Office)]"
+                          name="Description (Sales Office)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Last Payment Date (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Last Payment Date (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Last Payment Date (Sales Document Header)]"
+                          name="LB - Last Payment Date (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Balance Outstanding (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Balance Outstanding (Sales Document Header)]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].Columns[LB - Balance Outstanding (Sales Document Header)]"
+                          name="LB - Balance Outstanding (Sales Document Header)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales Office ·]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Sales Office ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Created On]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Created On" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales employee  PE ]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Sales employee  PE " />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales Document Header ·]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Sales Document Header ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Name and description (Article)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Name and description (Article)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Site-Specific Article Status (Article Site - Reference Site)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Site-Specific Article Status (Article Site - Reference Site)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Sales value]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Sales value" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Stock quantity total (Article Site - Main Suppl Site)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Stock quantity total (Article Site - Main Suppl Site)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Months So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Months So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Months To Go (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Months To Go (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Amount Paid So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Amount Paid So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Required Payment So Far (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Required Payment So Far (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Customer ·]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Customer ·" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Description (Customer)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Description (Customer)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[First telephone number (Customer)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="First telephone number (Customer)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[Description (Sales Office)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="Description (Sales Office)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Last Payment Date (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Last Payment Date (Sales Document Header)" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output].ExternalColumns[LB - Balance Outstanding (Sales Document Header)]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="LB - Balance Outstanding (Sales Document Header)" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task 1.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status.Inputs[Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task 1.Paths[Flat File Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Fix Data"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{22BB88E0-126C-4BFE-B863-08977228BA9D}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fix Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F839CDE5-8D1E-4D7B-A73F-D07F0224F689}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [Sales Office ·] = replace([Sales Office ·],'&quot;','')&#xA;&#xA;  set nocount on&#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [First telephone number (Customer)] = replace([First telephone number (Customer)],'&quot;','')&#xA;  set nocount off&#xA;&#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [Sales value] = left([Sales value],len([Sales value]) - 2)&#xA;&#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [Quantity] = left([Quantity],len([Quantity]) - 2)&#xA;  &#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [Stock quantity total (Article Site - Main Suppl Site)] = case when [Stock quantity total (Article Site - Main Suppl Site)] = '' then '0,00' else left([Stock quantity total (Article Site - Main Suppl Site)],len([Stock quantity total (Article Site - Main Suppl Site)]) - 2) end&#xA;&#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [LB - Amount Paid So Far (Sales Document Header)] = left([LB - Amount Paid So Far (Sales Document Header)],len([LB - Amount Paid So Far (Sales Document Header)]) - 2)&#xA;&#xA;  Update [Every_Angle].[dbo].[stage_Layby_Status]&#xA;  set [LB - Required Payment So Far (Sales Document Header)] = left([LB - Required Payment So Far (Sales Document Header)],len([LB - Required Payment So Far (Sales Document Header)]) - 2)&#xA;  where [LB - Required Payment So Far (Sales Document Header)] &lt;&gt; ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Truncate Table"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{04D18C9D-830A-43B2-AB86-CEFA19CFF1F2}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F839CDE5-8D1E-4D7B-A73F-D07F0224F689}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Truncate Table [Every_Angle].[dbo].[stage_Layby_Status]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AF0C4616-1332-4036-85A3-8D94CDACF714}"
+          DTS:From="Package\Sequence Container\Truncate Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Data Flow Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9CDCCAB6-D674-4885-BBE5-2D07CE633AFB}"
+          DTS:From="Package\Sequence Container\Data Flow Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Fix Data" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Data Flow Task 1"
+          TopLeft="31.5,75.5" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Sequence Container\Fix Data"
+          TopLeft="43,164" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Truncate Table"
+          TopLeft="39,10" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="112.25,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.5"
+              Start="0,0"
+              End="0,16">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="111,117.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,46.5"
+              Start="0,0"
+              End="-9.5,39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.25"
+                    Point2="0,23.25"
+                    Point3="-4,23.25" />
+                  <mssgle:LineSegment
+                    End="-5.5,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,23.25"
+                    Point2="-9.5,23.25"
+                    Point3="-9.5,27.25" />
+                  <mssgle:LineSegment
+                    End="-9.5,39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="241,274"
+          Size="241,317"
+          Id="Package\Sequence Container"
+          TopLeft="319,145" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status"
+          TopLeft="39.5,245.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\Data Flow Task 1\Data Conversion"
+          TopLeft="396,70" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\Sequence Container\Data Flow Task 1\Source - A02_07 LAYBY STATUS BY STORE_csv"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task 1.Paths[Flat File Source Output]"
+          TopLeft="308.5,26.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.5,64.5"
+              Start="0,0"
+              End="80,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.75,0"
+                    Point2="43.75,0"
+                    Point3="43.75,4" />
+                  <mssgle:LineSegment
+                    End="43.75,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.75,60.5"
+                    Point2="43.75,64.5"
+                    Point3="47.75,64.5" />
+                  <mssgle:LineSegment
+                    End="80,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task 1.Paths[Data Conversion Output]"
+          TopLeft="473.5,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-316.5,133.5"
+              Start="0,0"
+              End="-316.5,126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.75"
+                    Point2="0,66.75"
+                    Point3="-4,66.75" />
+                  <mssgle:LineSegment
+                    End="-312.5,66.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-312.5,66.75"
+                    Point2="-316.5,66.75"
+                    Point3="-316.5,70.75" />
+                  <mssgle:LineSegment
+                    End="-316.5,126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task 1\Destination - stage_Layby_Status">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1625 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/13/2012 12:21:05 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGICWEBQA"
+  DTS:CreatorName="JDG\EVOLVE_SQL_JOB"
+  DTS:DTSID="{4D2382CE-5063-4760-9E7E-C64A9F8B1D39}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="APT_ECC_StockDetails"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{4BA02103-318C-44D2-A006-7FDFEC79EFBF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[APT Stock]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D71E27D1-531A-4C7F-8306-D275072ABFF2}"
+      DTS:ObjectName="APT Stock">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=11.71.42.26;User ID=SapStockImporter;Initial Catalog=Sales_Order;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-APT_ECC_StockDetails-{D71E27D1-531A-4C7F-8306-D275072ABFF2}11.71.42.230.Sales_Order.SapStockImporter;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.evolve_APTdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+      DTS:ObjectName="LocalHost.evolve_APTdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=11.19.0.173;Initial Catalog=evolve_APTdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-APT_ECC_StockDetails-{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}LocalHost.evolve_APTdb;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.evolve_VisionPLUSdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E3094A05-89F8-4944-9E03-B350E1B75411}"
+      DTS:ObjectName="LocalHost.evolve_VisionPLUSdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=11.19.0.173;Initial Catalog=evolve_VisionPLUSdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-APT_ECC_StockDetails-{E3094A05-89F8-4944-9E03-B350E1B75411}LocalHost.evolve_VisionPLUSdb;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{44C67899-84DA-4233-999F-90E813694064}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=11.19.0.242;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;LocalHost.evolve_VisionPLUSdb&quot;;&quot;[dbo].[SSIS_Config]&quot;;&quot;APTStock&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{16F71E0E-B770-4A12-AB70-A0726FC3971A}"
+      DTS:ObjectName="AptStock" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B7A2AA77-E87F-414F-BD29-672A23187FD0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ImportID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0EEB51D2-FF5F-4D5B-B3AB-CCC186BC2D1A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import APT ECC Stock"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5D053AF3-4D20-4F59-8148-541F8A51E91D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import APT ECC Stock">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Get RecordCount"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{76C2FFC4-33E4-456C-9839-C6B933DA438E}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get RecordCount"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="SELECT COUNT(*) AS RecCount FROM evolve_APTdb.dbo.APTECCStockDetails&#xA;where importindicator = 0"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="RecCount"
+                SQLTask:DtsVariableName="User::RecCount" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Import APT ECC Stock Details"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{F070875A-268F-4E93-BAA5-B2AC388F6824}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import APT ECC Stock Details"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion"
+                  componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input].Columns[NewCust]"
+                          cachedDataType="wstr"
+                          cachedLength="19"
+                          cachedName="NewCust"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewCust]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input].Columns[NewAcc]"
+                          cachedDataType="wstr"
+                          cachedLength="19"
+                          cachedName="NewAcc"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewAcc]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewCust]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewCust]"
+                          name="Copy of NewCust"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewCust]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewAcc]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewAcc]"
+                          name="Copy of NewAcc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewAcc]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column"
+                  componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input].Columns[CustomerCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="CustomerCode"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCode]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input].Columns[AccountCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="AccountCode"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewCust]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewCust]"
+                          name="NewCust"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[RIGHT]("0000000000000000000" + #{Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCode]},19)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">RIGHT("0000000000000000000" + CustomerCode,19)</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewAcc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output].Columns[NewAcc]"
+                          name="NewAcc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[RIGHT]("0000000000000000000" + #{Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]},19)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">RIGHT("0000000000000000000" + AccountCode,19)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TM_SOR_Sales_Order]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[APT Stock]"
+                      connectionManagerRefId="Package.ConnectionManagers[APT Stock]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SalesOrderNumber"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sales_order_number]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="ProductCode"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_product_code]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductCode]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductDescription]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="ProductDescription"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_product_description]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductDescription]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SupplierName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SupplierName"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_supplier_name]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplierName]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DeliveryDate"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_delivery_date]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryDate]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QuantityOrdered]"
+                          cachedDataType="i4"
+                          cachedName="QuantityOrdered"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_quantity_ordered]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityOrdered]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QuantityDelivered]"
+                          cachedDataType="i4"
+                          cachedName="QuantityDelivered"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_quantity_delivered]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityDelivered]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SAPCustomerNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="SAPCustomerNumber"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sap_customer_number]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SAPCustomerNumber]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OriginalCostPrice]"
+                          cachedDataType="cy"
+                          cachedName="OriginalCostPrice"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_original_cost_price]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalCostPrice]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateCreated"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_date_created]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesAmount]"
+                          cachedDataType="numeric"
+                          cachedName="SalesAmount"
+                          cachedPrecision="13"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sales_amount]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Store]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Store"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_store]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Store]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreDelivering]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="StoreDelivering"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_store_delivering]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreDelivering]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_status]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of NewCust]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="19"
+                          cachedName="Copy of NewCust"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_customer_code]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewCust]" />
+                        <inputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of NewAcc]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="19"
+                          cachedName="Copy of NewAcc"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_account_code]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NewAcc]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_id]"
+                          dataType="i4"
+                          name="sor_id" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sales_order_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_sales_order_number" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_customer_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_customer_code" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_account_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_account_code" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_product_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_product_code" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_product_description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="sor_product_description" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_supplier_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="64"
+                          name="sor_supplier_name" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_delivery_date]"
+                          dataType="dbTimeStamp"
+                          name="sor_delivery_date" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_quantity_ordered]"
+                          dataType="i4"
+                          name="sor_quantity_ordered" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_quantity_delivered]"
+                          dataType="i4"
+                          name="sor_quantity_delivered" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sap_customer_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_sap_customer_number" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_original_cost_price]"
+                          dataType="cy"
+                          name="sor_original_cost_price" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_date_created]"
+                          dataType="dbTimeStamp"
+                          name="sor_date_created" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_sales_amount]"
+                          dataType="cy"
+                          name="sor_sales_amount" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_store]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_store" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_store_delivering]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_store_delivering" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sor_status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[APTECCStockDetails]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [ID]
+      ,[SalesOrderNumber]
+      ,[CustomerCode]
+      ,[AccountCode]
+      ,[ProductCode]
+      ,[ProductDescription]
+      ,[SupplierName]
+      ,[DeliveryDate]
+      ,[QuantityOrdered]
+      ,[QuantityDelivered]
+      ,[SAPCustomerNumber]
+      ,[OriginalCostPrice]
+      ,[DateCreated]
+      ,[SalesAmount]
+      ,[Store]
+      ,[StoreDelivering]
+      ,[Status]
+      ,[MESSAGEID]
+  FROM [evolve_APTdb].[dbo].[APTECCStockDetails]
+where ImportIndicator = 0</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.evolve_APTdb]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.evolve_APTdb]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerCode]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCode]"
+                          name="CustomerCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountCode]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]"
+                          name="AccountCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                          name="ProductCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductDescription]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductDescription]"
+                          name="ProductDescription"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplierName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SupplierName]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplierName]"
+                          name="SupplierName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryDate]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryDate]"
+                          name="DeliveryDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityOrdered]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuantityOrdered]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityOrdered]"
+                          name="QuantityOrdered"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityDelivered]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuantityDelivered]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuantityDelivered]"
+                          name="QuantityDelivered"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SAPCustomerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SAPCustomerNumber]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SAPCustomerNumber]"
+                          name="SAPCustomerNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalCostPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OriginalCostPrice]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalCostPrice]"
+                          name="OriginalCostPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          name="DateCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          precision="13"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Store]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Store]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Store]"
+                          name="Store"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreDelivering]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreDelivering]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreDelivering]"
+                          name="StoreDelivering"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="CustomerCode" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="AccountCode" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ProductCode" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ProductDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SupplierName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SupplierName" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryDate]"
+                          dataType="dbTimeStamp"
+                          name="DeliveryDate" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuantityOrdered]"
+                          dataType="i4"
+                          name="QuantityOrdered" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuantityDelivered]"
+                          dataType="i4"
+                          name="QuantityDelivered" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SAPCustomerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="SAPCustomerNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OriginalCostPrice]"
+                          dataType="cy"
+                          name="OriginalCostPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          dataType="numeric"
+                          name="SalesAmount"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Store]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Store" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreDelivering]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="StoreDelivering" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MESSAGEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="MESSAGEID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerCode]"
+                          name="CustomerCode" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountCode]"
+                          name="AccountCode" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                          name="ProductCode" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductDescription]"
+                          name="ProductDescription" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SupplierName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SupplierName]"
+                          name="SupplierName" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryDate]"
+                          name="DeliveryDate" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuantityOrdered]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuantityOrdered]"
+                          name="QuantityOrdered" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuantityDelivered]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuantityDelivered]"
+                          name="QuantityDelivered" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SAPCustomerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SAPCustomerNumber]"
+                          name="SAPCustomerNumber" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OriginalCostPrice]"
+                          dataType="cy"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OriginalCostPrice]"
+                          name="OriginalCostPrice" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          name="DateCreated" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          dataType="numeric"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          precision="13"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Store]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Store]"
+                          name="Store" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreDelivering]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreDelivering]"
+                          name="StoreDelivering" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details.Paths[Data Conversion Output]"
+                  endId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details.Paths[Derived Column Output]"
+                  endId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Import APT ECC Stock\Import APT ECC Stock Details.Paths[OLE DB Source Output]"
+                  endId="Package\Import APT ECC Stock\Import APT ECC Stock Details\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Import APT ECC Stock\Import APT ECC Stock Details\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Insert Log"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{089EC570-61FD-4173-B4D4-154118718023}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert Log"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="INSERT INTO evolve_APTdb.dbo._FileImportControl&#xA;VALUES ('APT ECC Stock Details', CONVERT(VARCHAR(8), GETDATE(), 112), 0, NULL, NULL, CONVERT(VARCHAR(50), GETDATE(), 121), NULL, CONVERT(VARCHAR(50), GETDATE(), 121), 0, ?, ?) &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@SSISPackageName"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@SSISPackageID"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\NotifyOperator - Failure"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{70D01062-BB5F-4A40-83D3-B7C5488BDE62}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NotifyOperator - Failure"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{44C67899-84DA-4233-999F-90E813694064}"
+              SendMailTask:From="JDGFSSQLPROD01@jdg.co.za"
+              SendMailTask:To="modyd@jdg.co.za;jamesm2@jdg.co.za"
+              SendMailTask:Subject="APT ECC Stock Details Import"
+              SendMailTask:Priority="High"
+              SendMailTask:MessageSource="Good Day, Please note the APT ECC Stock Details Import has failed. Please refer to the log for additional information. Thank you." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\NotifyOperator - Success"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{A7803415-7391-414A-8B5D-6E97E86AAE13}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NotifyOperator - Success"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{44C67899-84DA-4233-999F-90E813694064}"
+              SendMailTask:From="JDGFSSQLPROD01@jdg.co.za"
+              SendMailTask:To="modyd@jdg.co.za;jamesm2@jdg.co.za;annelizem@jdg.co.za"
+              SendMailTask:Subject="APT ECC Stock Details Import"
+              SendMailTask:Priority="High"
+              SendMailTask:MessageSource="Good Day, Please note the APT ECC Stock Details Import has completed successfully. Thank you." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Retrieve ImportID"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{267C50EB-29CF-44D6-8697-8D21B66AF020}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Retrieve ImportID"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="SELECT&#xA;MAX(RowID) AS ImportID&#xA;FROM&#xA;&#x9;evolve_APTdb.dbo._FileImportControl&#xA;WHERE&#xA;&#x9;SSISPackageName = 'APT_ECC_StockDetails'"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="ImportID"
+                SQLTask:DtsVariableName="User::ImportID" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Update APT Stock"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Update APT Stock"
+          DTS:DTSID="{7DCEF2EA-F44B-49F4-A23F-FA9AD393D2FB}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update APT Stock"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="exec [MergeAPTStock]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Update Imported Records"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Update Imported Records"
+          DTS:DTSID="{2CCE4D5E-DDC8-4E0F-B401-72660AC791FD}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Imported Records"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="Update [APTECCStockDetails]&#xA;Set ImportIndicator = 1&#xA;where ImportIndicator = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import APT ECC Stock\Update Log"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{92535753-0299-4958-AB59-7DBA818BFB5F}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Log"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{834B9DCC-4A0E-4EC2-A10E-7B66315CCF6F}"
+              SQLTask:SqlStatementSource="Declare @RecordCount int&#xA;set @RecordCount = ?&#xA;&#xA;Declare @RowID int&#xA;Set @RowID = ?&#xA;&#xA;UPDATE evolve_APTdb.dbo._FileImportControl&#xA;SET TotRecords = @RecordCount ,&#xA;FileImportEnd = CONVERT(VARCHAR(50), GETDATE(), 121),&#xA;ImportSucceeded = 1&#xA;WHERE&#xA;RowID = @RowID &#xA;AND SSISPackageName = 'APT_ECC_StockDetails'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::RecCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::ImportID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8B356E6A-65B2-4B2B-9983-A4385AA2AFD1}"
+          DTS:From="Package\Import APT ECC Stock\Get RecordCount"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Import APT ECC Stock\Update APT Stock" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E44C3FBF-82F6-4497-B5A2-9D0A0D0274D7}"
+          DTS:From="Package\Import APT ECC Stock\Update APT Stock"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Import APT ECC Stock\Update Imported Records" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{4F854B7B-DCA4-4077-9722-BDF4740CAB69}"
+          DTS:From="Package\Import APT ECC Stock\Update Imported Records"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Import APT ECC Stock\NotifyOperator - Success" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{29FCB780-27E7-4A82-95DA-5F8E0FB877C5}"
+          DTS:From="Package\Import APT ECC Stock\Insert Log"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Import APT ECC Stock\Retrieve ImportID" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{A6BFA2C0-E728-456D-A4F7-F9B2A00A131B}"
+          DTS:From="Package\Import APT ECC Stock\Retrieve ImportID"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Import APT ECC Stock\Get RecordCount" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{91912CB4-5DD3-44FF-A50D-BD48A6B0A6DA}"
+          DTS:From="Package\Import APT ECC Stock\Update APT Stock"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Import APT ECC Stock\NotifyOperator - Failure"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{8D278274-0DD2-465B-81A0-39ADB9C2798B}"
+          DTS:From="Package\Import APT ECC Stock\Update Imported Records"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Import APT ECC Stock\Update Log" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Get RecordCount"
+          TopLeft="395.320754716981,10.2830188679245" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Import APT ECC Stock Details"
+          TopLeft="40.3018867924528,143.490566037736" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Insert Log"
+          TopLeft="45.8490566037735,19.188679245283" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\NotifyOperator - Failure"
+          TopLeft="507.320754716981,141.264150943396" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\NotifyOperator - Success"
+          TopLeft="38.0754716981131,404.320754716981" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Retrieve ImportID"
+          TopLeft="222.792452830189,10.2830188679245" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Update APT Stock"
+          TopLeft="221.056603773585,149.415094339623" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Update Imported Records"
+          TopLeft="35.8867924528302,266.509433962264" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Import APT ECC Stock\Update Log"
+          TopLeft="346.528301886792,364.283018867925" />
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint]"
+          TopLeft="442.22641509434,54.1698113207547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.509433962264,95.2452830188679"
+              Start="0,0"
+              End="-153.509433962264,87.7452830188679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.6226415094339" />
+                  <mssgle:LineSegment
+                    End="-153.509433962264,47.6226415094339" />
+                  <mssgle:LineSegment
+                    End="-153.509433962264,87.7452830188679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 1]"
+          TopLeft="247.207547169811,193.301886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143.660377358491,73.2075471698113"
+              Start="0,0"
+              End="-143.660377358491,65.7075471698113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3018867924528" />
+                  <mssgle:LineSegment
+                    End="-143.660377358491,18.3018867924528" />
+                  <mssgle:LineSegment
+                    End="-143.660377358491,65.7075471698113" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 2]"
+          TopLeft="82.7924528301886,310.396226415094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.9433962264151,93.9245283018868"
+              Start="0,0"
+              End="22.9433962264151,86.4245283018868">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.4528301886792" />
+                  <mssgle:LineSegment
+                    End="22.9433962264151,70.4528301886792" />
+                  <mssgle:LineSegment
+                    End="22.9433962264151,86.4245283018868" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 3]"
+          TopLeft="181.207547169811,41.1132075471698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5849056603773,-8.90566037735846"
+              Start="0,0"
+              End="34.0849056603773,-8.90566037735846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.7924528301887,0" />
+                  <mssgle:LineSegment
+                    End="20.7924528301887,-8.90566037735846" />
+                  <mssgle:LineSegment
+                    End="34.0849056603773,-8.90566037735846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 4]"
+          TopLeft="358.150943396226,32.2075471698113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.1698113207547,0"
+              Start="0,0"
+              End="29.6698113207547,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.6698113207547,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 5]"
+          TopLeft="356.415094339623,171.339622641509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.905660377358,-8.15094339622641"
+              Start="0,0"
+              End="143.405660377358,-8.15094339622641">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.4716981132075,0" />
+                  <mssgle:LineSegment
+                    End="75.4716981132075,-8.15094339622641" />
+                  <mssgle:LineSegment
+                    End="143.405660377358,-8.15094339622641" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="60.2303504569575,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import APT ECC Stock.PrecedenceConstraints[Constraint 6]"
+          TopLeft="82.7924528301886,310.396226415094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="331.396226415094,53.8867924528302"
+              Start="0,0"
+              End="331.396226415094,46.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4150943396226" />
+                  <mssgle:LineSegment
+                    End="331.396226415094,40.4150943396226" />
+                  <mssgle:LineSegment
+                    End="331.396226415094,46.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.283018867924525"
+          IsExpanded="True"
+          PanelSize="892,495"
+          Size="892,538"
+          Id="Package\Import APT ECC Stock"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

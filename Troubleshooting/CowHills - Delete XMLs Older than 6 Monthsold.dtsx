@@ -1,0 +1,914 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/5/2020 9:18:37 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\203124"
+  DTS:DTSID="{1FC26417-7D70-4E3C-BE25-0098D41658CE}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="CowHills - AppServerArchive"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{239C5BDC-AC7F-4864-9CCC-D7ECAC9C6C0E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DATA_INTERGRATION]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{54AB84A2-6373-4FB0-AE2A-33CECEC4345F}"
+      DTS:ObjectName="LocalHost.DATA_INTERGRATION">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=JDG_MasterData_Group;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{DCB24A3C-939F-4A62-A2F3-30A2155BE37B}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=11.19.0.242;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2674F5AA-145D-43F1-8615-7EAC5B7B8AE6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::dcrYearFolder] + &quot;\\&quot; +   @[User::fileMonth]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dcrMonthFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\DCR Archive\\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A3B91348-2A9C-4561-8852-4BC118589BCA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DCRSource">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A3D04B3-5A26-4ADB-B4D8-BBE9ADAC9F45}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DCRTarget">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\DCR Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F38510F6-EA40-4239-91E9-A0D8CB41435A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::DCRTarget] + &quot;\\&quot; +  @[User::fileYear]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dcrYearFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\DCR Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A198A5A-ECB8-4C5A-AFE7-84173AE4A498}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileMonth">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F93EB184-6240-4187-92C1-0077DBF52798}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD5F6BB7-53D1-4AED-859F-20D1BA6F8599}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileYear">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{47925D65-AEBB-4145-98DF-AE80404A3077}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::XMLYearFolder] + &quot;\\&quot; +  @[User::fileMonth]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XMLMonthFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\XML Archive\\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A07E5060-D1AA-4A14-A033-F949522C8CF4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XMLSource">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\xml</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E54AA958-BAD6-4E80-B3A0-45AC7B8352CE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XMLTarget">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\XML Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32CC5579-BC7B-496F-8D8B-04936E8D199A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::XMLTarget] + &quot;\\&quot; +  @[User::fileYear]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XMLYearFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\XML Archive\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DCR Archive failure"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{E5DE8AC6-BA79-4A66-8914-6A7BBEB4E8FA}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DCR Archive failure"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{DCB24A3C-939F-4A62-A2F3-30A2155BE37B}"
+          SendMailTask:From="cowhillsAppserverArchive@jdg.co.za"
+          SendMailTask:To="modyd@jdg.co.za"
+          SendMailTask:Subject="Cow Hill App Server Archive failure"
+          SendMailTask:Priority="High"
+          SendMailTask:MessageSource="Hi there.&#xA;&#xA;The Cow Hill App Server Archive SQL job have failed where moving DCR files.&#xA;&#xA;JOB Server: JDGCSADEV&#xA;JOb Name: CowHills - AppServerArchive&#xA;&#xA;Automated Messaging" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop DCR"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{6ED6A3AE-7AD9-4381-A2D7-18BD68FD0445}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop DCR">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{E2DE5528-08BE-44D9-ACA8-50A16FA73AAC}"
+        DTS:ObjectName="{E2DE5528-08BE-44D9-ACA8-50A16FA73AAC}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\Archive" />
+            <FEFEProperty
+              FileSpec="*.dcr" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop DCR\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6A703449-690F-4AD5-B725-A6F956686D01}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{54AB84A2-6373-4FB0-AE2A-33CECEC4345F}"
+              SQLTask:SqlStatementSource="declare @dcrvar varchar(max), @dcrYear varchar(6), @dcrMonth int&#xA;set @dcrvar = ?&#xA;&#xA;set @dcrYear = left(substring(substring(@dcrvar, charindex('.dcr',@dcrvar)-14,99)&#xA;&#x9;&#x9;&#x9;&#x9;, 1, charindex('.dcr',substring(@dcrvar, charindex('.dcr',@dcrvar)-14,99))-1)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;, 6)&#xA;set @dcrMonth = right(@dcrYear,2)&#xA;&#xA;set @dcrYear = left(@dcrYear,4)&#xA;&#xA;select @dcrYear, DATENAME(month, dateadd(month, @dcrMonth,-1))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::fileYear" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="1"
+                SQLTask:DtsVariableName="User::fileMonth" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::fileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop DCR\File System Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{6F93F948-5C53-47C0-86F0-71DD5A1A4AF0}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::dcrYearFolder"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop DCR\File System Task 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{20042FA6-105E-44F7-9B7E-A305D7B449B0}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task 1"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::dcrMonthFolder"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop DCR\Move DCR File"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{9AE1AE5C-AFFB-47B7-AE16-C4AB9DDAE583}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move DCR File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::fileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::dcrMonthFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9C3E9EAE-A33E-44E3-9C9C-CC42CAF303A5}"
+          DTS:From="Package\Foreach Loop DCR\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop DCR\File System Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4670CCB6-B0F2-4000-8A9F-1BC1C4A319B0}"
+          DTS:From="Package\Foreach Loop DCR\File System Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop DCR\File System Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F5409CDB-398C-48CF-AB8A-3E5BAD7E22C5}"
+          DTS:From="Package\Foreach Loop DCR\File System Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop DCR\Move DCR File" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4B94B3DE-46DD-4CCA-9C5E-CDED2FED4288}"
+          DTS:ObjectName="{4B94B3DE-46DD-4CCA-9C5E-CDED2FED4288}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop XML"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{8095e013-102c-4a71-9168-977fcc25d412}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop XML">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{f42712e3-9aaf-4e9a-a34a-ba233f8146a1}"
+        DTS:ObjectName="{E2DE5528-08BE-44D9-ACA8-50A16FA73AAC}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\jdgchdbqa.jdg.co.za\d$\POS-OUT\DCR\xml" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop XML\File System Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{25a20c8d-20b6-4752-8777-d8c581ff2eb3}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::XMLYearFolder"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop XML\File System Task 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{2006bf0b-4b06-4775-9d3b-5b3b64021034}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task 1"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::XMLMonthFolder"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop XML\Get Year and Month in the FileName"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c2fbe1d7-dfdd-4d97-8579-3309f172475f}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Year and Month in the FileName"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{54AB84A2-6373-4FB0-AE2A-33CECEC4345F}"
+              SQLTask:SqlStatementSource="declare @fileName varchar(max), @fileYear varchar(6), @fileMonth int&#xA;&#xA;set @fileName = ?&#xA;--select reverse(@fileName)&#xA;&#xA;&#xA;set @fileName =( select (&#xA;&#x9;&#x9;&#x9;&#x9;substring(reverse(@fileName)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;, charindex('_',reverse(@fileName))+1 &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,99&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;))&#xA;select @fileName = left(reverse(substring(@fileName,1,CHARINDEX('_',@fileName)-1)),6)&#xA;&#xA;set @fileYear = left(reverse(substring(reverse(@fileName), charindex('_',reverse(@fileName))+1 ,17))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;, 6)&#xA;set @fileMonth = right(@fileYear,2)&#xA;&#xA;set @fileYear = left(@fileYear,4)&#xA;&#xA;select @fileYear, DATENAME(month, dateadd(month, @fileMonth,-1))&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::fileYear" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="1"
+                SQLTask:DtsVariableName="User::fileMonth" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::fileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop XML\Month XML File"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{e71f95a4-d036-4b17-8bf1-1c6707df3d51}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Month XML File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::fileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::XMLMonthFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop XML.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8ad34915-c900-4d6d-952f-1b9e054c21e6}"
+          DTS:From="Package\Foreach Loop XML\Get Year and Month in the FileName"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop XML\File System Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop XML.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{b33317a6-8288-4a57-b293-3016e2e901a8}"
+          DTS:From="Package\Foreach Loop XML\File System Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop XML\File System Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop XML.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{60e39144-c5bc-45d4-9ddb-bf8dce50fbf0}"
+          DTS:From="Package\Foreach Loop XML\File System Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop XML\Month XML File" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{32C26294-3600-41A0-993D-30104D52606C}"
+          DTS:ObjectName="{32C26294-3600-41A0-993D-30104D52606C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XMLS Archive Failure"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{06EACBC5-527F-4303-9753-5C3D4F4C39AF}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XMLS Archive Failure"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{DCB24A3C-939F-4A62-A2F3-30A2155BE37B}"
+          SendMailTask:From="cowhillsAppserverArchive@jdg.co.za"
+          SendMailTask:To="modyd@jdg.co.za"
+          SendMailTask:Subject="Cow Hill App Server Archive failure"
+          SendMailTask:MessageSource="Hi there.&#xA;&#xA;The Cow Hill App Server Archive SQL job have failed where moving XMLs files.&#xA;&#xA;JOB Server: JDGCSADEV&#xA;JOb Name: CowHills - AppServerArchive&#xA;&#xA;Automated Messaging" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0AF9A679-C755-4B74-AE46-0D8FBD0ED5D9}"
+      DTS:From="Package\Foreach Loop DCR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop XML" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F731683B-52CC-47B2-A206-1AF5F48B12DF}"
+      DTS:From="Package\Foreach Loop DCR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DCR Archive failure"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0004222-E4A1-4708-9E0A-61077A495B84}"
+      DTS:From="Package\Foreach Loop XML"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\XMLS Archive Failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Foreach Loop DCR\Execute SQL Task"
+          TopLeft="208,71" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Foreach Loop DCR\File System Task"
+          TopLeft="261,159" />
+        <EdgeLayout
+          Id="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint]"
+          TopLeft="290.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.5,46"
+              Start="0,0"
+              End="50.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="46.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5,23"
+                    Point2="50.5,23"
+                    Point3="50.5,27" />
+                  <mssgle:LineSegment
+                    End="50.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Foreach Loop DCR\File System Task 1"
+          TopLeft="177,242" />
+        <EdgeLayout
+          Id="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint 1]"
+          TopLeft="341,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.5,41"
+              Start="0,0"
+              End="-79.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-75.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.5,20.5"
+                    Point2="-79.5,20.5"
+                    Point3="-79.5,24.5" />
+                  <mssgle:LineSegment
+                    End="-79.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Foreach Loop DCR\Move DCR File"
+          TopLeft="480,276" />
+        <EdgeLayout
+          Id="Package\Foreach Loop DCR.PrecedenceConstraints[Constraint 2]"
+          TopLeft="346,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134,34"
+              Start="0,0"
+              End="126.5,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63,0"
+                    Point2="67,0"
+                    Point3="67,4" />
+                  <mssgle:LineSegment
+                    End="67,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67,30"
+                    Point2="67,34"
+                    Point3="71,34" />
+                  <mssgle:LineSegment
+                    End="126.5,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="693,380"
+          Size="693,423"
+          Id="Package\Foreach Loop DCR"
+          TopLeft="4,8988" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Foreach Loop XML\Get Year and Month in the FileName"
+          TopLeft="208,71" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Foreach Loop XML\File System Task"
+          TopLeft="261,159" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Foreach Loop XML\File System Task 1"
+          TopLeft="177,242" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Foreach Loop XML\Month XML File"
+          TopLeft="480,276" />
+        <EdgeLayout
+          Id="Package\Foreach Loop XML.PrecedenceConstraints[Constraint]"
+          TopLeft="290.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.5,46"
+              Start="0,0"
+              End="50.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="46.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5,23"
+                    Point2="50.5,23"
+                    Point3="50.5,27" />
+                  <mssgle:LineSegment
+                    End="50.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop XML.PrecedenceConstraints[Constraint 1]"
+          TopLeft="341,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.5,41"
+              Start="0,0"
+              End="-79.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-75.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.5,20.5"
+                    Point2="-79.5,20.5"
+                    Point3="-79.5,24.5" />
+                  <mssgle:LineSegment
+                    End="-79.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop XML.PrecedenceConstraints[Constraint 2]"
+          TopLeft="346,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134,34"
+              Start="0,0"
+              End="126.5,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63,0"
+                    Point2="67,0"
+                    Point3="67,4" />
+                  <mssgle:LineSegment
+                    End="67,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67,30"
+                    Point2="67,34"
+                    Point3="71,34" />
+                  <mssgle:LineSegment
+                    End="126.5,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="693,380"
+          Size="693,423"
+          Id="Package\Foreach Loop XML"
+          TopLeft="759,8903" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="697,9199.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,-85"
+              Start="0,0"
+              End="54.5,-85">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,0"
+                    Point2="31,0"
+                    Point3="31,-4" />
+                  <mssgle:LineSegment
+                    End="31,-81" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,-81"
+                    Point2="31,-85"
+                    Point3="35,-85" />
+                  <mssgle:LineSegment
+                    End="54.5,-85" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DCR Archive failure"
+          TopLeft="712,9453" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="350.5,9411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="447.5,42"
+              Start="0,0"
+              End="447.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="443.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="443.5,21"
+                    Point2="447.5,21"
+                    Point3="447.5,25" />
+                  <mssgle:LineSegment
+                    End="447.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="208.50865234375,26,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\XMLS Archive Failure"
+          TopLeft="1258,9392" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1105.5,9326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242,66"
+              Start="0,0"
+              End="242,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="238,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="238,33"
+                    Point2="242,33"
+                    Point3="242,37" />
+                  <mssgle:LineSegment
+                    End="242,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="105.75865234375,38,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

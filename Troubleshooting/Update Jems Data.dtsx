@@ -1,0 +1,1923 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/21/2015 3:19:27 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGRISK"
+  DTS:CreatorName="JDG\790450"
+  DTS:DTSID="{AA74915F-2CF7-4A78-B291-F65B78E197C4}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7462.6"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{9181902A-1973-44D5-A7F2-F9B707FD5FD9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgicdb01.jdx_iintegrate.jdg_read]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{87876E0C-DBFE-4B8C-AE21-E1BB5BBF92B6}"
+      DTS:ObjectName="jdgicdb01.jdx_iintegrate.jdg_read">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgicdb01;Initial Catalog=jdx_iintegrate;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{87876E0C-DBFE-4B8C-AE21-E1BB5BBF92B6}jdgicdb01.jdx_iintegrate.jdg_read;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgmd01.CentralMasterData]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DA0F1B53-B7EE-4A54-B3B5-4CAE0FE44309}"
+      DTS:ObjectName="jdgmd01.CentralMasterData">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgmd01;Initial Catalog=CentralMasterData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgprocubedb.JDG_MasterData_Group.Report]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{73E4CEF7-4C88-4C60-BD16-E62F3AA6EC02}"
+      DTS:ObjectName="jdgprocubedb.JDG_MasterData_Group.Report">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices;Initial Catalog=JDG_MasterData_Group;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{73E4CEF7-4C88-4C60-BD16-E62F3AA6EC02}jdgprocubedb.JDG_MasterData_Group.Report;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2718E7B9-82B0-4009-ADC9-9D9A3A0576EC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{39BDAAFE-C53B-4C76-BD2F-87FF5A36F403}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{73E4CEF7-4C88-4C60-BD16-E62F3AA6EC02}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC [JDG_MasterData_Group].[dbo].[sp_Load_Jems_Data] &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Get ICDB"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6FEFAE41-0F58-4C67-B779-5A5A8C66676A}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get ICDB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{82946963-1A36-460F-90D1-546492633938}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="Count">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Get ICDB\ICDB"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ICDB"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+            
+            emp.EmpCode+''+'@jdg.co.za' as userPrincipleName,
+            case when isnull(emp.KnownAs,'') = '' then isnull(emp.FirstName,'') else isnull(emp.KnownAs,'') end+' '+isnull(emp.LastName,'') as 'displayName',
+            emp.EmpCode as sAMAccountName,
+            cast(case when   emp.Email IS null then (select top 1 [mail] FROM [jdx_iintegrate].[dbo].[ds_ad_user] where employeeID = emp.EmpCode and [mail]  is not null)  else emp.Email end as varchar(60)) as 'email',
+            --cast((select top 1 [mail] FROM [jdx_iintegrate].[dbo].[ds_ad_user] where employeeID = emp.EmpCode and [mail]  is not null) as varchar(60)) as 'email',
+           case when map.ds_status = 'Deleted' and emp.LeaveDate &gt; emp.HireDate then 'Deleted'  else StatusEmpCode end as 'status',
+            case when emp.LeaveDate &lt; GETDATE() then emp.LeaveDate else NULL end as 'ActualLeaveDate',
+            emp.HireDate as 'startdate',
+            '' as 'CompanyOps',
+            pos.Chain as 'Company',
+            pos.BusinessUnit as 'SiteName',---pos.CostCentreDescription as 'SiteName',
+            pos.Division,
+            pos.Area,
+            pos.BusinessUnitCode,
+            pos.Title as 'Job Title',
+            pos.OperatingDivision as 'OppsDivision',
+            pos.GradeCode as 'JobGrade',
+            pos.[OccupationCode],
+            pos.[SAPCostCentre],
+            case when pos.[Cluster] = 'Cluster 1' then 'Cluster One' when pos.[Cluster] = 'Cluster 2' then 'Cluster Two' when pos.[Cluster] = 'Cluster 3' then 'Cluster Three' else pos.[Cluster] end as [Cluster],
+           -- (select top 1 [GlobalEmpCode] from [jdx_iintegrate].[dbo].[ds_jems_position_map] with (nolock) where GlobalPosCode = pos.ReportsToGlobalPosCode and ds_status not in ('deleted') ) as ReportsTo
+
+isnull((select top 1 [GlobalEmpCode] from [jdx_iintegrate].[dbo].[ds_jems_position_map] as #Map with (nolock) where #Map.GlobalPosCode = pos.ReportsToGlobalPosCode and #Map.[ds_status] &lt;&gt; 'Deleted'),(select top 1 #Map.[GlobalEmpCode] from [jdx_iintegrate].[dbo].[ds_jems_position_map] as #Map with (nolock) where  #Map.[ds_status] &lt;&gt; 'Deleted' and #Map.GlobalPosCode = (select top 1 ReportsToGlobalPosCode from dbo.ds_jems_position as #Position with (nolock) where #Position.[PosCode] = pos.ReportsToGlobalPosCode and #Position.[StatusPosCode] = 'Active' ) )) as ReportsTo
+
+
+   ,'' as 'TargetAudienceGrouping'
+   ,(select top 1 [sAMAccountName] FROM [jdx_iintegrate].[dbo].[stage_ad_user] with (nolock) where [employeeID] = emp.EmpCode) as ADsAMAccountName
+,map.DateAppointed
+,emp.BirthDate
+,emp.GenderCode
+,emp.EthnicCode
+      FROM
+            dbo.ds_jems_employee as emp with (nolock)
+            inner join dbo.ds_jems_position_map as map with (nolock)
+            on emp.EmpCode = map.GlobalEmpCode
+            inner join dbo.ds_jems_position as pos with (nolock)
+            on map.GlobalPosCode = pos.PosCode
+
+--where emp.EmpCode = '204820'
+
+  order by  pos.BusinessUnitCode</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get ICDB\ICDB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgicdb01.jdx_iintegrate.jdg_read]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgicdb01.jdx_iintegrate.jdg_read]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[userPrincipleName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[userPrincipleName]"
+                          length="31"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[userPrincipleName]"
+                          name="userPrincipleName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[displayName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[displayName]"
+                          length="121"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[displayName]"
+                          name="displayName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[sAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountName]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[sAMAccountName]"
+                          name="sAMAccountName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[status]"
+                          name="status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ActualLeaveDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ActualLeaveDate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ActualLeaveDate]"
+                          name="ActualLeaveDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[startdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[startdate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[startdate]"
+                          name="startdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[CompanyOps]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[CompanyOps]"
+                          length="1"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[CompanyOps]"
+                          name="CompanyOps"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Company]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Company]"
+                          name="Company"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SiteName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[SiteName]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SiteName]"
+                          name="SiteName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Division]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Division]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Division]"
+                          name="Division"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Area]"
+                          name="Area"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BusinessUnitCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[BusinessUnitCode]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BusinessUnitCode]"
+                          name="BusinessUnitCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Job Title]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Job Title]"
+                          length="120"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Job Title]"
+                          name="Job Title"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OppsDivision]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[OppsDivision]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OppsDivision]"
+                          name="OppsDivision"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[JobGrade]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[JobGrade]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[JobGrade]"
+                          name="JobGrade"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OccupationCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[OccupationCode]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OccupationCode]"
+                          name="OccupationCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SAPCostCentre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[SAPCostCentre]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SAPCostCentre]"
+                          name="SAPCostCentre"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Cluster]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Cluster]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Cluster]"
+                          name="Cluster"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                          name="ReportsTo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[TargetAudienceGrouping]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[TargetAudienceGrouping]"
+                          length="1"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[TargetAudienceGrouping]"
+                          name="TargetAudienceGrouping"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ADsAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ADsAMAccountName]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ADsAMAccountName]"
+                          name="ADsAMAccountName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[DateAppointed]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[DateAppointed]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[DateAppointed]"
+                          name="DateAppointed"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                          name="BirthDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[GenderCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[GenderCode]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[GenderCode]"
+                          name="GenderCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[EthnicCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[EthnicCode]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[EthnicCode]"
+                          name="EthnicCode"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[userPrincipleName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="31"
+                          name="userPrincipleName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[displayName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="121"
+                          name="displayName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sAMAccountName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ActualLeaveDate]"
+                          dataType="dbTimeStamp"
+                          name="ActualLeaveDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[startdate]"
+                          dataType="dbTimeStamp"
+                          name="startdate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[CompanyOps]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="CompanyOps" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Company" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[SiteName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="SiteName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Division]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Division" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[BusinessUnitCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="BusinessUnitCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Job Title]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="Job Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[OppsDivision]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="OppsDivision" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[JobGrade]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="JobGrade" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[OccupationCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="OccupationCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[SAPCostCentre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SAPCostCentre" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[Cluster]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Cluster" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ReportsTo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[TargetAudienceGrouping]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="TargetAudienceGrouping" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[ADsAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ADsAMAccountName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[DateAppointed]"
+                          dataType="dbTimeStamp"
+                          name="DateAppointed" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                          dataType="dbTimeStamp"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[GenderCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="GenderCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].ExternalColumns[EthnicCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EthnicCode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[userPrincipleName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="31"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[userPrincipleName]"
+                          name="userPrincipleName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[displayName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="121"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[displayName]"
+                          name="displayName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[sAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[sAMAccountName]"
+                          name="sAMAccountName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[email]"
+                          name="email" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[status]"
+                          name="status" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ActualLeaveDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ActualLeaveDate]"
+                          name="ActualLeaveDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[startdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[startdate]"
+                          name="startdate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[CompanyOps]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[CompanyOps]"
+                          name="CompanyOps" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Company]"
+                          name="Company" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[SiteName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[SiteName]"
+                          name="SiteName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Division]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Division]"
+                          name="Division" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Area]"
+                          name="Area" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[BusinessUnitCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[BusinessUnitCode]"
+                          name="BusinessUnitCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Job Title]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Job Title]"
+                          name="Job Title" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[OppsDivision]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[OppsDivision]"
+                          name="OppsDivision" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[JobGrade]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[JobGrade]"
+                          name="JobGrade" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[OccupationCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[OccupationCode]"
+                          name="OccupationCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[SAPCostCentre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[SAPCostCentre]"
+                          name="SAPCostCentre" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Cluster]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[Cluster]"
+                          name="Cluster" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                          name="ReportsTo" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[TargetAudienceGrouping]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[TargetAudienceGrouping]"
+                          name="TargetAudienceGrouping" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ADsAMAccountName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ADsAMAccountName]"
+                          name="ADsAMAccountName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[DateAppointed]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[DateAppointed]"
+                          name="DateAppointed" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                          name="BirthDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[GenderCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[GenderCode]"
+                          name="GenderCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[EthnicCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[EthnicCode]"
+                          name="EthnicCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Get ICDB\stage"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="stage"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_JEMS_Data]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get ICDB\stage.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgprocubedb.JDG_MasterData_Group.Report]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgprocubedb.JDG_MasterData_Group.Report]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[userPrincipleName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="31"
+                          cachedName="userPrincipleName"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[userPrincipleName]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[userPrincipleName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[displayName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="121"
+                          cachedName="displayName"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[displayName]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[displayName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[sAMAccountName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="sAMAccountName"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[sAMAccountName]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[sAMAccountName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="status"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[ActualLeaveDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ActualLeaveDate"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ActualLeaveDate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ActualLeaveDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[startdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="startdate"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[startdate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[startdate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[CompanyOps]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="CompanyOps"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[CompanyOps]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[CompanyOps]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[Company]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Company"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Company]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[SiteName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="SiteName"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[SiteName]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SiteName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[Division]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Division"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Division]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Division]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[Area]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Area"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Area]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Area]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[Job Title]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="Job Title"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Job Title]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Job Title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[OppsDivision]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="OppsDivision"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[OppsDivision]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OppsDivision]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[JobGrade]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="JobGrade"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[JobGrade]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[JobGrade]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[OccupationCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="OccupationCode"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[OccupationCode]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[OccupationCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[SAPCostCentre]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SAPCostCentre"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[SAPCostCentre]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[SAPCostCentre]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[Cluster]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Cluster"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Cluster]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[Cluster]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[ReportsTo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ReportsTo"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ReportsTo]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ReportsTo]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[TargetAudienceGrouping]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="TargetAudienceGrouping"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[TargetAudienceGrouping]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[TargetAudienceGrouping]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[DateAppointed]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateAppointed"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[DateAppointed]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[DateAppointed]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="BirthDate"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[ADsAMAccountName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="ADsAMAccountName"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ADsAMAccountName]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[ADsAMAccountName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[BusinessUnitCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="BusinessUnitCode"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[BusinessUnitCode]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[BusinessUnitCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[GenderCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="GenderCode"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[GenderCode]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[GenderCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].Columns[EthnicCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="EthnicCode"
+                          externalMetadataColumnId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[EthnicCode]"
+                          lineageId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output].Columns[EthnicCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[userPrincipleName]"
+                          codePage="1252"
+                          dataType="text"
+                          name="userPrincipleName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[displayName]"
+                          codePage="1252"
+                          dataType="text"
+                          name="displayName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[sAMAccountName]"
+                          codePage="1252"
+                          dataType="text"
+                          name="sAMAccountName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="text"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          codePage="1252"
+                          dataType="text"
+                          name="status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ActualLeaveDate]"
+                          dataType="dbTimeStamp2"
+                          name="ActualLeaveDate"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[startdate]"
+                          dataType="dbTimeStamp2"
+                          name="startdate"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[CompanyOps]"
+                          codePage="1252"
+                          dataType="text"
+                          name="CompanyOps" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Company" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[SiteName]"
+                          codePage="1252"
+                          dataType="text"
+                          name="SiteName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Division]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Division" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Area]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[BusinessUnitCode]"
+                          codePage="1252"
+                          dataType="text"
+                          name="BusinessUnitCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Job Title]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Job Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[OppsDivision]"
+                          codePage="1252"
+                          dataType="text"
+                          name="OppsDivision" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[JobGrade]"
+                          codePage="1252"
+                          dataType="text"
+                          name="JobGrade" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[OccupationCode]"
+                          codePage="1252"
+                          dataType="text"
+                          name="OccupationCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[SAPCostCentre]"
+                          codePage="1252"
+                          dataType="text"
+                          name="SAPCostCentre" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Cluster]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Cluster" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ReportsTo]"
+                          codePage="1252"
+                          dataType="text"
+                          name="ReportsTo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[TargetAudienceGrouping]"
+                          codePage="1252"
+                          dataType="text"
+                          name="TargetAudienceGrouping" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[DateAppointed]"
+                          dataType="dbTimeStamp2"
+                          name="DateAppointed"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          dataType="dbTimeStamp2"
+                          name="BirthDate"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[ADsAMAccountName]"
+                          codePage="1252"
+                          dataType="text"
+                          name="ADsAMAccountName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[SAP_SiteCode]"
+                          codePage="1252"
+                          dataType="text"
+                          name="SAP_SiteCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[GenderCode]"
+                          codePage="1252"
+                          dataType="text"
+                          name="GenderCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[EthnicCode]"
+                          codePage="1252"
+                          dataType="text"
+                          name="EthnicCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input].ExternalColumns[Disabled]"
+                          dataType="wstr"
+                          length="10"
+                          name="Disabled" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get ICDB\stage.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get ICDB\stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get ICDB\stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get ICDB\stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Get ICDB.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Get ICDB\stage.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Get ICDB\ICDB.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Get MD"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A6094C06-E174-41BB-A599-DE1AE3E25CD9}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get MD"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Get MD\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_MD]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get MD\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgprocubedb.JDG_MasterData_Group.Report]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgprocubedb.JDG_MasterData_Group.Report]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sap_Site_Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sap_Site_Code"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sap_Site_Code]"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sap_Site_Code]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Profit_Centre]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="Profit_Centre"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Profit_Centre]"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit_Centre]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sap_Site_Code]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Sap_Site_Code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Profit_Centre]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Profit_Centre" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get MD\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Get MD\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Subscriber].[vwProfitCentre_SAPSiteCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get MD\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgmd01.CentralMasterData]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgmd01.CentralMasterData]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sap_Site_Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sap_Site_Code]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sap_Site_Code]"
+                          name="Sap_Site_Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit_Centre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Profit_Centre]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit_Centre]"
+                          name="Profit_Centre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                          name="PostalCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Province]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Province]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Province]"
+                          name="Province"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Town]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Town]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].Columns[Town]"
+                          name="Town"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sap_Site_Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sap_Site_Code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Profit_Centre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="Profit_Centre" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PostalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Province" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Town]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Town" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sap_Site_Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sap_Site_Code]"
+                          name="Sap_Site_Code" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Profit_Centre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Profit_Centre]"
+                          name="Profit_Centre" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                          name="PostalCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Province]"
+                          name="Province" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Town]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Town]"
+                          name="Town" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Get MD.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Get MD\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Get MD\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DB59B9D7-ADA9-4A4D-BFD3-4341698BF2B0}"
+          DTS:From="Package\Sequence Container\Get ICDB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Get MD" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{14B86CBA-2452-4C45-B681-422C8DDA2F4B}"
+          DTS:From="Package\Sequence Container\Get MD"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Execute SQL Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Sequence Container\Execute SQL Task"
+          TopLeft="39.5,206.330188679245" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Get ICDB"
+          TopLeft="36.5,2.5" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Sequence Container\Get MD"
+          TopLeft="36,101" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="104.5,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,54.5"
+              Start="0,0"
+              End="-11,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.25"
+                    Point2="0,27.25"
+                    Point3="-4,27.25" />
+                  <mssgle:LineSegment
+                    End="-7,27.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7,27.25"
+                    Point2="-11,27.25"
+                    Point3="-11,31.25" />
+                  <mssgle:LineSegment
+                    End="-11,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="93.5,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,63.330188679245"
+              Start="0,0"
+              End="28,55.830188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6650943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.6650943396225"
+                    Point2="0,31.6650943396225"
+                    Point3="4,31.6650943396225" />
+                  <mssgle:LineSegment
+                    End="24,31.6650943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,31.6650943396225"
+                    Point2="28,31.6650943396225"
+                    Point3="28,35.6650943396225" />
+                  <mssgle:LineSegment
+                    End="28,55.830188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,305"
+          Size="205,348"
+          Id="Package\Sequence Container"
+          TopLeft="418,185" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Get ICDB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Sequence Container\Get ICDB\stage"
+          TopLeft="6.5,152.367924528302" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Get ICDB\ICDB"
+          TopLeft="4.5,8.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Get ICDB.Paths[OLE DB Source Output]"
+          TopLeft="72.5,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,99.867924528302"
+              Start="0,0"
+              End="-13.5,92.367924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.933962264151" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.933962264151"
+                    Point2="0,49.933962264151"
+                    Point3="-4,49.933962264151" />
+                  <mssgle:LineSegment
+                    End="-9.5,49.933962264151" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,49.933962264151"
+                    Point2="-13.5,49.933962264151"
+                    Point3="-13.5,53.933962264151" />
+                  <mssgle:LineSegment
+                    End="-13.5,92.367924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get ICDB\ICDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get ICDB\stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Get MD">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Sequence Container\Get MD\OLE DB Source"
+          TopLeft="145,50" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Get MD\OLE DB Destination"
+          TopLeft="141,168" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Get MD.Paths[OLE DB Source Output]"
+          TopLeft="223.75,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get MD\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get MD\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

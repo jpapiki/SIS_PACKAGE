@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/1/2020 2:32:35 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\203124"
+  DTS:DTSID="{3DFFE022-8CAF-4A25-8A6E-D2234F3CA7E9}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="JDGAUDIT - Target Group Import Update"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{C2D1084B-DFF1-4D1D-B372-3548AEAD2E93}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgaudit.jdg.co.za.Management Assurance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DF356359-E97C-4B70-9640-F1355146229C}"
+      DTS:ObjectName="jdgaudit.jdg.co.za.Management Assurance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgaudit.jdg.co.za;Initial Catalog=Management Assurance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Target Group Import update"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3B942DF0-6525-43C6-8D7A-37636D89508B}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Target Group Import update"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DF356359-E97C-4B70-9640-F1355146229C}"
+          SQLTask:SqlStatementSource="Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set [status] = 'Active'&#xA;  where sAMAccountName in ('510461','510493')&#xA;&#xA;--Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;--  Set Cluster = 'Cluster Two'&#xA;--  where Cluster is null and status = 'Active' and Company in ('Cluster 2','Russells','Joshua Doore','JD Group (Bots) (Pty) Ltd')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Three'&#xA;  where Cluster is null and status = 'Active' and Company in ('Cluster 3','Bradlows','Morkels','Supreme Furnish (Bots)','Supreme Botswana','Bradlows Swaziland')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster One'&#xA;  where Cluster is null and status = 'Active' and Company in ('Cluster 1','Barnetts','Price N Pride')&#xA;  &#xA;    Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster One'&#xA;  where Cluster is null and status = 'Active' and Company in ('Russells')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster 4'&#xA;  where Cluster is null and status = 'Active' and Company in ('Sleepmasters','Electric Express','Sleepmasters Namibia')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Supply Chain Services'&#xA;  where Cluster is null and status = 'Active' and Company like '%Supply Chain%'&#xA;    &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster 4'&#xA;  where Cluster is null and status = 'Active' and Company like '%Corporation%'&#xA;    &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster One'&#xA;  where Cluster is null and status = 'Active' and ChainDivision like '%CL1%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Two'&#xA;  where Cluster is null and status = 'Active' and ChainDivision like '%CL2%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Three'&#xA;  where Cluster is null and status = 'Active' and ChainDivision like '%CL3%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster 4'&#xA;  where Cluster is null and status = 'Active' and ChainDivision like '%CL4%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Connection Group Holdings Ltd'&#xA;  where Cluster is null and status = 'Active' and Company in ('Incredible Connection')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Corporate'&#xA;  where Cluster is null and status = 'Active' and Company in ('Corporate')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Consumer Finance'&#xA;  where Cluster is null and status = 'Active' and Company in ('JD Financial Services','JDG Micro Insurance Ltd')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster 4'&#xA;  where Cluster is null and status = 'Active' and Company in ('JD Cons Elec &amp; Appl (Pty)','Supreme Furnishers (Nam)','Hi-Fi &amp; Electr Warehouse')&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Connection Group Holdings Ltd'&#xA;  where Cluster is null and status = 'Active' and Company like '%Incredible Connect%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  Set Cluster = 'Cluster Consumer Finance'&#xA;  where Cluster is null and status = 'Active' and Company like '%JD Fin Services (Pty) Ltd%'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set OppsDivision = 'Retail (R)'&#xA;  where Company in ('Barnetts','Bradlows','Bradlows Swaziland','Joshua Doore','Morkels','Price n Pride','Russells','Sleepmasters','Supreme Botswana','Supreme Furnish (Bots)','Supreme Furnishers (Nam)')&#xA;  and Status = 'Active' and OppsDivision is null&#xA;&#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set Company = 'Cluster 1'&#xA;  where BusinessUnitCode = '08814' and status = 'Active'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set Company = 'Cluster 2'&#xA;  where BusinessUnitCode = '08813' and status = 'Active'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set Company = 'Cluster 3'&#xA;  where BusinessUnitCode = '08811' and status = 'Active'&#xA;  &#xA;  Update [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set Company = 'Supply Chain Services',Cluster = 'Supply Chain Services', CompanyOps = 'SCS Operations'&#xA;  where BusinessUnitCode = '08809' and status = 'Active'&#xA;&#xA;  Update  [Management Assurance].[dbo].[TargetAudienceGroup]&#xA;  set [Status] = case when ActualLeaveDate &gt; GETDATE() then 'Active' else [Status] end&#xA;  where [Status] not in ('Active')  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Target Group Import update"
+          TopLeft="724,75" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

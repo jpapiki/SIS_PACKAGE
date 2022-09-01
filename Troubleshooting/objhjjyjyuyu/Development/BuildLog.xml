@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>Troubleshooting</Name>
+    <LastWriteTime>2019-03-27T13:21:07.8768673Z</LastWriteTime>
+    <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>Moodle Auto Enrollments.dtsx</Name>
+      <LastWriteTime>2019-03-27T09:14:59.6758896Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Exce_PepCor_Rentrol.dtsx</Name>
+      <LastWriteTime>2018-09-10T08:25:52.9205566Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Layby EA ODATA.dtsx</Name>
+      <LastWriteTime>2018-09-17T06:32:04.9164367Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DDNS Get Delivery Date.dtsx</Name>
+      <LastWriteTime>2018-09-17T11:06:58.068587Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>GK_SQL_Import_Controller.dtsx</Name>
+      <LastWriteTime>2018-09-17T12:20:34.3491709Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>1_3 GK_SQL_Import_Controller_Financials.dtsx</Name>
+      <LastWriteTime>2018-09-17T12:24:51.5808915Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lay By PDF (1).dtsx</Name>
+      <LastWriteTime>2018-09-18T12:56:46.0028399Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Update SP Site Reports (1).dtsx</Name>
+      <LastWriteTime>2018-09-18T12:59:09.008139Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>LayBy Import (1).dtsx</Name>
+      <LastWriteTime>2018-09-18T15:52:08.9940338Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>GK_SQL_Import_Controller (1).dtsx</Name>
+      <LastWriteTime>2018-10-30T09:40:16.0762549Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FS Daily Dump FintranUpdate (1).dtsx</Name>
+      <LastWriteTime>2018-12-24T07:19:03.4232026Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Jarisson Daily Feed.dtsx</Name>
+      <LastWriteTime>2019-01-31T07:19:53.1466154Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Import_Inbound_Status_From_SAP.dtsx</Name>
+      <LastWriteTime>2019-03-28T09:47:29.8328426Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

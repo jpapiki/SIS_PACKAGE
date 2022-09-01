@@ -1,0 +1,2334 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2020 6:17:49 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\203124"
+  DTS:DTSID="{D3D44E04-6BC0-4FDC-A96B-C68A374911B3}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="OMS - Duplicate_Transfer_Export"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{49224242-DD39-45FF-8F25-5C0CEB909D1E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7F095047-1AE6-4B9A-ACB6-6D8DCD3FC865}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ITwebfs\operationmanagement$\Transfers\TransferCopy.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Finance.xlsx 2]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{64EA4783-0DAA-4116-B659-529B1DEA55A9}"
+      DTS:ObjectName="Finance.xlsx 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\itwebfs\Operationmanagement$\DocumentsDownload\Finance.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FinanceCopy.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{BA5FA7C2-4483-42E0-BD0D-DE6B4DBA3786}"
+      DTS:ObjectName="FinanceCopy.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="\\itwebfs\Operationmanagement$\DocumentsDownload\FinanceCopy.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitdbprd1.jdg.co.za.SSISDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B044C384-3039-4B0C-8C5F-73119578D18A}"
+      DTS:ObjectName="jdgitdbprd1.jdg.co.za.SSISDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitdbprd1.jdg.co.za;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{2075AF21-9BCD-4ED3-A2C5-C701F57DD0E7}"
+      DTS:ObjectName="jdgitdbprd1.JDG_Refund_Requests">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitdbprd1;Initial Catalog=JDG_Refund_Requests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6A9B3A40-C850-4909-84D2-102B071C8938}"
+      DTS:ObjectName="jdgitdbprd1.JDG_Refund_Requests 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitdbprd1;Initial Catalog=JDG_Refund_Requests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Transfer.xls]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{BBCA0DCB-0A10-4FA4-B756-CD4CF6CFB85C}"
+      DTS:ObjectName="Transfer.xls">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\itwebfs\operationmanagement$\Transfers\Transfer.xls" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Transfer.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D9E28248-393F-47B4-8AC0-18D253531438}"
+      DTS:ObjectName="Transfer.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\ITwebfs\operationmanagement$\Transfers\Transfer.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TransferCopy.xls]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{2D06DAC1-FF77-4C16-A665-4E796C371217}"
+      DTS:ObjectName="TransferCopy.xls">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\itwebfs\operationmanagement$\Transfers\TransferCopy.xls" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TransferCopy.xls 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{991C513C-7251-4899-B6F2-FEA09F73E7B2}"
+      DTS:ObjectName="TransferCopy.xls 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\itwebfs\operationmanagement$\Transfers\TransferCopy.xls" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TransferCopy.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{697E5E6E-13E8-4066-91D0-32F0528E9136}"
+      DTS:ObjectName="TransferCopy.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\ITwebfs\operationmanagement$\Transfers\TransferCopy.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{07B91BB6-8295-4316-A2DC-08F2035ACEBD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="businessunit">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B8F52EA9-E3EA-4EF2-ABF4-DEC61E3E1245}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="currbu">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7C45849-698B-414F-B599-F038AF4F2286}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\ITWEBFS\\OperationManagement$\\Transfers\\Duplicate Transfer &quot; + @[User::currbu]   + (DT_WSTR, 4) YEAR( GETDATE() ) + &quot; &quot; +  REPLICATE( &quot;0&quot;, 2-LEN( (DT_WSTR, 2)MONTH(GETDATE()))) + (DT_WSTR, 2)  MONTH( GETDATE() ) + &quot; &quot; + REPLICATE( &quot;0&quot;, 2-LEN( (DT_WSTR, 2)DAY(GETDATE()))) + (DT_WSTR, 2)  DAY( GETDATE() )  + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ITWEBFS\OperationManagement$\Transfers\Duplicate Transfer 2020 09 20.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2974B91B-8A2B-498D-8917-68CD9D4452AD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\ITWEBFS\\OperationManagement$\\CashBackVerification\\Duplicate Transfer &quot; + @[User::currbu]  +  (DT_WSTR, 4) YEAR( GETDATE() ) + &quot; &quot; +  REPLICATE( &quot;0&quot;, 2-LEN( (DT_WSTR, 2)MONTH(GETDATE()))) + (DT_WSTR, 2)  MONTH( GETDATE() ) + &quot; &quot; + REPLICATE( &quot;0&quot;, 2-LEN( (DT_WSTR, 2)DAY(GETDATE()))) + (DT_WSTR, 2)  DAY( GETDATE() )  + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileverification">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ITWEBFS\OperationManagement$\CashBackVerification\Duplicate Transfer 2020 09 20.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBC9C197-BCE3-4A60-80F6-D9F485588268}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\ITWEBFS\\OperationManagement$\\Transfers\\TransferCopy.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FinanceCopy">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ITWEBFS\OperationManagement$\Transfers\TransferCopy.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1CA051A-9739-4581-8C7B-0409C0EFE740}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rowcount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F1B4663D-D1C6-4402-8CC9-9A24D545E255}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:ForceExecValue="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.SqlServer.Dts.Runtime.Enumerators.ADO.ForEachADOEnumerator, Microsoft.SqlServer.ForEachADOEnumerator, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+        DTS:DTSID="{F27387FB-7422-425C-80C4-C6673AF86795}"
+        DTS:ObjectName="{F27387FB-7422-425C-80C4-C6673AF86795}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateAllRows"
+            VarName="User::businessunit" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E7EF270F-CBE7-4B99-AFD5-FC80708950D9}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination"
+                  componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+                  contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Excel Destination"
+                  name="Excel Destination"
+                  usesDispositions="true"
+                  validateExternalMetadata="False">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Excel Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Posting Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="Posting Date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Posting Date]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Posting Date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Document Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="Document Date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Document Date]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Document Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Document Type"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Document Type]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Type]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Company Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="Company Code"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Code]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="Currency"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Currency]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Ref. Doc Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Ref. Doc Number"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Ref# Doc Number]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ref. Doc Number]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Doc. Header Text]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Doc. Header Text"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Doc# Header Text]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Doc. Header Text]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Post Key]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Post Key"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Post Key]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Post Key]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Customer Acc]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Customer Acc"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Customer Acc]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer Acc]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Amount]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Amount"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amount]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Amount Local Curr]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Amount Local Curr"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amount Local Curr]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount Local Curr]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Amo. 2nd Local Curr]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Amo. 2nd Local Curr"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amo# 2nd Local Curr]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amo. 2nd Local Curr]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Tax Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Tax Code"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax Code]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Code]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Calc Tax Aut]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Calc Tax Aut"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Calc Tax Aut]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Calc Tax Aut]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Tax Amo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Tax Amo"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax Amo]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Amo]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Cost Center]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Cost Center"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Cost Center]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost Center]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Profit Center]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Profit Center"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Profit Center]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit Center]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Item text]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Item text"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Item text]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item text]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Assigment No]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Assigment No"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Assigment No]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Assigment No]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Order No]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Order No"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Order No]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order No]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Site]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Site"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Site]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Company Id Trading Partner]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Company Id Trading Partner"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Id Trading Partner]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Id Trading Partner]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Transaction Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Transaction Type"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Transaction Type]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transaction Type]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Company Code 1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Company Code 1"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Code 1]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code 1]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Partner Profit Center]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Partner Profit Center"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Partner Profit Center]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Partner Profit Center]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Reference Key 1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Reference Key 1"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 1]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 1]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Reference Key 2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Reference Key 2"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 2]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 2]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Reference Key 3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Reference Key 3"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 3]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 3]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Sales Document]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sales Document"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Sales Document]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Document]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Special G/L ind.]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Special G/L ind."
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Special G/L ind#]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Special G/L ind.]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Posting Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Posting Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Document Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Document Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Document Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Document Type" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Company Code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Ref# Doc Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ref# Doc Number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Doc# Header Text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Doc# Header Text" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Post Key]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Post Key" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Customer Acc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Customer Acc" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Amount" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amount Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Amount Local Curr" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Amo# 2nd Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Amo# 2nd Local Curr" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Tax Code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Calc Tax Aut]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Calc Tax Aut" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax Amo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Tax Amo" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Cost Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Cost Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Profit Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Item text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Item text" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Assigment No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Assigment No" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Order No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Order No" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Site" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Id Trading Partner]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Company Id Trading Partner" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Transaction Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Transaction Type" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Company Code 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Company Code 1" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Partner Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Partner Profit Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Reference Key 1" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Reference Key 2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Reference Key 3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Reference Key 3" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Sales Document]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sales Document" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Special G/L ind#]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Special G/L ind#" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Excel Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select
+cast([Document Date] as varchar(10)) [Document Date]
+, cast([Posting Date] as varchar(8)) [Posting Date]	
+,cast([Document Type] as varchar(3)) [Document Type]
+, cast([Company Code] as varchar(10)) [Company Code]
+, cast(Currency	as varchar(3)) Currency
+, cast([Ref. Doc Number] as varchar(200)) [Ref. Doc Number]
+, cast([Doc. Header Text] as varchar(100)) [Doc. Header Text]
+, cast([Post Key] as varchar(5)) [Post Key]	
+, cast([Customer Acc] as varchar(15)) [Customer Acc]
+, cast(Amount as varchar(20)) [Amount]
+, cast([Amount Local Curr] as varchar(25)) [Amount Local Curr]
+, cast([Amo. 2nd Local Curr] as varchar(25)) [Amo. 2nd Local Curr] 	
+, cast([Tax Code] as varchar(25)) [Tax Code]
+, cast([Calc Tax Aut] as varchar(25))[Calc Tax Aut]
+, cast([Tax Amo] as varchar(25))[Tax Amo]
+, cast([Cost Center] as varchar(25))[Cost Center]	
+, cast([Profit Center] as varchar(25))	[Profit Center]
+, cast([Item text] as varchar(200))[Item text]	
+, cast([Assigment No] as varchar(150))	[Assigment No]
+, cast([Order No] as varchar(25))	[Order No]
+, cast([Site] as varchar(25))[Site]	
+, cast([Company Id Trading Partner] as varchar(25))	[Company Id Trading Partner]
+, cast([Transaction Type] as varchar(25))[Transaction Type]	
+, cast([Company Code 1] as varchar(25))	[Company Code 1]
+, cast([Partner Profit Center] as varchar(25))	[Partner Profit Center]
+, cast([Reference Key 1] as varchar(25))	[Reference Key 1]
+, cast([Reference Key 2] as varchar(25))	[Reference Key 2]
+, cast([Reference Key 3] as varchar(25))	[Reference Key 3]
+, cast([Sales Document] as varchar(50))	[Sales Document]
+, cast([Special G/L ind.] as varchar(25))[Special G/L ind.]
+
+
+from tbl_OMS_Duplicate_Transfer_Export
+where [Company Code] = ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{B8F52EA9-E3EA-4EF2-ABF4-DEC61E3E1245};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Posting Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Posting Date]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Posting Date]"
+                          name="Posting Date"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Document Date]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Date]"
+                          name="Document Date"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Document Type]"
+                          length="2"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Document Type]"
+                          name="Document Type"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code]"
+                          length="14"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]"
+                          name="Company Code"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                          length="5"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                          name="Currency"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ref. Doc Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ref. Doc Number]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ref. Doc Number]"
+                          name="Ref. Doc Number"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Doc. Header Text]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Doc. Header Text]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Doc. Header Text]"
+                          name="Doc. Header Text"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Post Key]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Post Key]"
+                          length="2"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Post Key]"
+                          name="Post Key"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer Acc]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer Acc]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer Acc]"
+                          name="Customer Acc"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount Local Curr]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount Local Curr]"
+                          name="Amount Local Curr"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amo. 2nd Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amo. 2nd Local Curr]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amo. 2nd Local Curr]"
+                          name="Amo. 2nd Local Curr"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tax Code]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Code]"
+                          name="Tax Code"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Calc Tax Aut]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Calc Tax Aut]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Calc Tax Aut]"
+                          name="Calc Tax Aut"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Amo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tax Amo]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax Amo]"
+                          name="Tax Amo"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost Center]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cost Center]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost Center]"
+                          name="Cost Center"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Profit Center]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Profit Center]"
+                          name="Profit Center"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item text]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Item text]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item text]"
+                          name="Item text"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Assigment No]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Assigment No]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Assigment No]"
+                          name="Assigment No"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order No]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order No]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order No]"
+                          name="Order No"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Site]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site]"
+                          name="Site"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Id Trading Partner]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Id Trading Partner]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Id Trading Partner]"
+                          name="Company Id Trading Partner"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transaction Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transaction Type]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transaction Type]"
+                          name="Transaction Type"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code 1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code 1]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code 1]"
+                          name="Company Code 1"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Partner Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Partner Profit Center]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Partner Profit Center]"
+                          name="Partner Profit Center"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 1]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 1]"
+                          name="Reference Key 1"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 2]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 2]"
+                          name="Reference Key 2"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 3]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Reference Key 3]"
+                          name="Reference Key 3"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Document]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sales Document]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Document]"
+                          name="Sales Document"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Special G/L ind.]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Special G/L ind.]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Special G/L ind.]"
+                          name="Special G/L ind."
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Posting Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="Posting Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Document Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Document Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Document Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Document Type" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Company Code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ref. Doc Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Ref. Doc Number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Doc. Header Text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Doc. Header Text" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Post Key]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="Post Key" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer Acc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="Customer Acc" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Amount" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Amount Local Curr" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amo. 2nd Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Amo. 2nd Local Curr" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tax Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Tax Code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Calc Tax Aut]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Calc Tax Aut" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tax Amo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Tax Amo" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cost Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Cost Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Profit Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Item text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Item text" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Assigment No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="Assigment No" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Order No" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Site" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Id Trading Partner]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Company Id Trading Partner" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transaction Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Transaction Type" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Company Code 1" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Partner Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Partner Profit Center" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Reference Key 1" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Reference Key 2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Reference Key 3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Reference Key 3" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sales Document]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sales Document" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Special G/L ind.]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Special G/L ind." />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Document Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Document Date]"
+                          name="Document Date" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Posting Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Posting Date]"
+                          name="Posting Date" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Document Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Document Type]"
+                          name="Document Type" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code]"
+                          name="Company Code" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                          name="Currency" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ref. Doc Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ref. Doc Number]"
+                          name="Ref. Doc Number" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Doc. Header Text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Doc. Header Text]"
+                          name="Doc. Header Text" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Post Key]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Post Key]"
+                          name="Post Key" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer Acc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer Acc]"
+                          name="Customer Acc" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          name="Amount" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount Local Curr]"
+                          name="Amount Local Curr" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amo. 2nd Local Curr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amo. 2nd Local Curr]"
+                          name="Amo. 2nd Local Curr" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tax Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tax Code]"
+                          name="Tax Code" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Calc Tax Aut]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Calc Tax Aut]"
+                          name="Calc Tax Aut" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tax Amo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tax Amo]"
+                          name="Tax Amo" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cost Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cost Center]"
+                          name="Cost Center" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Profit Center]"
+                          name="Profit Center" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Item text]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Item text]"
+                          name="Item text" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Assigment No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Assigment No]"
+                          name="Assigment No" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order No]"
+                          name="Order No" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Site]"
+                          name="Site" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Id Trading Partner]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Id Trading Partner]"
+                          name="Company Id Trading Partner" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transaction Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transaction Type]"
+                          name="Transaction Type" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code 1]"
+                          name="Company Code 1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Partner Profit Center]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Partner Profit Center]"
+                          name="Partner Profit Center" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 1]"
+                          name="Reference Key 1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 2]"
+                          name="Reference Key 2" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Reference Key 3]"
+                          name="Reference Key 3" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sales Document]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sales Document]"
+                          name="Sales Document" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Special G/L ind.]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Special G/L ind.]"
+                          name="Special G/L ind." />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="File System Task"
+          DTS:DTSID="{AB2A5902-2146-4FBC-855B-0CCED763EA32}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FinanceCopy"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::filename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="File System Task"
+          DTS:DTSID="{23B0D18E-CA14-4284-98D6-04177D1E8AC4}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task 1"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="{BBCA0DCB-0A10-4FA4-B756-CD4CF6CFB85C}"
+              TaskDestinationPath="{991C513C-7251-4899-B6F2-FEA09F73E7B2}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\VErification"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="File System Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{1848E379-E8E0-47E4-A06D-C6D48B3EAEDE}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="VErification"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::filename"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::fileverification"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{53A7B964-7102-46C6-9CBD-AA236693272A}"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\File System Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{ED9ABA28-A8C8-4F61-950B-47FA7856F0D5}"
+          DTS:From="Package\Foreach Loop Container\File System Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Data Flow Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{9DAB998A-1943-4A86-BF65-895BAFE4A28D}"
+          DTS:From="Package\Foreach Loop Container\File System Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\VErification" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E2420944-C6C9-4048-A721-F99B96C380C3}"
+          DTS:ObjectName="{E2420944-C6C9-4048-A721-F99B96C380C3}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::currbu" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\OMS_Duplicate_Transfer_Expor"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36AFF8EF-6244-408A-8F2C-75668C925CE7}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OMS_Duplicate_Transfer_Expor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2075AF21-9BCD-4ED3-A2C5-C701F57DD0E7}"
+          SQLTask:SqlStatementSource="exec p_select_Duplicate_Transfer_Export" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Paying from business unit"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5897B7A9-41B8-4C80-A702-5A2213BE6728}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Paying from business unit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Paying from business unit\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select  distinct [Company Code] 
+from tbl_OMS_Duplicate_Transfer_Export</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Paying from business unit\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests]"
+                  connectionManagerRefId="Package.ConnectionManagers[jdgitdbprd1.JDG_Refund_Requests]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code]"
+                      length="14"
+                      lineageId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]"
+                      name="Company Code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Company Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Company Code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Company Code]"
+                      name="Company Code" />
+                    <outputColumn
+                      refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Paying from business unit\Recordset Destination"
+              componentClassID="{C457FD7E-CE98-4C4B-AEFE-F3AE0044F181}"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::businessunit</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Paying from business unit\Recordset Destination.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Paying from business unit\Recordset Destination.Inputs[Recordset Destination Input].Columns[Company Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Company Code"
+                      lineageId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Company Code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Paying from business unit\Row Count"
+              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::rowcount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Paying from business unit\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Paying from business unit\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Paying from business unit\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Paying from business unit.Paths[OLE DB Source Output]"
+              endId="Package\Paying from business unit\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Paying from business unit\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Paying from business unit.Paths[Row Count Output 1]"
+              endId="Package\Paying from business unit\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Paying from business unit\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{68B68400-41E3-4039-B6C9-ED4062473ABF}"
+      DTS:From="Package\OMS_Duplicate_Transfer_Expor"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Paying from business unit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9B7DF914-CF99-4A13-A503-A044F4E6E485}"
+      DTS:EvalOp="1"
+      DTS:Expression="@rowcount &gt; 0"
+      DTS:From="Package\Paying from business unit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Foreach Loop Container\Data Flow Task"
+          TopLeft="136,80" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="437,60" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Foreach Loop Container\File System Task 1"
+          TopLeft="93,12" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Foreach Loop Container\VErification"
+          TopLeft="652,137" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="289,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,-20"
+              Start="0,0"
+              End="140.5,-20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,0"
+                    Point2="74,0"
+                    Point3="74,-4" />
+                  <mssgle:LineSegment
+                    End="74,-16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74,-16"
+                    Point2="74,-20"
+                    Point3="78,-20" />
+                  <mssgle:LineSegment
+                    End="140.5,-20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="177.5,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,26"
+              Start="0,0"
+              End="35,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="31,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,13"
+                    Point2="35,13"
+                    Point3="35,17" />
+                  <mssgle:LineSegment
+                    End="35,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="517,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202,35"
+              Start="0,0"
+              End="202,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="198,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="198,17.5"
+                    Point2="202,17.5"
+                    Point3="202,21.5" />
+                  <mssgle:LineSegment
+                    End="202,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="826,234"
+          Size="826,277"
+          Id="Package\Foreach Loop Container"
+          TopLeft="379,330" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\OMS_Duplicate_Transfer_Expor"
+          TopLeft="634,57" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Paying from business unit"
+          TopLeft="709,202" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="745.5,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.5,103"
+              Start="0,0"
+              End="64.5,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="4,51.5" />
+                  <mssgle:LineSegment
+                    End="60.5,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.5,51.5"
+                    Point2="64.5,51.5"
+                    Point3="64.5,55.5" />
+                  <mssgle:LineSegment
+                    End="64.5,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="810,244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,86"
+              Start="0,0"
+              End="-18,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="-4,43" />
+                  <mssgle:LineSegment
+                    End="-14,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,43"
+                    Point2="-18,43"
+                    Point3="-18,47" />
+                  <mssgle:LineSegment
+                    End="-18,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17,48,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Excel Destination"
+          TopLeft="533,344" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Source"
+          TopLeft="382,79" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="458,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.5,223"
+              Start="0,0"
+              End="155.5,215.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,107.5"
+                    Point2="0,111.5"
+                    Point3="4,111.5" />
+                  <mssgle:LineSegment
+                    End="151.5,111.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.5,111.5"
+                    Point2="155.5,111.5"
+                    Point3="155.5,115.5" />
+                  <mssgle:LineSegment
+                    End="155.5,215.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Paying from business unit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Paying from business unit\Recordset Destination"
+          TopLeft="752,380" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Paying from business unit\Row Count"
+          TopLeft="570,218" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Paying from business unit\OLE DB Source"
+          TopLeft="595,89" />
+        <EdgeLayout
+          Id="Package\Paying from business unit.Paths[Row Count Output 1]"
+          TopLeft="636,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="208,120"
+              Start="0,0"
+              End="208,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56"
+                    Point2="0,60"
+                    Point3="4,60" />
+                  <mssgle:LineSegment
+                    End="204,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="204,60"
+                    Point2="208,60"
+                    Point3="208,64" />
+                  <mssgle:LineSegment
+                    End="208,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Paying from business unit.Paths[OLE DB Source Output]"
+          TopLeft="671,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35,87"
+              Start="0,0"
+              End="-35,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="-4,43.5" />
+                  <mssgle:LineSegment
+                    End="-31,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31,43.5"
+                    Point2="-35,43.5"
+                    Point3="-35,47.5" />
+                  <mssgle:LineSegment
+                    End="-35,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Paying from business unit\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

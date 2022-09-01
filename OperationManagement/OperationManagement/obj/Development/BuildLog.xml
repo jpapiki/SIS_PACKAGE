@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>OperationManagement</Name>
+    <LastWriteTime>2020-09-22T06:49:53.9625478Z</LastWriteTime>
+    <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>OMS - FS Daily Dump FintranUpdate.dtsx</Name>
+      <LastWriteTime>2020-09-22T06:48:15.7237249Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Cash_Back_Export.dtsx</Name>
+      <LastWriteTime>2020-09-18T15:53:21.0160979Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Cash_Back_Export_New.dtsx</Name>
+      <LastWriteTime>2020-09-20T06:41:53.0144546Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Duplicate_Transfer_Export.dtsx</Name>
+      <LastWriteTime>2020-09-20T05:27:03.739572Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Duplication_Export_New.dtsx</Name>
+      <LastWriteTime>2020-09-20T07:19:41.6532958Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Finance_Export.dtsx</Name>
+      <LastWriteTime>2020-09-18T17:16:08.0797128Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Finance_Export_New.dtsx</Name>
+      <LastWriteTime>2020-09-20T07:17:51.2772593Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Fix_CashBack.dtsx</Name>
+      <LastWriteTime>2020-09-20T05:02:01.7133844Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - FS_Export.dtsx</Name>
+      <LastWriteTime>2020-09-14T14:59:41.4727467Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - FS_Export_New.dtsx</Name>
+      <LastWriteTime>2020-09-20T05:21:01.4753492Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - FS Daily Dump RefundsUpdateCR.dtsx</Name>
+      <LastWriteTime>2020-09-22T06:49:53.9095425Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - FS Daily Dump RefundsUpdateCR 1.dtsx</Name>
+      <LastWriteTime>2020-09-16T11:30:11.1881684Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OMS - Transfer_Export.dtsx</Name>
+      <LastWriteTime>2020-09-20T05:27:44.9246901Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

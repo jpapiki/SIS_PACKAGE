@@ -1,0 +1,183 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2018 12:41:03 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DESKTOP-7QJS9P6"
+  DTS:CreatorName="JDG\203124"
+  DTS:DTSID="{E5964A50-F4A3-4EF6-B1B5-19DD1763F9E3}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="VBS - Import_Inbound_Status_From_SAP"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{A0B4BCA2-168B-43A6-9755-C25D94734842}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitdbprd1.jdg.co.za.SSISDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E70C18C7-4DEE-49F3-9456-AB8A16C58DB2}"
+      DTS:ObjectName="jdgitdbprd1.jdg.co.za.SSISDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgcsadev.jdg.co.za;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VBSPROD_WS HTTP]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{6B96EA58-EAB3-49D3-8CFD-C28DE8DFE7DA}"
+      DTS:ObjectName="VBSPROD_WS HTTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://jdgitwebprd2.jdg.co.za:8022/WebServices/VBS_WebServices.asmx?wsdl">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://jdgitwebprd2.jdg.co.za:8022/WebServices/VBS_WebServices.asmx?wsdl">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"></DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"></DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VBSQA_WS HTTP Connection]"
+      DTS:CreationName="HTTP"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{4FED426A-481C-4BEA-8ABE-7EFACD2D2D60}"
+      DTS:ObjectName="VBSQA_WS HTTP Connection">
+      <DTS:PropertyExpression
+        DTS:Name="ServerURL">@[User::website]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://jdgitwebprd2.jdg.co.za:8022/WebServices/VBS_WebServices.asmx?wsdl">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://jdgitwebprd2.jdg.co.za:8022/WebServices/VBS_WebServices.asmx?wsdl"
+            DTS:ProxyURL="11.2.10.23:8080"
+            DTS:BypassProxyOnLocal="True">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"></DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"></DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;jdgitdbprd1.jdg.co.za.SSISDB&quot;;&quot;[dbo].[SSISConfigurations]&quot;;&quot;VBS_Webservices&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{78E24B21-FA03-47B0-8F28-D2695B078FCA}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E10EF378-CAF9-43EE-8A21-2DA88FA7134F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ID">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D8A1A6B5-0F81-436B-A0C4-BAFB9F1EBDD2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="REQBookingDate">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D07945C6-78CF-4B3F-AD25-133597DB49C1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Status">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F7080918-01A2-4E6C-AA32-9A602BDC74AA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="website">
+      <DTS:VariableValue
+        DTS:DataType="8">http://jdgitwebprd2.jdg.co.za:8022/WebServices/VBS_WebServices.asmx?wsdl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D8D80E32-8646-48C5-ADC8-48349C271AE8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="WSDLLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ITWEBFS\vbs$\WSDL\VBS_WebServices.wsdl</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\VBS_WebServices"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Web Service Task"
+      DTS:DTSID="{1C7E5501-12BC-49C3-86A6-81FCD33B49D1}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="VBS_WebServices"
+      DTS:TaskContact="Web Service Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{6B96EA58-EAB3-49D3-8CFD-C28DE8DFE7DA}"
+          WSTask:Service="WebService1"
+          WSTask:WSDLFile="\\itwebfs\vbs$\WSDL\VBS_WebServicesWSDL.wsdl"
+          WSTask:OverwriteWSDLFile="True"
+          WSTask:OutputType="Variable"
+          WSTask:OutputLocation="User::Status" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+          <WSTask:MethodInfo
+            WSTask:MethodName="Import_Inbound_Status_From_SAP"
+            WSTask:MessageName="">
+            <WSTask:Documentation></WSTask:Documentation>
+          </WSTask:MethodInfo>
+        </WSTask:WebServiceTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\VBS_WebServices"
+          TopLeft="368,259" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="JDG\790450"
+  DTS:CreatorComputerName="DESKTOP-7QJS9P6"
+  DTS:CreationDate="4/23/2018 8:58:51 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{BA27E5A7-069B-4161-A6AC-F9C158CC968A}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="DDNS Get Delivery Date"
+  DTS:DTSID="{B7443E88-0BD1-4A1D-A4CC-B46EC3E99326}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:ObjectName="HTTP Connection Manager"
+      DTS:DTSID="{AF7E7413-39BB-4318-B920-6BB2909AF6A9}"
+      DTS:CreationName="HTTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://jdgitservices1.jdg.co.za:8028/WebServices/WebService.asmx?wsdl">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://jdgitservices1.jdg.co.za:8028/WebServices/WebService.asmx?wsdl"
+            DTS:ProxyURL="11.2.10.23:8080"
+            DTS:BypassProxyOnLocal="True">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUUy0VqSfY0GPOXuKH2SKgwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLS85YHdKr5M+n17H5DTpWAAAAAASAAACgAAAAEAAAALhjxRNdAJBi9YY8vTuL3W8IAAAAJuDteKJnJ+IUAAAAW6OFmu7VEAZo6LGW3kRpx4UJcaE</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUUy0VqSfY0GPOXuKH2SKgwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACaWq0vW9rkBl5uty6TrV7VAAAAAASAAACgAAAAEAAAAJ3xJge5WZgSWdlyWOTEq6EIAAAA9fo942e0S50UAAAAvS70lk6HHhVJYNApUDWn6pZoCQk</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitservices1.Policy_and_Procedures]"
+      DTS:ObjectName="jdgitservices1.Policy_and_Procedures"
+      DTS:DTSID="{905DE0C9-7F02-4956-A3F9-4AAC6ECF32F8}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices1;Initial Catalog=Policy_and_Procedures;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container"
+      DTS:DTSID="{57A0A607-0C67-4A71-9465-FC9F91AD69EC}"
+      DTS:Description="Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:Namespace="User"
+          DTS:IncludeInDebugDump="2345"
+          DTS:ObjectName="Variable"
+          DTS:DTSID="{1599B64B-BECB-45DE-A74E-01A4BC42B6DF}"
+          DTS:CreationName="">
+          <DTS:VariableValue
+            DTS:DataType="8">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Customer"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:ThreadHint="0"
+          DTS:TaskContact="Web Service Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Customer"
+          DTS:DTSID="{ff5b8115-ca84-499d-af19-c83df686de0f}"
+          DTS:Description="Web Service Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.WebServiceTask.WebServiceTask, Microsoft.SqlServer.WebServiceTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <WSTask:WebServiceTaskData
+              WSTask:ConnectionName="{AF7E7413-39BB-4318-B920-6BB2909AF6A9}"
+              WSTask:Service="WebService1"
+              WSTask:WSDLFile="\\jdgitservices1\e$\WSDL\DDNS.wsdl"
+              WSTask:OverwriteWSDLFile="True"
+              WSTask:OutputType="Variable"
+              WSTask:OutputLocation="User::Variable" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+              <WSTask:MethodInfo
+                WSTask:MethodName="Import_DDNS_From_SAP"
+                WSTask:MessageName="">
+                <WSTask:Documentation></WSTask:Documentation>
+                <WSTask:ParamInfo
+                  WSTask:Name="TableName"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Primitive"
+                  WSTask:SeqNumber="0">
+                  <WSTask:PrimitiveValue>LIKP</WSTask:PrimitiveValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="Options"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Primitive"
+                  WSTask:SeqNumber="1">
+                  <WSTask:PrimitiveValue>Customer</WSTask:PrimitiveValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="Fields"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Primitive"
+                  WSTask:SeqNumber="2">
+                  <WSTask:PrimitiveValue>VBELN|PODAT|VKORG</WSTask:PrimitiveValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="FieldNames"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Primitive"
+                  WSTask:SeqNumber="3">
+                  <WSTask:PrimitiveValue>Delivery|POD_Date|Sales_Org</WSTask:PrimitiveValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="ToTable"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Primitive"
+                  WSTask:SeqNumber="4">
+                  <WSTask:PrimitiveValue>Fact_POD_Date</WSTask:PrimitiveValue>
+                </WSTask:ParamInfo>
+              </WSTask:MethodInfo>
+            </WSTask:WebServiceTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Sequence Container\Customer"
+          TopLeft="44,45" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,142"
+          Size="205,185"
+          Id="Package\Sequence Container"
+          TopLeft="188,162" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

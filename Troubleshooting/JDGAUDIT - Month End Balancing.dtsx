@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/1/2020 2:15:59 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\203124"
+  DTS:DTSID="{768FACD1-266C-4171-B28D-52D3FF010D3B}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="JDGAUDIT - Month End Balancing"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{AC3E5AEF-F16A-4F26-8497-C276BE1F34D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgaudit.jdg.co.za.Management Assurance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F2041114-6515-4656-BA17-4AE353604A65}"
+      DTS:ObjectName="jdgaudit.jdg.co.za.Management Assurance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgaudit.jdg.co.za;Initial Catalog=Management Assurance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Month End Balancing"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EDF73D66-1CEA-410F-B434-A171E9CA3EC3}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Month End Balancing"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F2041114-6515-4656-BA17-4AE353604A65}"
+          SQLTask:SqlStatementSource="SELECT [ID]&#xA;      ,[Cluster]&#xA;      ,[Chain]&#xA;      ,[SiteCode]&#xA;      ,[BUCode]&#xA;      ,[Site_Name]&#xA;      ,[Planned_Date]&#xA;      ,(Select top 1 [EngagementConclusion_x002] FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') order by ID desc) as [MA_Conclition_Date]&#xA;      ,[MA_Distributed_Date]&#xA;      ,[Assessor]&#xA;      ,[AssType]&#xA;      ,[Author]&#xA;      --,(Select [Division] FROM [Management Assurance].[dbo].[Fact_MA_Division_Split] with (nolock) where [Fact_MA_Division_Split].[BUCode] = [fact_MA_Planner].[BUCode]) as 'Division'&#xA;      ,(Select top 1 [EngagementReference_x0020] FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') and [EngagementConclusion_x002] &gt; DATEADD(DAY,-30,[Planned_Date]) order by ID desc) as 'Ref Number'&#xA;      ,(Select top 1 Rating FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete')  and [EngagementConclusion_x002] &gt; DATEADD(DAY,-30,[Planned_Date]) order by ID desc) as 'Rating'&#xA;      ,(Select top 1 cast([Critical] as int)+cast([CriticalNBU] as int) FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') and [EngagementConclusion_x002] &gt; DATEADD(DAY,-30,[Planned_Date]) order by ID desc) as 'Critical'&#xA;      ,(Select top 1 cast([Significant] as int)+cast([SignificantNBU] as int) FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') and [EngagementConclusion_x002] &gt; DATEADD(DAY,-30,[Planned_Date]) order by ID desc) as 'Significant'&#xA;      ,(Select top 1 cast([Minor] as int)+cast([MinorNBU] as int) FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') and [EngagementConclusion_x002] &gt; DATEADD(DAY,-30,[Planned_Date]) order by ID desc) as 'Housekeeping'&#xA;      into #Temp1&#xA;  FROM [Management Assurance].[dbo].[fact_MA_Planner] with (nolock)&#xA;   where year(MA_Distributed_Date ) = YEAR(DATEADD(dd, DATEDIFF(dd, 0, dateadd(month,-1,DATEADD(dd,-DAY(GETDATE())+1,GETDATE()))), 0)) and MONTH(MA_Distributed_Date) = MONTH(DATEADD(dd, DATEDIFF(dd, 0, dateadd(month,-1,DATEADD(dd,-DAY(GETDATE())+1,GETDATE()))), 0))&#xA;&#xA;  --and (select [Division] FROM [Management Assurance].[dbo].[Fact_Division_Owner] with (nolock) where RIGHT([fact_MA_Planner].[Author],6) = [Employee]) not in ('STO')&#xA;  --and right(isnull(rtrim((Select top 1 [EngagementReference_x0020] FROM [Checklist].[dbo].[MA Checklist] with (nolock) where [MA Checklist].[BUCode] = [SiteCode] and Status not in ('Deleted Complete') order by ID desc)),'Full'),2) not in ('FU')&#xA;  and [AssType] not in ('FIC','SS')&#xA;  order by [Cluster]&#xA;  &#xA;  INSERT INTO [Checklist].[dbo].[Month_End_Assessments]&#xA;           ([Reference_Number]&#xA;           ,[Date])&#xA;           (Select RTRIM([Ref Number]),DATEADD(dd, DATEDIFF(dd, 0, dateadd(month,-1,DATEADD(dd,-DAY(GETDATE())+1,GETDATE()))), 0) from #Temp1)&#xA;           &#xA;           &#xA;           drop Table #Temp1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Month End Balancing"
+          TopLeft="841,170" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

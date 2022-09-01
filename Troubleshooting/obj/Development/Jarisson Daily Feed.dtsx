@@ -1,0 +1,2414 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/16/2019 3:17:56 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\208184"
+  DTS:DTSID="{4C95EEA1-CF04-4CC5-8A03-39B2F56285CB}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Jarisson Daily Feed"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{A500ADBE-DA9E-4270-8BFF-BCD48A453369}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{29FFBEB6-EC3C-46E1-9723-BD4CA3E2EF53}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sourceConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="7177"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\jdgjarrison\JarrisonSCS Reports\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Emp Num"
+              DTS:DTSID="{BDA852F0-4C0B-4E1B-B7CE-B798C6991A6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{516AC795-6640-43DC-9B80-8FDAA0A60CF1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Site"
+              DTS:DTSID="{5FB72961-E610-49E4-8017-1E82309B8922}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Occupation"
+              DTS:DTSID="{ADE86BAB-B656-424A-8B24-763F36D202E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Department"
+              DTS:DTSID="{80193540-E429-442A-A3B5-FC3BE83A70D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day"
+              DTS:DTSID="{532A9985-91DA-4428-96CE-EF9C8284F70F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{B502385E-7D88-4FC9-A224-79577BAAA247}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shift"
+              DTS:DTSID="{3961B826-62CD-4B2A-9DC8-3AB506CFE2BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="In"
+              DTS:DTSID="{9E82EF5D-27F9-4992-A1CE-0AD81A95D09E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Out"
+              DTS:DTSID="{70777023-3C31-4A19-909B-577114571E40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Missing clocking"
+              DTS:DTSID="{8A501A46-5154-4506-856C-67E2D1CBD111}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NT"
+              DTS:DTSID="{C21B2886-9EB8-437B-BE64-50F29485EBA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Short NT"
+              DTS:DTSID="{CC086CE8-AA33-436D-B5FD-EEAF46F61322}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PPHW"
+              DTS:DTSID="{638099D6-56A3-4ED9-81EE-A0D03BD74861}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Annual"
+              DTS:DTSID="{8AA2B48A-D146-4FDC-8D41-ECF889602307}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Comp Lv"
+              DTS:DTSID="{7E3CD1A8-1411-4633-BABB-1AEC52901D3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sick Lv"
+              DTS:DTSID="{731C2641-2BB7-42E6-863E-F7DD1F7C914B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unpd Lv"
+              DTS:DTSID="{2A4AD594-C24D-4342-9193-3C472F2DE2FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unpd Sick"
+              DTS:DTSID="{0DDB65B0-C543-4E03-9644-A48FA6A7C7F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IOD"
+              DTS:DTSID="{80ECA599-36C8-444F-BD90-BD70AFED920A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Night Wrkd"
+              DTS:DTSID="{6078CF7F-36AB-460E-9D91-FC4B37F3DEB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AWOL"
+              DTS:DTSID="{F71DCAA3-F753-45F9-BD17-B64ADE985191}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NightOut"
+              DTS:DTSID="{DA378CF0-0E93-4A4C-83DC-2740B91034BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acting"
+              DTS:DTSID="{A276A601-66E7-45A8-B6E3-B7D8B7531145}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OT1"
+              DTS:DTSID="{D85DF72F-F756-4BDB-9A03-4D1B09733A0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OT1 5"
+              DTS:DTSID="{29CDF336-BB05-40A6-A237-31F704285A7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OT2"
+              DTS:DTSID="{515D8287-1F98-4B35-BD9A-A28B33A14CEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Comments"
+              DTS:DTSID="{13532A8B-19A0-4C12-8C84-EE77B78F0FA1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[JDGJARRISON.JD_TimeStats]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{44FC78A1-6D94-487B-8372-8A722249F277}"
+      DTS:ObjectName="JDGJARRISON.JD_TimeStats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=JDGJARRISON;Initial Catalog=JD_TimeStats;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{CF64261B-41B5-453C-9F75-C4C9237F99B4}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=jdgexchhub.jdg.co.za;UseWindowsAuthentication=True;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C0F4A1C4-03DD-4503-9A95-9AA79E0932D1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Archive">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgjarrison\JarrisonSCS Reports\Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2E9451F-412B-43AB-A13E-17A9D2855852}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\jdgjarrison\\JarrisonSCS Reports\\Archive\\&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="destinationConnection">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgjarrison\JarrisonSCS Reports\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{718A03D8-5E5E-423C-B83D-94A116FBB418}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileExistAlready">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A0CF195-1F45-41BD-85B9-87142C576DB3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Source">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1632811B-F302-47FE-AE4A-94A71B3E9E24}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\jdgjarrison\\JarrisonSCS Reports\\&quot; +  @[User::Source]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sourceConnection">
+      <DTS:VariableValue
+        DTS:DataType="8">\\jdgjarrison\JarrisonSCS Reports\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA25022F-84AD-42B7-A7D7-749D5621AA79}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="vcount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{A27D6AE5-2D3B-4AB5-82B6-0F88FF78D7D7}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{F69FFBDD-537F-4A99-AE2A-69493D996420}"
+        DTS:ObjectName="{F69FFBDD-537F-4A99-AE2A-69493D996420}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\jdgjarrison\JarrisonSCS Reports\" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{E5B31D27-4F45-4440-9230-F357EE78E334}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::sourceConnection"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::destinationConnection"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File Already exist"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4BAB28C3-E6A7-463D-A44F-B19C769B7F1B}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File Already exist"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{44FC78A1-6D94-487B-8372-8A722249F277}"
+              SQLTask:SqlStatementSource="declare @vsource varchar(150) = ?&#xA;&#xA;insert into dbo.TimeStats_log&#xA;Select 0 , getdate(), @vsource, 0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Has file been uploaded?"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7C05A886-EDD8-4E1C-9A12-9D1B616D394B}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Has file been uploaded?"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{44FC78A1-6D94-487B-8372-8A722249F277}"
+              SQLTask:SqlStatementSource="declare @fname varchar(150) = ?&#xA;&#xA; if (select top 1 'X'  fROM [JD_TimeStats].[dbo].[TimeStats_log]&#xA;&#x9;&#x9;where FileName = @fname  ) = 'x'&#xA;begin select 1 end &#xA;else select 0&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::FileExistAlready" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load Data into Jarrison"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6E800E65-45D8-4725-9910-DB9712ADD068}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Data into Jarrison"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source"
+                  componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="7177"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Emp Num]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Emp Num]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Emp Num]"
+                          name="Emp Num"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Site]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Site]"
+                          name="Site"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Occupation]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Occupation]"
+                          name="Occupation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          name="Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Day]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Day]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Day]"
+                          name="Day"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Shift]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shift]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Shift]"
+                          name="Shift"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[In]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[In]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[In]"
+                          name="In"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Out]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Out]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Out]"
+                          name="Out"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Missing clocking]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Missing clocking]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Missing clocking]"
+                          name="Missing clocking"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NT]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NT]"
+                          name="NT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Short NT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Short NT]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Short NT]"
+                          name="Short NT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[PPHW]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PPHW]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[PPHW]"
+                          name="PPHW"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Annual]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Annual]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Annual]"
+                          name="Annual"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comp Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Comp Lv]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comp Lv]"
+                          name="Comp Lv"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Sick Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sick Lv]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Sick Lv]"
+                          name="Sick Lv"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unpd Lv]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Lv]"
+                          name="Unpd Lv"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Sick]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unpd Sick]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Sick]"
+                          name="Unpd Sick"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[IOD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[IOD]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[IOD]"
+                          name="IOD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Night Wrkd]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Night Wrkd]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Night Wrkd]"
+                          name="Night Wrkd"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[AWOL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AWOL]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[AWOL]"
+                          name="AWOL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NightOut]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NightOut]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NightOut]"
+                          name="NightOut"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Acting]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Acting]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Acting]"
+                          name="Acting"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1 5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT1 5]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1 5]"
+                          name="OT1 5"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT2]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT2]"
+                          name="OT2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comments]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Comments]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comments]"
+                          name="Comments"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT1]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1]"
+                          name="OT1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Emp Num]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Emp Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Site" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Occupation" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Day]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shift]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Shift" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[In]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="In" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Out]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Out" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Missing clocking]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Missing clocking" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NT" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Short NT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Short NT" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PPHW]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PPHW" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Annual]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Annual" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Comp Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Comp Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sick Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sick Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unpd Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Unpd Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unpd Sick]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Unpd Sick" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[IOD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="IOD" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Night Wrkd]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Night Wrkd" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AWOL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="AWOL" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NightOut]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NightOut" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Acting]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Acting" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT1 5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT1 5" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Comments]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Comments" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OT1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT1" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[JT_TimeStatsTRDTE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[JDGJARRISON.JD_TimeStats]"
+                      connectionManagerRefId="Package.ConnectionManagers[JDGJARRISON.JD_TimeStats]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[In]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="In"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[In]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[In]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Out]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Out"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Out]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Out]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Missing clocking]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Missing clocking"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Missing clocking]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Missing clocking]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NT"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NT]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NT]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Short NT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Short NT"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Short NT]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Short NT]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PPHW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PPHW"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PPHW]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[PPHW]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Annual]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Annual"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Annual]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comp Lv]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Comp Lv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comp Lv]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comp Lv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sick Lv]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sick Lv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sick Lv]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Sick Lv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unpd Lv]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Unpd Lv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unpd Lv]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Lv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unpd Sick]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Unpd Sick"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unpd Sick]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Unpd Sick]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IOD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="IOD"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IOD]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[IOD]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Night Wrkd]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Night Wrkd"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Night Wrkd]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Night Wrkd]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AWOL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="AWOL"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AWOL]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[AWOL]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NightOut]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NightOut"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NightOut]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[NightOut]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Acting]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Acting"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Acting]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Acting]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OT2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OT2"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT2]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT2]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comments]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Comments"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comments]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Comments]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Emp Num]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Emp Num"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Emp Num]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Emp Num]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Site]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Site"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Site]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Site]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Occupation]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Occupation"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Occupation]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Occupation]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Department]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Department"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Department]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Day"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Day]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OT1 5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OT1 5"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT1 5]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1 5]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Shift]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Shift"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shift]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[Shift]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OT1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OT1"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT1]"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output].Columns[OT1]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Emp Num]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Emp Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Site]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Site" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Occupation]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Occupation" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shift]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Shift" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[In]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="In" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Out]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Out" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Missing clocking]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Missing clocking" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NT" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Short NT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Short NT" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PPHW]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PPHW" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Annual" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comp Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Comp Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sick Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sick Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unpd Lv]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Unpd Lv" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unpd Sick]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Unpd Sick" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IOD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="IOD" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Night Wrkd]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Night Wrkd" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AWOL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="AWOL" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NightOut]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NightOut" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Acting]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Acting" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comments]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Comments" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT1 5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT1 5" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OT1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OT1" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count"
+                  componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::vcount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Load Data into Jarrison.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count.Inputs[Row Count Input 1]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Load Data into Jarrison.Paths[Row Count Output 1]"
+                  endId="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Foreach Loop Container\Load Data into Jarrison\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\New file"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A44202C1-A012-461B-A2B0-8313D97739D9}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="New file"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{44FC78A1-6D94-487B-8372-8A722249F277}"
+              SQLTask:SqlStatementSource="declare @vcount int = ?, @vsource varchar(150) = ?&#xA;&#xA;insert into dbo.TimeStats_log&#xA;Select @vcount  , getdate(), @vsource, 1&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::vcount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Source"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Send Mail Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{6EDF52DF-A984-4051-B3A6-199E88BCBCF2}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"Hi there
+
+File - " + @[User::Source]  + " - has been successfully loaded into the Jarrison table.
+
+Automated Process."</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{CF64261B-41B5-453C-9F75-C4C9237F99B4}"
+              SendMailTask:From="ShalateM@jdg.co.za"
+              SendMailTask:To="ShalateM@jdg.co.za"
+              SendMailTask:Subject="File Loaded Successsfully"
+              SendMailTask:MessageSource="Hi there&#xA;&#xA;File -  - has been successfully loaded into the Jarrison table.&#xA;&#xA;Automated Process." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DF688BF5-BCB6-46F1-BDF2-742FABB5CF40}"
+          DTS:From="Package\Foreach Loop Container\Load Data into Jarrison"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\New file" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{FA4E818D-94F9-4646-9261-386AAFC44E99}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[User::FileExistAlready]==0"
+          DTS:From="Package\Foreach Loop Container\Has file been uploaded?"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Load Data into Jarrison" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{997FAB31-F971-4AC1-A565-6325F03F961F}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[User::FileExistAlready]==1"
+          DTS:From="Package\Foreach Loop Container\Has file been uploaded?"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\File Already exist" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{45E96D6B-A4E6-41F2-BF9F-2579F0794F82}"
+          DTS:From="Package\Foreach Loop Container\New file"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\Archive File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{63689291-8AC0-4FB8-91A1-AF53850EA540}"
+          DTS:From="Package\Foreach Loop Container\File Already exist"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container\Archive File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{E13BA704-9A38-4A04-82F1-DB5E73FDDEBB}"
+          DTS:From="Package\Foreach Loop Container\New file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Foreach Loop Container\Send Mail Task" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{773F28FB-7AAA-4895-9B5C-45FD53881EE6}"
+          DTS:ObjectName="{773F28FB-7AAA-4895-9B5C-45FD53881EE6}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Source" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{5BDB90D4-087F-487E-ADB3-3AADF1A19A4F}"
+      DTS:EventID="430305356"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{7D0618A7-4720-47C0-AB4E-19B304FDC38D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Send Mail Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{FA4190A4-1F1E-4A90-88F2-0366F96CD136}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{CF64261B-41B5-453C-9F75-C4C9237F99B4}"
+              SendMailTask:From="ShalateM@jdg.co.za"
+              SendMailTask:To="ShalateM@jdg.co.za"
+              SendMailTask:Subject="File Loaded Successsfully"
+              SendMailTask:MessageSource="Hi All; &#xA;&#xA;Teh Jarrison extract has failed.&#xA;Please attend to it ASPS.&#xA;&#xA;Thank you.&#xA;&#xA;IT Innovation Team" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+              <SendMailTask:Attachments
+                SendMailTask:FileName="E:\Dev\Export.csv" />
+            </SendMailTask:SendMailTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Foreach Loop Container\Archive File"
+          TopLeft="218,311.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Foreach Loop Container\File Already exist"
+          TopLeft="205.5,209.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Foreach Loop Container\Has file been uploaded?"
+          TopLeft="188.5,5.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Foreach Loop Container\Load Data into Jarrison"
+          TopLeft="34.5,107.5" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Foreach Loop Container\New file"
+          TopLeft="26,209.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Foreach Loop Container\Send Mail Task"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="129.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44,60"
+              Start="0,0"
+              End="-44,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-40,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40,30"
+                    Point2="-44,30"
+                    Point3="-44,34" />
+                  <mssgle:LineSegment
+                    End="-44,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="254.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125,60"
+              Start="0,0"
+              End="-125,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2944785276074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2944785276074"
+                    Point2="0,24.2944785276074"
+                    Point3="-4,24.2944785276074" />
+                  <mssgle:LineSegment
+                    End="-121,24.2944785276074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121,24.2944785276074"
+                    Point2="-125,24.2944785276074"
+                    Point3="-125,28.2944785276074" />
+                  <mssgle:LineSegment
+                    End="-125,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.5,29.2944785276074,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="316.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.9999999999999,162"
+              Start="0,0"
+              End="-30.9999999999999,154.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5950920245399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.5950920245399"
+                    Point2="0,65.5950920245399"
+                    Point3="-4,65.5950920245399" />
+                  <mssgle:LineSegment
+                    End="-26.9999999999999,65.5950920245399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.9999999999999,65.5950920245399"
+                    Point2="-30.9999999999999,65.5950920245399"
+                    Point3="-30.9999999999999,69.5950920245399" />
+                  <mssgle:LineSegment
+                    End="-30.9999999999999,154.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.5,70.5950920245399,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="104,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160.333333333333,60"
+              Start="0,0"
+              End="160.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0579255415435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0579255415435"
+                    Point2="0,30.0579255415435"
+                    Point3="4,30.0579255415435" />
+                  <mssgle:LineSegment
+                    End="156.333333333333,30.0579255415435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="156.333333333333,30.0579255415435"
+                    Point2="160.333333333333,30.0579255415435"
+                    Point3="160.333333333333,34.0579255415435" />
+                  <mssgle:LineSegment
+                    End="160.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="285.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.1666666666667,60"
+              Start="0,0"
+              End="21.1666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5783308931186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5783308931186"
+                    Point2="0,35.5783308931186"
+                    Point3="4,35.5783308931186" />
+                  <mssgle:LineSegment
+                    End="17.1666666666667,35.5783308931186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.1666666666667,35.5783308931186"
+                    Point2="21.1666666666667,35.5783308931186"
+                    Point3="21.1666666666667,39.5783308931186" />
+                  <mssgle:LineSegment
+                    End="21.1666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 5]"
+          TopLeft="67,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,60"
+              Start="0,0"
+              End="14.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4776119402985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4776119402985"
+                    Point2="0,24.4776119402985"
+                    Point3="4,24.4776119402985" />
+                  <mssgle:LineSegment
+                    End="10.5,24.4776119402985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,24.4776119402985"
+                    Point2="14.5,24.4776119402985"
+                    Point3="14.5,28.4776119402985" />
+                  <mssgle:LineSegment
+                    End="14.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="388,408"
+          Size="388,451"
+          Id="Package\Foreach Loop Container"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="408,153" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Load Data into Jarrison">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Foreach Loop Container\Load Data into Jarrison\Flat File Source"
+          TopLeft="329,30" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Foreach Loop Container\Load Data into Jarrison\Row Count"
+          TopLeft="517,140" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination"
+          TopLeft="246,260" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load Data into Jarrison.Paths[Row Count Output 1]"
+          TopLeft="583,182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-250.5,78"
+              Start="0,0"
+              End="-250.5,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-246.5,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-246.5,39"
+                    Point2="-250.5,39"
+                    Point3="-250.5,43" />
+                  <mssgle:LineSegment
+                    End="-250.5,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load Data into Jarrison.Paths[Flat File Source Output]"
+          TopLeft="405.5,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.5,68"
+              Start="0,0"
+              End="177.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="173.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173.5,34"
+                    Point2="177.5,34"
+                    Point3="177.5,38" />
+                  <mssgle:LineSegment
+                    End="177.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Load Data into Jarrison\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

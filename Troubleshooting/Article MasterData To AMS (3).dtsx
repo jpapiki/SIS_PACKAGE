@@ -1,0 +1,2571 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/5/2016 11:56:53 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGCSADEV"
+  DTS:CreatorName="JDG\200612"
+  DTS:DTSID="{81C93D34-1C53-4205-AB15-1BEFFDEDFE91}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Article MasterData To AMS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{3914B253-5CCD-4427-BCF1-32707008DC58}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1CFB573B-A07F-4A8C-BAA0-F8531CDDC054}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgrmsprod\rms;Initial Catalog=ProdGlobalStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{523B21B5-A2AB-419D-BC72-2109F7026462}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgmd01;Initial Catalog=CentralMasterData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;DestinationConnectionOLEDB&quot;;&quot;[dbo].[SSISConfigurations]&quot;;&quot;AMSPriceTickets&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{DD18864C-ED82-4CB9-B2B1-C8E28D421365}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Price Ticket Data"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{0BF13356-0674-4F5B-B9CD-6E313C06E898}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Price Ticket Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Fact_AMS_Price_Tickets"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_AMS_Price_Tickets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SourceSystemArticleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SourceSystemArticleCode"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SourceSystemArticleCode]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SourceSystemArticleCode]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[ArticleDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ArticleDescription"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[ArticleDescription]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleDescription]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SalesOrganisationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SalesOrganisationCode"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SalesOrganisationCode]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationCode]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SalesOrganisationDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SalesOrganisationDescription"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SalesOrganisationDescription]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationDescription]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[ArticleStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="ArticleStatus"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[ArticleStatus]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleStatus]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SellingPriceIncl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceIncl"
+                      cachedPrecision="11"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingPriceIncl]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceIncl]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SellingPriceExcl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceExcl"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingPriceExcl]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceExcl]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SellingCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="SellingCurrency"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingCurrency]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingCurrency]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SellingStartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingStartDate"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingStartDate]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingStartDate]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[SellingEndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingEndDate"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingEndDate]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingEndDate]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[Type]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB1"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB1]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB1]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB2"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB2]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB2]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB3"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB3]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB3]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB4"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB4]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB4]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB5"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB5]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB5]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB6"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB6]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB6]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB7]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB7"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB7]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB7]" />
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].Columns[FAB8]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB8"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB8]"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB8]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SourceSystemArticleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="text"
+                      name="ArticleDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SalesOrganisationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SalesOrganisationDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="text"
+                      name="ArticleStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingPriceIncl]"
+                      dataType="numeric"
+                      name="SellingPriceIncl"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingPriceExcl]"
+                      dataType="numeric"
+                      name="SellingPriceExcl"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SellingCurrency" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingStartDate]"
+                      dataType="dbTimeStamp"
+                      name="SellingStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[SellingEndDate]"
+                      dataType="dbTimeStamp"
+                      name="SellingEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB1]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB1" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB2]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB3]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB3" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB4]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB4" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB5]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB5" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB6]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB6" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB7]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB7" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[FAB8]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FAB8" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input].ExternalColumns[Cluster]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cluster" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Price Ticket Data\Source National Promo Data"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source National Promo Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Admin].[Userr]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
+				 CONVERT(varchar,CONVERT(numeric,mara.[MATNR])) AS [SourceSystemArticleCode]
+				,MAKT.[MAKTX] AS 'ArticleDescription'
+				,mvke.VKORG AS [SalesOrganisationCode]
+				,tvkot.VTEXT AS 'SalesOrganisationDescription'
+				,t1.MMSTA AS [ArticleStatus]
+				,t.[Promo Price inc. Tax] AS [SellingPriceIncl]
+				,CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) AS [SellingPriceExcl]
+				,t.KONWA AS [SellingCurrency]
+				,CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL 
+					  THEN NULL 
+					  ELSE t.[Valid From] 
+					  END AS [SellingStartDate]
+				,CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL 
+					  THEN NULL 
+					  ELSE t.[Valid To] 
+					  END AS [SellingEndDate]
+				,'Promo' AS 'Type'
+				,mara.[ZZFB01] AS 'FAB1'
+				,mara.[ZZFB02] AS 'FAB2'
+				,mara.[ZZFB03] AS 'FAB3'
+				,mara.[ZZFB04] AS 'FAB4'
+				,mara.[ZZFB05] AS 'FAB5'
+				,mara.[ZZFB06] AS 'FAB6'
+				,mara.[ZZFB07] AS 'FAB7'
+				,mara.[ZZFB08] AS 'FAB8'
+FROM [DSData].[dbo].[MARA_ARTICLEMASTER] AS mara WITH(NOLOCK) 
+LEFT OUTER JOIN [DSData].[dbo].[MVKE_SALESARTICLE] AS mvke WITH(NOLOCK) 
+ON mara.MATNR = mvke.MATNR 
+INNER JOIN (  SELECT * 
+				FROM (	SELECT CASE  a073.[KSCHL] WHEN 'VKP0' 
+												  THEN 'Sales Price inc. Tax' 
+												  WHEN 'VKA0' 
+												  THEN 'Promo Price inc. Tax' 
+												  ELSE a073.[KSCHL] 
+												  END AS [KSCHL]
+									,a073.[VKORG] AS 'Sales Org'
+									,a073.[VTWEG] AS DistributionChannel
+									,a073.[MATNR] AS 'Article Number'
+									,a073.[VRKME] AS UOM
+									,a073.[DATAB] AS 'Valid From'
+									,a073.[DATBI] AS 'Valid To'
+									,konp.KBETR AS Amount
+									,konp.[AKTNR] AS Promo
+									,konp.KONWA
+									,konp.[KNUMH]
+									,konp.LIFNR
+									,a073.VTWEG
+						FROM [DSData].[dbo].[A073] AS a073 WITH(NOLOCK) 
+						LEFT OUTER JOIN  [DSData].[dbo].[KONP] AS konp WITH(NOLOCK) 
+						ON a073.KNUMH = konp.KNUMH AND a073.KSCHL = konp.KSCHL
+						WHERE a073.KSCHL in ('VKA0') AND YEAR(a073.[DATBI]) &gt;= YEAR(GETDATE())
+					) t
+				pivot
+				(
+					min(Amount) FOR [KSCHL]
+					in ([Sales Price inc. Tax],[Promo Price inc. Tax])
+				) AS pvt
+		   ) AS t 
+ON t.[Article Number] = mvke.MATNR AND t.[Sales Org] = mvke.VKORG 
+LEFT OUTER JOIN (	SELECT DISTINCT
+								  marc.MATNR AS MATNR
+								 ,t001w.VKORG AS VKORG
+								 ,marc.MMSTA AS MMSTA
+								 ,marc.MMSTD AS MMSTD
+								 ,t001w.EKORG 
+					FROM [DSData].[dbo].[MARC_SITEARTICLE] AS marc WITH(NOLOCK) 
+					LEFT OUTER JOIN [DSData].[dbo].[T001W_SITES] AS t001w WITH(NOLOCK) 
+					ON marc.[WERKS] like 'Z0%' AND marc.WERKS = t001w.WERKS
+				) AS t1 
+ON t1.MATNR = mvke.MATNR AND t1.VKORG = mvke.VKORG AND t1.MMSTD &gt;= t.[Valid From]
+LEFT OUTER JOIN [DSData].[dbo].[TVKOT_SALESORGANIZATIONS] tvkot 
+ON tvkot.VKORG = mvke.VKORG 
+LEFT OUTER JOIN [DSData].[dbo].[MAKT_ARTICLEDESCRIPTIONS] makt WITH(NOLOCK) 
+ON makt.MATNR = mara.[MATNR]
+WHERE CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL THEN NULL ELSE t.[Valid To] END IS NOT NULL
+--AND (mvke.VKORG in ('SO20') or tvkot.VTEXT like '%connection%')
+AND (tvkot.VTEXT != 'JD Supply Chain Serv' AND tvkot.VTEXT != 'JD SC Clearance' AND tvkot.VTEXT != 'Central Purch Corp')
+AND isnumeric(mara.MATNR) = 1
+
+ORDER BY tvkot.VTEXT</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Price Ticket Data\Source National Promo Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemArticleCode]"
+                      length="30"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]"
+                      name="SourceSystemArticleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleDescription]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]"
+                      name="ArticleDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationCode]"
+                      length="4"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]"
+                      name="SalesOrganisationCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationDescription]"
+                      length="20"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]"
+                      name="SalesOrganisationDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleStatus]"
+                      length="2"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]"
+                      name="ArticleStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceIncl]"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceExcl]"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingCurrency]"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]"
+                      name="SellingCurrency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingStartDate]"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]"
+                      name="SellingStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingEndDate]"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]"
+                      name="SellingEndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      length="7"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB1]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]"
+                      name="FAB1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB2]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]"
+                      name="FAB2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB3]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]"
+                      name="FAB3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB4]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]"
+                      name="FAB4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB5]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]"
+                      name="FAB5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB6]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]"
+                      name="FAB6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB7]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]"
+                      name="FAB7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB8]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]"
+                      name="FAB8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SourceSystemArticleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="ArticleDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SalesOrganisationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesOrganisationDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="ArticleStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceIncl]"
+                      dataType="numeric"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceExcl]"
+                      dataType="numeric"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="SellingCurrency" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingStartDate]"
+                      dataType="dbDate"
+                      name="SellingStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingEndDate]"
+                      dataType="dbDate"
+                      name="SellingEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB1" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB3" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB4" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB5" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB6" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB7" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SourceSystemArticleCode]"
+                      name="SourceSystemArticleCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleDescription]"
+                      name="ArticleDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationCode]"
+                      name="SalesOrganisationCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationDescription]"
+                      name="SalesOrganisationDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleStatus]"
+                      name="ArticleStatus" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceIncl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceIncl]"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceExcl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceExcl]"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingCurrency]"
+                      name="SellingCurrency" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingStartDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingStartDate]"
+                      name="SellingStartDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingEndDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingEndDate]"
+                      name="SellingEndDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB1]"
+                      name="FAB1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB2]"
+                      name="FAB2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB3]"
+                      name="FAB3" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB4]"
+                      name="FAB4" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB5]"
+                      name="FAB5" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB6]"
+                      name="FAB6" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB7]"
+                      name="FAB7" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB8]"
+                      name="FAB8" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Price Ticket Data\Source Store Promo Data"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source Store Promo Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Admin].[Userr]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
+				 CONVERT(varchar,CONVERT(numeric,mara.[MATNR])) AS [SourceSystemArticleCode]
+				,MAKT.[MAKTX] AS 'ArticleDescription'
+				,mvke.VKORG AS [SalesOrganisationCode]
+				,tvkot.VTEXT AS 'SalesOrganisationDescription'
+				,t1.MMSTA AS [ArticleStatus]
+				,t.[Promo Price inc. Tax] AS [SellingPriceIncl]
+				,CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) AS [SellingPriceExcl]
+				,t.KONWA AS [SellingCurrency]
+				,CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL 
+					  THEN NULL 
+					  ELSE t.[Valid From] 
+					  END AS [SellingStartDate]
+				,CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL 
+					  THEN NULL 
+					  ELSE t.[Valid To] 
+					  END AS [SellingEndDate]
+				,'Promo' AS 'Type'
+				,mara.[ZZFB01] AS 'FAB1'
+				,mara.[ZZFB02] AS 'FAB2'
+				,mara.[ZZFB03] AS 'FAB3'
+				,mara.[ZZFB04] AS 'FAB4'
+				,mara.[ZZFB05] AS 'FAB5'
+				,mara.[ZZFB06] AS 'FAB6'
+				,mara.[ZZFB07] AS 'FAB7'
+				,mara.[ZZFB08] AS 'FAB8'
+--INTO #TempPromoStore
+FROM [DSData].[dbo].[MARA_ARTICLEMASTER] AS mara WITH(NOLOCK) 
+LEFT OUTER JOIN [DSData].[dbo].[MVKE_SALESARTICLE] AS mvke WITH(NOLOCK) 
+ON mara.MATNR = mvke.MATNR 
+INNER JOIN (  SELECT * 
+				FROM (	SELECT CASE  a071.[KSCHL] WHEN 'VKP0' 
+												  THEN 'Sales Price inc. Tax' 
+												  WHEN 'VKA0' 
+												  THEN 'Promo Price inc. Tax' 
+												  ELSE a071.[KSCHL] 
+												  END AS [KSCHL]
+									,a071.[VKORG] AS 'Sales Org'
+									,a071.[VTWEG] AS DistributionChannel
+									,a071.[MATNR] AS 'Article Number'
+									,a071.[VRKME] AS UOM
+									,a071.[DATAB] AS 'Valid From'
+									,a071.[DATBI] AS 'Valid To'
+									,konp.KBETR AS Amount
+									,konp.[AKTNR] AS Promo
+									,konp.KONWA
+									,konp.[KNUMH]
+									,konp.LIFNR
+									,a071.VTWEG
+						FROM [DSData].[dbo].[A071] AS a071 WITH(NOLOCK) 
+						LEFT OUTER JOIN  [DSData].[dbo].[KONP] AS konp WITH(NOLOCK) 
+						ON a071.KNUMH = konp.KNUMH AND a071.KSCHL = konp.KSCHL
+						WHERE a071.KSCHL in ('VKA0') AND YEAR(a071.[DATBI]) &gt;= YEAR(GETDATE())
+					) t
+				pivot
+				(
+					min(Amount) FOR [KSCHL]
+					in ([Sales Price inc. Tax],[Promo Price inc. Tax])
+				) AS pvt
+		   ) AS t 
+ON t.[Article Number] = mvke.MATNR AND t.[Sales Org] = mvke.VKORG 
+LEFT OUTER JOIN (	SELECT DISTINCT
+								  marc.MATNR AS MATNR
+								 ,t001w.VKORG AS VKORG
+								 ,marc.MMSTA AS MMSTA
+								 ,marc.MMSTD AS MMSTD
+								 ,t001w.EKORG 
+					FROM [DSData].[dbo].[MARC_SITEARTICLE] AS marc WITH(NOLOCK) 
+					LEFT OUTER JOIN [DSData].[dbo].[T001W_SITES] AS t001w WITH(NOLOCK) 
+					ON marc.[WERKS] like 'Z0%' AND marc.WERKS = t001w.WERKS
+				) AS t1 
+ON t1.MATNR = mvke.MATNR AND t1.VKORG = mvke.VKORG AND t1.MMSTD &gt;= t.[Valid From]
+LEFT OUTER JOIN [DSData].[dbo].[TVKOT_SALESORGANIZATIONS] tvkot 
+ON tvkot.VKORG = mvke.VKORG 
+LEFT OUTER JOIN [DSData].[dbo].[MAKT_ARTICLEDESCRIPTIONS] makt WITH(NOLOCK) 
+ON makt.MATNR = mara.[MATNR]
+WHERE CASE WHEN CONVERT(numeric(10,2),t.[Promo Price inc. Tax] / 1.14) IS NULL THEN NULL ELSE t.[Valid To] END IS NOT NULL
+--AND (mvke.VKORG in ('SO20') or tvkot.VTEXT like '%connection%')
+AND (tvkot.VTEXT != 'JD Supply Chain Serv' AND tvkot.VTEXT != 'JD SC Clearance' AND tvkot.VTEXT != 'Central Purch Corp') 
+AND (ISNUMERIC(mara.MATNR) =1)
+
+ORDER BY tvkot.VTEXT</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Price Ticket Data\Source Store Promo Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemArticleCode]"
+                      length="30"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]"
+                      name="SourceSystemArticleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleDescription]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]"
+                      name="ArticleDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationCode]"
+                      length="4"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]"
+                      name="SalesOrganisationCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationDescription]"
+                      length="20"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]"
+                      name="SalesOrganisationDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleStatus]"
+                      length="2"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]"
+                      name="ArticleStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceIncl]"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceExcl]"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingCurrency]"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]"
+                      name="SellingCurrency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingStartDate]"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]"
+                      name="SellingStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingEndDate]"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]"
+                      name="SellingEndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      length="7"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB1]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]"
+                      name="FAB1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB2]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]"
+                      name="FAB2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB3]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]"
+                      name="FAB3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB4]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]"
+                      name="FAB4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB5]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]"
+                      name="FAB5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB6]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]"
+                      name="FAB6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB7]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]"
+                      name="FAB7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB8]"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]"
+                      name="FAB8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SourceSystemArticleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="ArticleDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SalesOrganisationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesOrganisationDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="ArticleStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceIncl]"
+                      dataType="numeric"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingPriceExcl]"
+                      dataType="numeric"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="SellingCurrency" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingStartDate]"
+                      dataType="dbDate"
+                      name="SellingStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[SellingEndDate]"
+                      dataType="dbDate"
+                      name="SellingEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB1" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB2" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB3" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB4" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB5" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB6" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB7" />
+                    <externalMetadataColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].ExternalColumns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FAB8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SourceSystemArticleCode]"
+                      name="SourceSystemArticleCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleDescription]"
+                      name="ArticleDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationCode]"
+                      name="SalesOrganisationCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SalesOrganisationDescription]"
+                      name="SalesOrganisationDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ArticleStatus]"
+                      name="ArticleStatus" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceIncl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceIncl]"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceExcl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingPriceExcl]"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingCurrency]"
+                      name="SellingCurrency" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingStartDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingStartDate]"
+                      name="SellingStartDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingEndDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[SellingEndDate]"
+                      name="SellingEndDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB1]"
+                      name="FAB1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB2]"
+                      name="FAB2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB3]"
+                      name="FAB3" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB4]"
+                      name="FAB4" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB5]"
+                      name="FAB5" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB6]"
+                      name="FAB6" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB7]"
+                      name="FAB7" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[FAB8]"
+                      name="FAB8" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Price Ticket Data\Union Data"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union Data"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SourceSystemArticleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SourceSystemArticleCode"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SourceSystemArticleCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[ArticleDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ArticleDescription"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SalesOrganisationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SalesOrganisationCode"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SalesOrganisationDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SalesOrganisationDescription"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[ArticleStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="ArticleStatus"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SellingPriceIncl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceIncl"
+                      cachedPrecision="11"
+                      cachedScale="2"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceIncl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SellingPriceExcl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceExcl"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceExcl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SellingCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="SellingCurrency"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingCurrency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SellingStartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingStartDate"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingStartDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[SellingEndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingEndDate"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingEndDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="Type"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB1"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB2"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB3"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB3]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB4"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB4]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB5"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB5]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB6"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB6]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB7]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB7"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB7]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1].Columns[FAB8]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB8"
+                      lineageId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB8]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SourceSystemArticleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SourceSystemArticleCode"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SourceSystemArticleCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SourceSystemArticleCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[ArticleDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ArticleDescription"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SalesOrganisationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SalesOrganisationCode"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SalesOrganisationDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SalesOrganisationDescription"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SalesOrganisationDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[ArticleStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="ArticleStatus"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[ArticleStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SellingPriceIncl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceIncl"
+                      cachedPrecision="11"
+                      cachedScale="2"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceIncl]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceIncl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SellingPriceExcl]"
+                      cachedDataType="numeric"
+                      cachedName="SellingPriceExcl"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingPriceExcl]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceExcl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SellingCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="SellingCurrency"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingCurrency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingCurrency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SellingStartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingStartDate"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingStartDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingStartDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[SellingEndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="SellingEndDate"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[SellingEndDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingEndDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="Type"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB1"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB2"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB3"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB3]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB3]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB4"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB4]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB4]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB5"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB5]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB5]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB6"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB6]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB6]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB7]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB7"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB7]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB7]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2].Columns[FAB8]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FAB8"
+                      lineageId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output].Columns[FAB8]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB8]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 5]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 5">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SourceSystemArticleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SourceSystemArticleCode]"
+                      name="SourceSystemArticleCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleDescription]"
+                      name="ArticleDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationCode]"
+                      name="SalesOrganisationCode" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SalesOrganisationDescription]"
+                      name="SalesOrganisationDescription" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[ArticleStatus]"
+                      name="ArticleStatus" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceIncl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceIncl]"
+                      name="SellingPriceIncl"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceExcl]"
+                      dataType="numeric"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingPriceExcl]"
+                      name="SellingPriceExcl"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingCurrency]"
+                      name="SellingCurrency" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingStartDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingStartDate]"
+                      name="SellingStartDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingEndDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[SellingEndDate]"
+                      name="SellingEndDate" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB1]"
+                      name="FAB1" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB2]"
+                      name="FAB2" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB3]"
+                      name="FAB3" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB4]"
+                      name="FAB4" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB5]"
+                      name="FAB5" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB6]"
+                      name="FAB6" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB7]"
+                      name="FAB7" />
+                    <outputColumn
+                      refId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1].Columns[FAB8]"
+                      name="FAB8" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Get Price Ticket Data.Paths[OLE DB Source Output1]"
+              endId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 2]"
+              name="OLE DB Source Output"
+              startId="Package\Get Price Ticket Data\Source Store Promo Data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Get Price Ticket Data.Paths[OLE DB Source Output]"
+              endId="Package\Get Price Ticket Data\Union Data.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Get Price Ticket Data\Source National Promo Data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Get Price Ticket Data.Paths[Union All Output 1]"
+              endId="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets.Inputs[Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Get Price Ticket Data\Union Data.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Get Price Ticket Data"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Get Price Ticket Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Get Price Ticket Data\Source Store Promo Data"
+          TopLeft="315,21" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Get Price Ticket Data\Source National Promo Data"
+          TopLeft="15.5,20.5" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Get Price Ticket Data\Union Data"
+          TopLeft="570,197" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets"
+          TopLeft="510.5,312.5" />
+        <EdgeLayout
+          Id="Package\Get Price Ticket Data.Paths[OLE DB Source Output1]"
+          TopLeft="414,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="221.5,134"
+              Start="0,0"
+              End="221.5,126.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63"
+                    Point2="0,67"
+                    Point3="4,67" />
+                  <mssgle:LineSegment
+                    End="217.5,67" />
+                  <mssgle:CubicBezierSegment
+                    Point1="217.5,67"
+                    Point2="221.5,67"
+                    Point3="221.5,71" />
+                  <mssgle:LineSegment
+                    End="221.5,126.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get Price Ticket Data.Paths[OLE DB Source Output]"
+          TopLeft="121.5,62.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="483.25,134.5"
+              Start="0,0"
+              End="483.25,127">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8778054862843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,83.8778054862843"
+                    Point2="0,87.8778054862843"
+                    Point3="4,87.8778054862843" />
+                  <mssgle:LineSegment
+                    End="479.25,87.8778054862843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="479.25,87.8778054862843"
+                    Point2="483.25,87.8778054862843"
+                    Point3="483.25,91.8778054862843" />
+                  <mssgle:LineSegment
+                    End="483.25,127" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get Price Ticket Data.Paths[Union All Output 1]"
+          TopLeft="637.5,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.5"
+              Start="0,0"
+              End="0,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Price Ticket Data\Source Store Promo Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Price Ticket Data\Source National Promo Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Price Ticket Data\Destination - Fact_AMS_Price_Tickets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2478 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/5/2015 11:29:04 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGRISK"
+  DTS:CreatorName="JDG\790450"
+  DTS:DTSID="{5E41E1E7-E097-45B5-AA0E-77DEF6A1DCE8}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Update SP Site Reports"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4EE52DED-9304-489E-935A-8EE88F1B10F2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitservices.Every_Angle.update]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{332E11B3-4B95-4409-82AB-64162C1ED098}"
+      DTS:ObjectName="jdgitservices.Every_Angle.update">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices;User ID=update;Initial Catalog=Every_Angle;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package3-{332E11B3-4B95-4409-82AB-64162C1ED098}jdgitservices.Every_Angle.update;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C24AC437-C665-4898-83FB-DB77C1A9FFF4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Get Site Reports"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8E40D939-B07E-402B-8DE2-E800BF52E9A1}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Site Reports"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Get Site Reports\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_Site_Reports]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitservices.Every_Angle.update]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitservices.Every_Angle.update]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Created"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Created]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Modified]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modified"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Modified]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Modified]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Title"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Edit]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="Edit"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Edit]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Edit]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name (LinkFilename)]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="Name (LinkFilename)"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkFilename]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (LinkFilename)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name (FileLeafRef)]"
+                          cachedDataType="wstr"
+                          cachedLength="256"
+                          cachedName="Name (FileLeafRef)"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileLeafRef]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (FileLeafRef)]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[E-Mail Subject]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="E-Mail Subject"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailSubject]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Subject]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailSubject]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmailSubject" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          name="Created" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Modified]"
+                          dataType="dbTimeStamp"
+                          name="Modified" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkFilename]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LinkFilename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileLeafRef]"
+                          dataType="wstr"
+                          length="256"
+                          name="FileLeafRef" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="255"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          name="ParentVersionString" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentLeafName]"
+                          dataType="wstr"
+                          length="255"
+                          name="ParentLeafName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailSender]"
+                          dataType="nText"
+                          name="EmailSender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailTo]"
+                          dataType="nText"
+                          name="EmailTo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailCc]"
+                          dataType="nText"
+                          name="EmailCc" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailFrom]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmailFrom" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailHeaders]"
+                          dataType="nText"
+                          name="EmailHeaders" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContentType]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ContentType" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Author]"
+                          dataType="wstr"
+                          length="100"
+                          name="Author" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Editor]"
+                          dataType="wstr"
+                          length="100"
+                          name="Editor" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[_CopySource]"
+                          dataType="wstr"
+                          length="255"
+                          name="_CopySource" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CheckoutUser]"
+                          dataType="wstr"
+                          length="100"
+                          name="CheckoutUser" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[_CheckinComment]"
+                          dataType="wstr"
+                          length="255"
+                          name="_CheckinComment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkFilenameNoMenu]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LinkFilenameNoMenu" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DocIcon]"
+                          dataType="wstr"
+                          length="4000"
+                          name="DocIcon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileSizeDisplay]"
+                          dataType="wstr"
+                          length="4000"
+                          name="FileSizeDisplay" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          name="ItemChildCount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FolderChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          name="FolderChildCount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Edit]"
+                          dataType="wstr"
+                          length="4000"
+                          name="Edit" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[_UIVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          name="_UIVersionString" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  description="Extract data from SharePoint lists"
+                  name="SharePoint List Source 1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.SharePointListSource, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47</property>
+                    <property
+                      dataType="System.String"
+                      description="Path to SharePoint site / subsite that contains the list."
+                      expressionType="Notify"
+                      name="SiteUrl">http://jdgintranet/retail_reports</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListName">Site Reports</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the view within SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListViewName">Admin</property>
+                    <property
+                      dataType="System.String"
+                      description="Culture to use when communicating with remote SharePoint Server (en-US)."
+                      expressionType="Notify"
+                      name="SharePointCulture">en-US</property>
+                    <property
+                      dataType="System.String"
+                      description="CAML Query to use to more specifically pull back the rows you are interested in from SharePoint (Look up syntax of using this XML Element: &lt;Query /&gt;)"
+                      expressionType="Notify"
+                      name="CamlQuery">&lt;Query /&gt;</property>
+                    <property
+                      dataType="System.Int16"
+                      description="# of elements to pull from the Webservice at a time."
+                      name="BatchSize"
+                      typeConverter="System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="When loading items, should subfolders within the list also be loaded. Set to 'true' to load child folders."
+                      name="IsRecursive"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to return folders with the list content"
+                      name="IncludeFolders"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to return colunmns SharePoint considers hidden"
+                      name="IncludeHiddenColumns"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to decode lookups and make an ID/Value column for each (newline delimited)"
+                      name="DecodeLookupColumns"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to use a connection manager for this component"
+                      name="UseConnectionManager"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output]"
+                      description="Site Reports"
+                      name="Public List Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[ID]"
+                          dataType="i4"
+                          description="ID"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[ID]"
+                          name="ID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Subject]"
+                          dataType="wstr"
+                          description="E-Mail Subject"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Subject]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Subject]"
+                          name="E-Mail Subject">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSubject</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          description="Created"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Created]"
+                          name="Created">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Created</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          description="Modified"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Modified]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Modified]"
+                          name="Modified">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Modified</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (LinkFilename)]"
+                          dataType="wstr"
+                          description="Name"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (LinkFilename)]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (LinkFilename)]"
+                          name="Name (LinkFilename)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkFilename</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (FileLeafRef)]"
+                          dataType="wstr"
+                          description="Name"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (FileLeafRef)]"
+                          length="256"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (FileLeafRef)]"
+                          name="Name (FileLeafRef)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FileLeafRef</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Title]"
+                          dataType="wstr"
+                          description="Title"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Title]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Title]"
+                          name="Title">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Title</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Source Version (Converted Document)]"
+                          dataType="wstr"
+                          description="Source Version (Converted Document)"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Source Version (Converted Document)]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Source Version (Converted Document)]"
+                          name="Source Version (Converted Document)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ParentVersionString</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Source Name (Converted Document)]"
+                          dataType="wstr"
+                          description="Source Name (Converted Document)"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Source Name (Converted Document)]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Source Name (Converted Document)]"
+                          name="Source Name (Converted Document)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ParentLeafName</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Sender]"
+                          dataType="nText"
+                          description="E-Mail Sender"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Sender]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Sender]"
+                          name="E-Mail Sender">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSender</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail To]"
+                          dataType="nText"
+                          description="E-Mail To"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail To]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail To]"
+                          name="E-Mail To">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailTo</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Cc]"
+                          dataType="nText"
+                          description="E-Mail Cc"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Cc]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Cc]"
+                          name="E-Mail Cc">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailCc</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail From]"
+                          dataType="wstr"
+                          description="E-Mail From"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail From]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail From]"
+                          name="E-Mail From">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailFrom</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Headers]"
+                          dataType="nText"
+                          description="E-Mail Headers"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Headers]"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[E-Mail Headers]"
+                          name="E-Mail Headers">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailHeaders</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Content Type]"
+                          dataType="wstr"
+                          description="Content Type"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Content Type]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Content Type]"
+                          name="Content Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ContentType</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Created By]"
+                          dataType="wstr"
+                          description="Created By"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Created By]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Created By]"
+                          name="Created By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Author</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Modified By]"
+                          dataType="wstr"
+                          description="Modified By"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Modified By]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Modified By]"
+                          name="Modified By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Editor</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Copy Source]"
+                          dataType="wstr"
+                          description="Copy Source"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Copy Source]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Copy Source]"
+                          name="Copy Source">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_CopySource</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Checked Out To]"
+                          dataType="wstr"
+                          description="Checked Out To"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Checked Out To]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Checked Out To]"
+                          name="Checked Out To">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">CheckoutUser</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Check In Comment]"
+                          dataType="wstr"
+                          description="Check In Comment"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Check In Comment]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Check In Comment]"
+                          name="Check In Comment">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_CheckinComment</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (LinkFilenameNoMenu)]"
+                          dataType="wstr"
+                          description="Name"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (LinkFilenameNoMenu)]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Name (LinkFilenameNoMenu)]"
+                          name="Name (LinkFilenameNoMenu)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkFilenameNoMenu</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Type]"
+                          dataType="wstr"
+                          description="Type"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Type]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Type]"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">DocIcon</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[File Size]"
+                          dataType="wstr"
+                          description="File Size"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[File Size]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[File Size]"
+                          name="File Size">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FileSizeDisplay</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Item Child Count]"
+                          dataType="wstr"
+                          description="Item Child Count"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Item Child Count]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Item Child Count]"
+                          name="Item Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ItemChildCount</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Folder Child Count]"
+                          dataType="wstr"
+                          description="Folder Child Count"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Folder Child Count]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Folder Child Count]"
+                          name="Folder Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FolderChildCount</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Edit]"
+                          dataType="wstr"
+                          description="Edit"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Edit]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Edit]"
+                          name="Edit">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Edit</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Version]"
+                          dataType="wstr"
+                          description="Version"
+                          externalMetadataColumnId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Version]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].Columns[Version]"
+                          name="Version">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_UIVersionString</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          description="ID"
+                          name="ID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ID</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Subject]"
+                          dataType="wstr"
+                          description="E-Mail Subject"
+                          length="255"
+                          name="E-Mail Subject">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSubject</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          description="Created"
+                          name="Created">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Created</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Modified]"
+                          dataType="dbTimeStamp"
+                          description="Modified"
+                          name="Modified">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Modified</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (LinkFilename)]"
+                          dataType="wstr"
+                          description="Name"
+                          length="4000"
+                          name="Name (LinkFilename)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkFilename</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (FileLeafRef)]"
+                          dataType="wstr"
+                          description="Name"
+                          length="256"
+                          name="Name (FileLeafRef)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FileLeafRef</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Title]"
+                          dataType="wstr"
+                          description="Title"
+                          length="255"
+                          name="Title">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Title</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Source Version (Converted Document)]"
+                          dataType="wstr"
+                          description="Source Version (Converted Document)"
+                          length="255"
+                          name="Source Version (Converted Document)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ParentVersionString</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Source Name (Converted Document)]"
+                          dataType="wstr"
+                          description="Source Name (Converted Document)"
+                          length="255"
+                          name="Source Name (Converted Document)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ParentLeafName</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Sender]"
+                          dataType="nText"
+                          description="E-Mail Sender"
+                          name="E-Mail Sender">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSender</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail To]"
+                          dataType="nText"
+                          description="E-Mail To"
+                          name="E-Mail To">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailTo</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Cc]"
+                          dataType="nText"
+                          description="E-Mail Cc"
+                          name="E-Mail Cc">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailCc</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail From]"
+                          dataType="wstr"
+                          description="E-Mail From"
+                          length="255"
+                          name="E-Mail From">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailFrom</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[E-Mail Headers]"
+                          dataType="nText"
+                          description="E-Mail Headers"
+                          name="E-Mail Headers">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailHeaders</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Content Type]"
+                          dataType="wstr"
+                          description="Content Type"
+                          length="4000"
+                          name="Content Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ContentType</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Created By]"
+                          dataType="wstr"
+                          description="Created By"
+                          length="100"
+                          name="Created By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Author</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Modified By]"
+                          dataType="wstr"
+                          description="Modified By"
+                          length="100"
+                          name="Modified By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Editor</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Copy Source]"
+                          dataType="wstr"
+                          description="Copy Source"
+                          length="255"
+                          name="Copy Source">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_CopySource</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Checked Out To]"
+                          dataType="wstr"
+                          description="Checked Out To"
+                          length="100"
+                          name="Checked Out To">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">CheckoutUser</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Check In Comment]"
+                          dataType="wstr"
+                          description="Check In Comment"
+                          length="255"
+                          name="Check In Comment">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_CheckinComment</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Name (LinkFilenameNoMenu)]"
+                          dataType="wstr"
+                          description="Name"
+                          length="4000"
+                          name="Name (LinkFilenameNoMenu)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkFilenameNoMenu</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Type]"
+                          dataType="wstr"
+                          description="Type"
+                          length="4000"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">DocIcon</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[File Size]"
+                          dataType="wstr"
+                          description="File Size"
+                          length="4000"
+                          name="File Size">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FileSizeDisplay</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Item Child Count]"
+                          dataType="wstr"
+                          description="Item Child Count"
+                          length="255"
+                          name="Item Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ItemChildCount</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Folder Child Count]"
+                          dataType="wstr"
+                          description="Folder Child Count"
+                          length="255"
+                          name="Folder Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FolderChildCount</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Edit]"
+                          dataType="wstr"
+                          description="Edit"
+                          length="4000"
+                          name="Edit">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Edit</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output].ExternalColumns[Version]"
+                          dataType="wstr"
+                          description="Version"
+                          length="255"
+                          name="Version">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_UIVersionString</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Get Site Reports.Paths[Public List Output]"
+                  endId="Package\Sequence Container\Get Site Reports\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Public List Output"
+                  startId="Package\Sequence Container\Get Site Reports\SharePoint List Source 1.Outputs[Public List Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Truncate stage Site Reports"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{32CBF462-5426-4A94-BF13-C10768C9CAAE}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate stage Site Reports"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{332E11B3-4B95-4409-82AB-64162C1ED098}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Truncate Table [Every_Angle].[dbo].[stage_Site_Reports]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Site Reports"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4D9EF752-88F7-4543-B773-E13384BED5CA}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Site Reports"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Update Site Reports\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_Site_Reports]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitservices.Every_Angle.update]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitservices.Every_Angle.update]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSubject]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailSubject]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSubject]"
+                          name="EmailSubject"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]"
+                          name="Created"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Modified]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]"
+                          name="Modified"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilename]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkFilename]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilename]"
+                          name="LinkFilename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileLeafRef]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileLeafRef]"
+                          length="256"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileLeafRef]"
+                          name="FileLeafRef"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                          name="Title"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentVersionString]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentVersionString]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentVersionString]"
+                          name="ParentVersionString"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentLeafName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentLeafName]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentLeafName]"
+                          name="ParentLeafName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSender]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailSender]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSender]"
+                          name="EmailSender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailTo]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailTo]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailTo]"
+                          name="EmailTo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailCc]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailCc]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailCc]"
+                          name="EmailCc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailFrom]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailFrom]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailFrom]"
+                          name="EmailFrom"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailHeaders]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailHeaders]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailHeaders]"
+                          name="EmailHeaders"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContentType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContentType]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContentType]"
+                          name="ContentType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Author]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Author]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Author]"
+                          name="Author"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Editor]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Editor]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Editor]"
+                          name="Editor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CopySource]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_CopySource]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CopySource]"
+                          name="_CopySource"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckoutUser]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CheckoutUser]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckoutUser]"
+                          name="CheckoutUser"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CheckinComment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_CheckinComment]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CheckinComment]"
+                          name="_CheckinComment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilenameNoMenu]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkFilenameNoMenu]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilenameNoMenu]"
+                          name="LinkFilenameNoMenu"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[DocIcon]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DocIcon]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[DocIcon]"
+                          name="DocIcon"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileSizeDisplay]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileSizeDisplay]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileSizeDisplay]"
+                          name="FileSizeDisplay"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemChildCount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemChildCount]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemChildCount]"
+                          name="ItemChildCount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FolderChildCount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FolderChildCount]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FolderChildCount]"
+                          name="FolderChildCount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Edit]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Edit]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Edit]"
+                          name="Edit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_UIVersionString]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_UIVersionString]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_UIVersionString]"
+                          name="_UIVersionString"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailSubject]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmailSubject" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          name="Created" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Modified]"
+                          dataType="dbTimeStamp"
+                          name="Modified" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkFilename]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LinkFilename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileLeafRef]"
+                          dataType="wstr"
+                          length="256"
+                          name="FileLeafRef" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="255"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          name="ParentVersionString" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ParentLeafName]"
+                          dataType="wstr"
+                          length="255"
+                          name="ParentLeafName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailSender]"
+                          dataType="nText"
+                          name="EmailSender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailTo]"
+                          dataType="nText"
+                          name="EmailTo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailCc]"
+                          dataType="nText"
+                          name="EmailCc" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailFrom]"
+                          dataType="wstr"
+                          length="255"
+                          name="EmailFrom" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailHeaders]"
+                          dataType="nText"
+                          name="EmailHeaders" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContentType]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ContentType" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Author]"
+                          dataType="wstr"
+                          length="100"
+                          name="Author" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Editor]"
+                          dataType="wstr"
+                          length="100"
+                          name="Editor" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_CopySource]"
+                          dataType="wstr"
+                          length="255"
+                          name="_CopySource" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CheckoutUser]"
+                          dataType="wstr"
+                          length="100"
+                          name="CheckoutUser" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_CheckinComment]"
+                          dataType="wstr"
+                          length="255"
+                          name="_CheckinComment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkFilenameNoMenu]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LinkFilenameNoMenu" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DocIcon]"
+                          dataType="wstr"
+                          length="4000"
+                          name="DocIcon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileSizeDisplay]"
+                          dataType="wstr"
+                          length="4000"
+                          name="FileSizeDisplay" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          name="ItemChildCount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FolderChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          name="FolderChildCount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Edit]"
+                          dataType="wstr"
+                          length="4000"
+                          name="Edit" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_UIVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          name="_UIVersionString" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailSubject]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailSubject]"
+                          name="EmailSubject" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Created]"
+                          name="Created" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Modified]"
+                          name="Modified" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkFilename]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkFilename]"
+                          name="LinkFilename" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileLeafRef]"
+                          dataType="wstr"
+                          length="256"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileLeafRef]"
+                          name="FileLeafRef" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                          name="Title" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentVersionString]"
+                          name="ParentVersionString" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentLeafName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ParentLeafName]"
+                          name="ParentLeafName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailSender]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailSender]"
+                          name="EmailSender" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailTo]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailTo]"
+                          name="EmailTo" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailCc]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailCc]"
+                          name="EmailCc" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailFrom]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailFrom]"
+                          name="EmailFrom" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailHeaders]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailHeaders]"
+                          name="EmailHeaders" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContentType]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContentType]"
+                          name="ContentType" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Author]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Author]"
+                          name="Author" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Editor]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Editor]"
+                          name="Editor" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_CopySource]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_CopySource]"
+                          name="_CopySource" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CheckoutUser]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CheckoutUser]"
+                          name="CheckoutUser" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_CheckinComment]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_CheckinComment]"
+                          name="_CheckinComment" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkFilenameNoMenu]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkFilenameNoMenu]"
+                          name="LinkFilenameNoMenu" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DocIcon]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DocIcon]"
+                          name="DocIcon" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileSizeDisplay]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileSizeDisplay]"
+                          name="FileSizeDisplay" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemChildCount]"
+                          name="ItemChildCount" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FolderChildCount]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FolderChildCount]"
+                          name="FolderChildCount" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Edit]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Edit]"
+                          name="Edit" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_UIVersionString]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_UIVersionString]"
+                          name="_UIVersionString" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  description="Add, update, or delete data in SharePoint lists"
+                  name="SharePoint List Destination 1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.SharePointListDestination, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47</property>
+                    <property
+                      dataType="System.String"
+                      description="Path to SharePoint site that contains the list."
+                      expressionType="Notify"
+                      name="SiteUrl">http://jdgintranet/retail_reports</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListName">Site Reports</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the view within SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListViewName">Admin</property>
+                    <property
+                      dataType="System.String"
+                      description="Culture to use when communicating with remote SharePoint Server (en-US)."
+                      expressionType="Notify"
+                      name="SharePointCulture">en-US</property>
+                    <property
+                      dataType="System.Int16"
+                      description="# of elements to pull from the Webservice at a time."
+                      name="BatchSize"
+                      typeConverter="System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">200</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determine if the destination rows are Modifications (udpates and inserts), or Deletions.  Updates and Deletes must have an ID Column with the SharePoint ID. "
+                      name="BatchType"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.BatchType, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to use a connection manager for this component"
+                      name="UseConnectionManager"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input]"
+                      description="Site Reports"
+                      hasSideEffects="true"
+                      name="Component Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailSubject]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="EmailSubject"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Subject]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSubject]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Created"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Created]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Modified]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modified"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Modified]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[LinkFilename]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="LinkFilename"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilename]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[FileLeafRef]"
+                          cachedDataType="wstr"
+                          cachedLength="256"
+                          cachedName="FileLeafRef"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileLeafRef]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Title"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[Title]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[ParentVersionString]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ParentVersionString"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentVersionString]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[ParentLeafName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ParentLeafName"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ParentLeafName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailSender]"
+                          cachedDataType="nText"
+                          cachedName="EmailSender"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Sender]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailSender]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailTo]"
+                          cachedDataType="nText"
+                          cachedName="EmailTo"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail To]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailTo]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailCc]"
+                          cachedDataType="nText"
+                          cachedName="EmailCc"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Cc]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailCc]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailFrom]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="EmailFrom"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail From]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailFrom]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[EmailHeaders]"
+                          cachedDataType="nText"
+                          cachedName="EmailHeaders"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Headers]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailHeaders]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[ContentType]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ContentType"
+                          externalMetadataColumnId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[Content Type]"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContentType]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Author]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Author"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Author]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Editor]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Editor"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Editor]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[_CopySource]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="_CopySource"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CopySource]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[CheckoutUser]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CheckoutUser"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckoutUser]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[_CheckinComment]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="_CheckinComment"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_CheckinComment]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[LinkFilenameNoMenu]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="LinkFilenameNoMenu"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkFilenameNoMenu]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[DocIcon]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="DocIcon"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[DocIcon]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[FileSizeDisplay]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="FileSizeDisplay"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileSizeDisplay]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[ItemChildCount]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ItemChildCount"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemChildCount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[FolderChildCount]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FolderChildCount"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[FolderChildCount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[Edit]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="Edit"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[Edit]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].Columns[_UIVersionString]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="_UIVersionString"
+                          lineageId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output].Columns[_UIVersionString]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          description="ID"
+                          name="ID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ID</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Subject]"
+                          dataType="wstr"
+                          description="E-Mail Subject"
+                          length="255"
+                          name="E-Mail Subject">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSubject</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          description="Name"
+                          length="256"
+                          name="Name">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FileLeafRef</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[Title]"
+                          dataType="wstr"
+                          description="Title"
+                          length="255"
+                          name="Title">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Title</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Sender]"
+                          dataType="nText"
+                          description="E-Mail Sender"
+                          name="E-Mail Sender">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailSender</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail To]"
+                          dataType="nText"
+                          description="E-Mail To"
+                          name="E-Mail To">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailTo</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Cc]"
+                          dataType="nText"
+                          description="E-Mail Cc"
+                          name="E-Mail Cc">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailCc</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail From]"
+                          dataType="wstr"
+                          description="E-Mail From"
+                          length="255"
+                          name="E-Mail From">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailFrom</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[E-Mail Headers]"
+                          dataType="nText"
+                          description="E-Mail Headers"
+                          name="E-Mail Headers">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">EmailHeaders</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input].ExternalColumns[Content Type]"
+                          dataType="wstr"
+                          description="Content Type"
+                          length="4000"
+                          name="Content Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ContentType</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Update Site Reports.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1.Inputs[Component Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Update Site Reports\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Values"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3408C9AF-CE95-4F2B-8D45-09244A8F8391}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Values"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{332E11B3-4B95-4409-82AB-64162C1ED098}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC [dbo].[sp_Update_Site_Reports] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F084E009-73A1-4AF6-A840-2F9DD6C891ED}"
+          DTS:From="Package\Sequence Container\Get Site Reports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Update Values" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{94439E76-171B-4234-AD7D-345835B89AA9}"
+          DTS:From="Package\Sequence Container\Update Values"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Update Site Reports" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{18004F6A-5EBF-46E3-8FAB-00BA0C198A17}"
+          DTS:From="Package\Sequence Container\Truncate stage Site Reports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Get Site Reports" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Get Site Reports"
+          TopLeft="26.9811320754717,68.8490566037736" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Truncate stage Site Reports"
+          TopLeft="24.9811320754717,10.9245283018868" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Update Site Reports"
+          TopLeft="29.9622641509434,229.603773584906" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Update Values"
+          TopLeft="24.9811320754717,143.716981132075" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="94.8679245283019,112.77358490566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-2,30.9433962264151"
+              Start="0,0"
+              End="-2,23.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-2,15.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-2,23.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="92.8679245283019,187.641509433962">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4.98113207547169,41.9622641509434"
+              Start="0,0"
+              End="4.98113207547169,34.4622641509434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9811320754717" />
+                  <mssgle:LineSegment
+                    End="4.98113207547169,20.9811320754717" />
+                  <mssgle:LineSegment
+                    End="4.98113207547169,34.4622641509434" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="92.8679245283019,54.8490566037736">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="2,14"
+              Start="0,0"
+              End="2,6.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.98113207547169" />
+                  <mssgle:LineSegment
+                    End="2,6.98113207547169" />
+                  <mssgle:LineSegment
+                    End="2,6.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,300"
+          Size="178,344"
+          Id="Package\Sequence Container"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Get Site Reports">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Get Site Reports\OLE DB Destination"
+          TopLeft="5.5,95.3490566037736" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\Get Site Reports\SharePoint List Source 1"
+          TopLeft="274,41" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Get Site Reports.Paths[Public List Output]"
+          TopLeft="274,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-132.5,55.3490566037736"
+              Start="0,0"
+              End="-125,55.3490566037736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.25,0"
+                    Point2="-66.25,0"
+                    Point3="-66.25,4" />
+                  <mssgle:LineSegment
+                    End="-66.25,51.3490566037736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-66.25,51.3490566037736"
+                    Point2="-66.25,55.3490566037736"
+                    Point3="-70.25,55.3490566037736" />
+                  <mssgle:LineSegment
+                    End="-125,55.3490566037736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get Site Reports\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Update Site Reports">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Update Site Reports\OLE DB Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Sequence Container\Update Site Reports\SharePoint List Destination 1"
+          TopLeft="274,188" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Site Reports.Paths[OLE DB Source Output]"
+          TopLeft="73.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="308,138.5"
+              Start="0,0"
+              End="308,131">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,65.25"
+                    Point2="0,69.25"
+                    Point3="4,69.25" />
+                  <mssgle:LineSegment
+                    End="304,69.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="304,69.25"
+                    Point2="308,69.25"
+                    Point3="308,73.25" />
+                  <mssgle:LineSegment
+                    End="308,131" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="JDG\790450"
+  DTS:CreatorComputerName="JDGRISK"
+  DTS:CreationDate="6/27/2014 3:52:25 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{F139E350-E183-426A-807B-E12984297F56}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PT Mail"
+  DTS:DTSID="{6F285BDF-B442-450B-A1CA-A6C5DFEFA0CE}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgaudit.Policy_and_Procedures.reports]"
+      DTS:ObjectName="jdgaudit.Policy_and_Procedures.reports"
+      DTS:DTSID="{CC8CB515-CF42-43A0-B216-5614949FE656}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgaudit;User ID=reports;Initial Catalog=Policy_and_Procedures;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{CC8CB515-CF42-43A0-B216-5614949FE656}jdgaudit.Policy_and_Procedures.reports;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhG7BVKvI+UqfJ42TftQMGgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAg9tFJo5avBt56ZLYp5bK+AAAAAASAAACgAAAAEAAAAFSguoH/Gsa0FU1I/8qg6ckYAAAANmjkDjaTdvUXkFK6KA1B+ZqAYT2cI78PFAAAAAFopes+2xezOGJ5oGV10wXpXQee</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container"
+      DTS:DTSID="{4F0C53A3-AB28-4BD9-99BB-2223A5BE323B}"
+      DTS:Description="Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Clear Null"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:ThreadHint="0"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Clear Null"
+          DTS:DTSID="{DBA02C0D-434C-46D7-B35F-B907C0CE79EC}"
+          DTS:Description="Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CC8CB515-CF42-43A0-B216-5614949FE656}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="DELETE &#xA;FROM [msdb].[dbo].[sysmail_allitems]&#xA;where Convert(DateTime, Convert(VarChar, sent_date, 101)) = Convert(DateTime, Convert(VarChar, GETDATE(), 101)) and [blind_copy_recipients] is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Send Mail"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:ThreadHint="0"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail"
+          DTS:DTSID="{718EA936-17B0-4B45-9CFA-F7D90FBC55AA}"
+          DTS:Description="Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CC8CB515-CF42-43A0-B216-5614949FE656}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="begin&#xA;waitfor delay '00:02:00'&#xA;EXECUTE [Policy_and_Procedures].[dbo].[PT_Mail] &#xA;end&#xA;GO 250" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Successfull"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:ThreadHint="0"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Successfull"
+          DTS:DTSID="{99575B5A-7501-4DC5-8B9D-28229414C382}"
+          DTS:Description="Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CC8CB515-CF42-43A0-B216-5614949FE656}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail&#xA;    @profile_name = 'Policy Tracker',&#xA;    @recipients = 'fanievdw@jdg.co.za;andrewm@jdg.co.za',&#xA;    @subject = 'PT Mails were successfull'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Unsuccessfull"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:ThreadHint="1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Unsuccessfull"
+          DTS:DTSID="{69432EC8-AC79-42FD-A9C2-B12A1BEB0FE3}"
+          DTS:Description="Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CC8CB515-CF42-43A0-B216-5614949FE656}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail&#xA;    @profile_name = 'Policy Tracker',&#xA;    @recipients = 'fanievdw@jdg.co.za;andrewm@jdg.co.za',&#xA;    @subject = 'PT Mails were unsuccessfull'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:From="Package\Sequence Container\Send Mail"
+          DTS:To="Package\Sequence Container\Clear Null"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:DTSID="{F2762168-81ED-4D9D-81FD-51B1C0F7741D}"
+          DTS:CreationName="" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:From="Package\Sequence Container\Send Mail"
+          DTS:To="Package\Sequence Container\Unsuccessfull"
+          DTS:Value="1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:DTSID="{C833D850-B2B3-459A-8704-05878185AA0B}"
+          DTS:CreationName="" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:From="Package\Sequence Container\Clear Null"
+          DTS:To="Package\Sequence Container\Successfull"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:DTSID="{951F387F-5D2C-432E-9A79-3C6B62FFA31C}"
+          DTS:CreationName="" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Clear Null"
+          TopLeft="27.2075471698113,110.77358490566" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Send Mail"
+          TopLeft="183.811320754717,8.88679245283019" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Successfull"
+          TopLeft="32.1132075471698,197.830188679245" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Unsuccessfull"
+          TopLeft="259.698113207547,112.77358490566" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="230.943396226415,52.811320754717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-135.849056603774,57.9622641509434"
+              Start="0,0"
+              End="-135.849056603774,50.4622641509434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.9811320754717" />
+                  <mssgle:LineSegment
+                    End="-135.849056603774,28.9811320754717" />
+                  <mssgle:LineSegment
+                    End="-135.849056603774,50.4622641509434" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="272.452830188679,52.811320754717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.1320754716981,59.9622641509434"
+              Start="0,0"
+              End="55.1320754716981,52.4622641509434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9622641509434" />
+                  <mssgle:LineSegment
+                    End="55.1320754716981,29.9622641509434" />
+                  <mssgle:LineSegment
+                    End="55.1320754716981,52.4622641509434" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.3246900795991,34.9622641509434,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="95.0943396226415,154.698113207547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4.9056603773585,43.1320754716981"
+              Start="0,0"
+              End="4.9056603773585,35.6320754716981">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5471698113207" />
+                  <mssgle:LineSegment
+                    End="4.9056603773585,21.5471698113207" />
+                  <mssgle:LineSegment
+                    End="4.9056603773585,35.6320754716981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="495,313"
+          Size="495,356"
+          Id="Package\Sequence Container"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1491 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2016 7:54:53 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="FANIEVDMHPW8-2"
+  DTS:CreatorName="JDG\790450"
+  DTS:DTSID="{8C8A74C4-E39F-4B12-86EF-5AFC97C1CB0D}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Moodle Auto Enrollments"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{4209331F-7F47-4B2A-B000-3DC762BF5EE0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgassessmentdb.enroldb.ehr]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{57D692FE-21A0-4B23-8170-1261F256C94D}"
+      DTS:ObjectName="jdgassessmentdb.enroldb.ehr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=jdgassessmentdb;uid=risk;Dsn=moodle;description=moodle;database=enroldb;port=3306;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitservices.JDG_EHR.update]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3DD25E20-8F75-4EF7-BAD3-1CF801DFB5A5}"
+      DTS:ObjectName="jdgitservices.JDG_EHR.update">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices;User ID=update;Initial Catalog=JDG_EHR;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="E:\SSIS\MoodleAutoEnrollments.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{38B994A1-0B25-440F-ADBE-3F12B06DF5F5}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E36EE809-BD82-46FD-9A8C-03578839C7C8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Create staging Assessment Data"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7A89EB3E-2907-42BF-97D7-D5832098EB73}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create staging Assessment Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3DD25E20-8F75-4EF7-BAD3-1CF801DFB5A5}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC [JDG_EHR].[dbo].[sp_R_Moodle_Users]&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Drop Assessment Table"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{75E95854-E17D-46A7-BB53-ADDC0C99A528}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Drop Assessment Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3DD25E20-8F75-4EF7-BAD3-1CF801DFB5A5}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Drop Table [JDG_EHR].[dbo].[stage_Assessment_Enrollment]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\drop staging Assessment Data"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{340EF4DC-7D96-4C1F-8308-F9856CA9A410}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="drop staging Assessment Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3DD25E20-8F75-4EF7-BAD3-1CF801DFB5A5}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Drop Table [JDG_EHR].[dbo].[stage_Assessment_Enrollment]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Drop Staging Table"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F887C343-B31A-4904-99E1-1AAF38FF3D78}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Drop Staging Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3DD25E20-8F75-4EF7-BAD3-1CF801DFB5A5}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Truncate Table [JDG_EHR].[dbo].[stage_moodle_enrollment]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Get Moodle Data"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9ED34243-2D7C-4016-BF43-F30851186E3D}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Moodle Data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Get Moodle Data\Data Conversion"
+                  componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input].Columns[courseid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="courseid"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[courseid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input].Columns[userid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="userid"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[userid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input].Columns[source]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="source"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[source]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of courseid]"
+                          name="Copy of courseid"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[courseid]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="15"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]"
+                          name="Copy of userid"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[userid]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]"
+                          name="Copy of source"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[source]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Get Moodle Data\ODBC Source"
+                  componentClassID="{A77F5655-A006-443A-9B7E-90B6BD55CB84}"
+                  contactInfo="ODBC Source;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;1"
+                  description="ODBC Source"
+                  name="ODBC Source"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName">`userdb`</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                      expressionType="Notify"
+                      name="ExposeCharColumnsAsUnicode">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for fetching data."
+                      expressionType="Notify"
+                      name="FetchMethod"
+                      typeConverter="FetchMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs"
+                      typeConverter="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs"
+                      typeConverter="BindCharColumnsAs">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Connections[ODBCConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgassessmentdb.enroldb.ehr]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgassessmentdb.enroldb.ehr]"
+                      description="The ODBC runtime connection"
+                      name="ODBCConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="ODBC Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[courseid]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[courseid]"
+                          name="courseid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userid]"
+                          length="45"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[userid]"
+                          name="userid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[source]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[source]"
+                          name="source" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          dataType="i8"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="courseid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="userid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="source" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[courseid]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[courseid]"
+                          name="courseid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[userid]"
+                          length="45"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[userid]"
+                          name="userid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[source]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[source]"
+                          name="source" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stage_moodle_enrollment]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitservices.JDG_EHR.update]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitservices.JDG_EHR.update]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                          cachedDataType="i8"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of courseid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of courseid"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[courseid]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of courseid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of userid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="Copy of userid"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userid]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of source]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of source"
+                          externalMetadataColumnId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                          lineageId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i8"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="courseid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="userid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="source" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Get Moodle Data.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Get Moodle Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Get Moodle Data\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Get Moodle Data.Paths[ODBC Source Output]"
+                  endId="Package\Sequence Container\Get Moodle Data\Data Conversion.Inputs[Data Conversion Input]"
+                  name="ODBC Source Output"
+                  startId="Package\Sequence Container\Get Moodle Data\ODBC Source.Outputs[ODBC Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Moodle"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{94920E80-BD56-48E5-A3CB-ED8B9AB5E555}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Moodle"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Update Moodle\ODBC Destination"
+                  componentClassID="{074B8736-CD73-40A5-822E-888215AF57DA}"
+                  contactInfo="ODBC Destination;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;1"
+                  description="ODBC Destination"
+                  name="ODBC Destination"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for inserting data. Possible values are 'Batch' or 'Row by row'."
+                      expressionType="Notify"
+                      name="InsertMethod"
+                      typeConverter="InsertMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs"
+                      typeConverter="BindCharColumnsAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs"
+                      typeConverter="BindNumericAs">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Destination table"
+                      expressionType="Notify"
+                      name="TableName">`userdb`</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows inserted per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of rows inserted under the same transaction."
+                      expressionType="Notify"
+                      name="TransactionSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Moodle\ODBC Destination.Connections[ODBCConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgassessmentdb.enroldb.ehr]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgassessmentdb.enroldb.ehr]"
+                      description="The ODBC runtime connection"
+                      name="ODBCConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ODBC Destination Input"
+                      truncationRowDisposition="FailComponent">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].Columns[date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].Columns[courseid]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="courseid"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[courseid]"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[courseid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].Columns[userid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="userid"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userid]"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[userid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].Columns[source]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="source"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[source]"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[source]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          dataType="i8"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="courseid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="userid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="source" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Destination Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[id]"
+                          dataType="i8"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[courseid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[courseid]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[courseid]"
+                          name="courseid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[userid]"
+                          length="45"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[userid]"
+                          name="userid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input].ExternalColumns[source]"
+                          length="150"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[source]"
+                          name="source" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Moodle\ODBC Destination.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Moodle\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+       t1.[date]
+      ,t1.[courseid]
+      ,t1.[userid]
+      ,t1.[source]
+	 -- ,(Select [courseid] FROM [JDG_EHR].[dbo].[stage_moodle_enrollment] as t2 with (nolock) where t2.[courseid] = t1.[courseid] and t2.[userid] = t1.[userid] )
+  FROM [JDG_EHR].[dbo].[stage_Assessment_Enrollment] as t1 with (nolock)
+  where (Select [courseid] FROM [JDG_EHR].[dbo].[stage_moodle_enrollment] as t2 with (nolock) where t2.[courseid] = t1.[courseid] and t2.[userid] = t1.[userid] ) is null</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Moodle\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitservices.JDG_EHR.update]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitservices.JDG_EHR.update]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[date]"
+                          name="date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[courseid]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[courseid]"
+                          length="60"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[courseid]"
+                          name="courseid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userid]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[userid]"
+                          name="userid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                          length="3"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].Columns[source]"
+                          name="source"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                          dataType="dbTimeStamp"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[courseid]"
+                          dataType="wstr"
+                          length="60"
+                          name="courseid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="userid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="source" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[courseid]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[courseid]"
+                          name="courseid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
+                          name="userid" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source]"
+                          name="source" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Update Moodle.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Update Moodle\ODBC Destination.Inputs[ODBC Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Update Moodle\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E628F0B2-72A9-4CA0-8DB1-928C19A39BD8}"
+          DTS:From="Package\Sequence Container\Drop Staging Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Get Moodle Data" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{586811D5-221A-4F61-952F-6DC67F7A4043}"
+          DTS:From="Package\Sequence Container\Get Moodle Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Drop Assessment Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E345240-FF56-4004-81A9-F2AE025F5D44}"
+          DTS:From="Package\Sequence Container\Create staging Assessment Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Update Moodle" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{68819203-91C2-49E2-8645-1A8F85E325EA}"
+          DTS:From="Package\Sequence Container\Update Moodle"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\drop staging Assessment Data" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{E9D5D635-4281-4BC9-8776-03E85757C790}"
+          DTS:From="Package\Sequence Container\Drop Assessment Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Sequence Container\Create staging Assessment Data" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Sequence Container\Create staging Assessment Data"
+          TopLeft="52,258" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Sequence Container\Drop Assessment Table"
+          TopLeft="80,183" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Sequence Container\drop staging Assessment Data"
+          TopLeft="63,418" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Sequence Container\Drop Staging Table"
+          TopLeft="62,22" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Sequence Container\Get Moodle Data"
+          TopLeft="62,100" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Update Moodle"
+          TopLeft="61,341" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="143.25,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="140.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.5,41"
+              Start="0,0"
+              End="33.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="29.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5,20.5"
+                    Point2="33.5,20.5"
+                    Point3="33.5,24.5" />
+                  <mssgle:LineSegment
+                    End="33.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="167,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.5,41"
+              Start="0,0"
+              End="-31.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-27.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.5,20.5"
+                    Point2="-31.5,20.5"
+                    Point3="-31.5,24.5" />
+                  <mssgle:LineSegment
+                    End="-31.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="135.5,383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,35"
+              Start="0,0"
+              End="38,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="34,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,17.5"
+                    Point2="38,17.5"
+                    Point3="38,21.5" />
+                  <mssgle:LineSegment
+                    End="38,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="170.5,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="301,527"
+          Size="301,570"
+          Id="Package\Sequence Container"
+          TopLeft="321,0" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Get Moodle Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Sequence Container\Get Moodle Data\ODBC Source"
+          TopLeft="152,110" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Get Moodle Data\OLE DB Destination"
+          TopLeft="135,305" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Sequence Container\Get Moodle Data\Data Conversion"
+          TopLeft="374,195" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Get Moodle Data.Paths[ODBC Source Output]"
+          TopLeft="222.5,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="230,43"
+              Start="0,0"
+              End="230,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="226,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="226,21.5"
+                    Point2="230,21.5"
+                    Point3="230,25.5" />
+                  <mssgle:LineSegment
+                    End="230,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Get Moodle Data.Paths[Data Conversion Output]"
+          TopLeft="452.5,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-231.5,68"
+              Start="0,0"
+              End="-231.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-227.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-227.5,34"
+                    Point2="-231.5,34"
+                    Point3="-231.5,38" />
+                  <mssgle:LineSegment
+                    End="-231.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get Moodle Data\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Get Moodle Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Update Moodle">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Update Moodle\OLE DB Source"
+          TopLeft="253,91" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Sequence Container\Update Moodle\ODBC Destination"
+          TopLeft="253,254" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Moodle.Paths[OLE DB Source Output]"
+          TopLeft="330.75,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,121"
+              Start="0,0"
+              End="0,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Moodle\ODBC Destination">
+    <Properties>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Moodle\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1382 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2014 12:00:37 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGRISK"
+  DTS:CreatorName="JDG\790450"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{8E156E9A-5814-42CB-A7C3-BDC235272B08}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="MasterData"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{8261D9CF-5626-42F1-81A1-B508081D5F45}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7E63038D-2938-4591-8FD2-908DE68F5F7D}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgaudit;Initial Catalog=Management Assurance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-MasterData-{7E63038D-2938-4591-8FD2-908DE68F5F7D}DestinationConnectionOLEDB;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.JDG_MasterData_Group]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EEE9EF86-566C-4BA7-8448-2DDCDF5FC660}"
+      DTS:ObjectName="LocalHost.JDG_MasterData_Group">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=JDG_MasterData_Group;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0CB0468E-5ECE-4A57-884E-A7CE3AE9F546}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgmd01;Initial Catalog=CentralMasterData;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-MasterData-{0CB0468E-5ECE-4A57-884E-A7CE3AE9F546}SourceConnectionOLEDB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;LocalHost.JDG_MasterData_Group&quot;;&quot;[dbo].[SSISConfigurations]&quot;;&quot;MasterData&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{B390F979-04A9-41AD-BA78-35270E9B5473}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8570F8CE-3233-4355-A889-42B36552A497}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{B074BF78-8091-434E-A679-EF2E9514EE22}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable1">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task 1"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{7EBB333D-027F-41CD-8FA0-26D1FDEFBA5D}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Destination - MasterData"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[MasterData]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[MAP_SAPSiteCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="MAP_SAPSiteCode"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MAP_SAPSiteCode]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_SAPSiteCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[MAP_CeresSiteCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="MAP_CeresSiteCode"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MAP_CeresSiteCode]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_CeresSiteCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_Chain]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="SAP_Chain"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Chain]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Chain]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[EDM_BusinessUnitDescription]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="EDM_BusinessUnitDescription"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_BusinessUnitDescription]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_BusinessUnitDescription]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[EDM_OpsCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="EDM_OpsCode"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_OpsCode]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_OpsCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[EDM_FS_RegionDescription]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="EDM_FS_RegionDescription"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_FS_RegionDescription]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_RegionDescription]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[EDM_FS_DivisionDescription]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="EDM_FS_DivisionDescription"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_FS_DivisionDescription]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_DivisionDescription]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_Municipality]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="SAP_Municipality"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Municipality]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Municipality]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_City]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="SAP_City"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_City]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_City]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_Region]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="SAP_Region"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Region]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Region]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_Str_CityPostCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="SAP_Str_CityPostCode"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Str_CityPostCode]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Str_CityPostCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[MDM_AddressPostal1_Line1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="MDM_AddressPostal1_Line1"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MDM_AddressPostal1_Line1]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_AddressPostal1_Line1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_address]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="164"
+                          cachedName="SAP_address"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_address]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_address]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_Post_City]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="SAP_Post_City"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Post_City]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Post_City]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_TelephoneNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="SAP_TelephoneNumber"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_TelephoneNumber]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_TelephoneNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[SAP_FaxNo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="SAP_FaxNo"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_FaxNo]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_FaxNo]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[Area_Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="Area_Description"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[Area_Description]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Area_Description]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].Columns[MDM_SiteStatusName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="MDM_SiteStatusName"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MDM_SiteStatusName]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_SiteStatusName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MAP_SAPSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="MAP_SAPSiteCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MAP_CeresSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="MAP_CeresSiteCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Chain]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="SAP_Chain" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_BusinessUnitDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_BusinessUnitDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_OpsCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_OpsCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_FS_RegionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_FS_RegionDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[EDM_FS_DivisionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_FS_DivisionDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Municipality]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_Municipality" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_Region" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Str_CityPostCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_Str_CityPostCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MDM_AddressPostal1_Line1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="MDM_AddressPostal1_Line1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_address" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_Post_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_Post_City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_TelephoneNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_TelephoneNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[SAP_FaxNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="SAP_FaxNo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[Area_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="Area_Description" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input].ExternalColumns[MDM_SiteStatusName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="MDM_SiteStatusName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\Source - Query"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Source - Query"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT distinct
+       [vwSiteMasterAllFields].[MAP_SAPSiteCode]
+      ,[MAP_CeresSiteCode] = isnull([vwSiteMasterAllFields].[SAP_BUCode],[MAP_EDMSiteCode])
+      ,[vwSiteMasterAllFields].[SAP_Chain]
+      ,[vwSiteMasterAllFields].[EDM_BusinessUnitDescription]
+      ,[vwSiteMasterAllFields].[EDM_OpsCode]
+      ,[vwSiteMasterAllFields].[EDM_FS_RegionDescription]
+      ,[vwSiteMasterAllFields].[EDM_FS_DivisionDescription]
+,[vwSiteMasterAllFields].SAP_Municipality
+      ,[vwSiteMasterAllFields].SAP_City
+      ,[vwSiteMasterAllFields].SAP_Region
+,[vwSiteMasterAllFields].SAP_Str_CityPostCode
+
+,[vwSiteMasterAllFields].MDM_AddressPostal1_Line1
+,[vwSiteMasterAllFields].SAP_Str_Number+' '+[vwSiteMasterAllFields].SAP_Str_line1+' '+[vwSiteMasterAllFields].SAP_Str_line2+' '+[vwSiteMasterAllFields].SAP_Str_City+' '+[vwSiteMasterAllFields].SAP_Str_CityPostCode as SAP_address
+,[vwSiteMasterAllFields].SAP_Post_City
+
+,[vwSiteMasterAllFields].[SAP_TelephoneNumber]
+,[vwSiteMasterAllFields].[SAP_FaxNo]
+,[vwSAPClusterOpsHierarchy].[Area_Description]
+,[MDM_SiteStatusName]
+  FROM [CentralMasterData].[Subscriber].[vwSiteMasterAllFields] left outer join
+  [CentralMasterData].[Subscriber].[vwSAPClusterOpsHierarchy] on [vwSiteMasterAllFields].MAP_SAPSiteCode = [vwSAPClusterOpsHierarchy].[Site]
+  where [MAP_SAPSiteCode] is not null</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_SAPSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MAP_SAPSiteCode]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_SAPSiteCode]"
+                          name="MAP_SAPSiteCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_CeresSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MAP_CeresSiteCode]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MAP_CeresSiteCode]"
+                          name="MAP_CeresSiteCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Chain]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Chain]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Chain]"
+                          name="SAP_Chain"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_BusinessUnitDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_BusinessUnitDescription]"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_BusinessUnitDescription]"
+                          name="EDM_BusinessUnitDescription"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_OpsCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_OpsCode]"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_OpsCode]"
+                          name="EDM_OpsCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_RegionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_FS_RegionDescription]"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_RegionDescription]"
+                          name="EDM_FS_RegionDescription"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_DivisionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_FS_DivisionDescription]"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EDM_FS_DivisionDescription]"
+                          name="EDM_FS_DivisionDescription"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Municipality]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Municipality]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Municipality]"
+                          name="SAP_Municipality"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_City]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_City]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_City]"
+                          name="SAP_City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Region]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Region]"
+                          length="3"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Region]"
+                          name="SAP_Region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Str_CityPostCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Str_CityPostCode]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Str_CityPostCode]"
+                          name="SAP_Str_CityPostCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_AddressPostal1_Line1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDM_AddressPostal1_Line1]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_AddressPostal1_Line1]"
+                          name="MDM_AddressPostal1_Line1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_address]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_address]"
+                          length="164"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_address]"
+                          name="SAP_address"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Post_City]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Post_City]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_Post_City]"
+                          name="SAP_Post_City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_TelephoneNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_TelephoneNumber]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_TelephoneNumber]"
+                          name="SAP_TelephoneNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_FaxNo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_FaxNo]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[SAP_FaxNo]"
+                          name="SAP_FaxNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Area_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Area_Description]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Area_Description]"
+                          name="Area_Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_SiteStatusName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDM_SiteStatusName]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDM_SiteStatusName]"
+                          name="MDM_SiteStatusName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MAP_SAPSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="MAP_SAPSiteCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MAP_CeresSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="MAP_CeresSiteCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Chain]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="SAP_Chain" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_BusinessUnitDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_BusinessUnitDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_OpsCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_OpsCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_FS_RegionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_FS_RegionDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EDM_FS_DivisionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="EDM_FS_DivisionDescription" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Municipality]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="SAP_Municipality" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="SAP_City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="SAP_Region" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Str_CityPostCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="SAP_Str_CityPostCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDM_AddressPostal1_Line1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="MDM_AddressPostal1_Line1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="164"
+                          name="SAP_address" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_Post_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="SAP_Post_City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_TelephoneNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="SAP_TelephoneNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[SAP_FaxNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="SAP_FaxNo" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Area_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="Area_Description" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDM_SiteStatusName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="MDM_SiteStatusName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MAP_SAPSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MAP_SAPSiteCode]"
+                          name="MAP_SAPSiteCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MAP_CeresSiteCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MAP_CeresSiteCode]"
+                          name="MAP_CeresSiteCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Chain]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Chain]"
+                          name="SAP_Chain" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_BusinessUnitDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_BusinessUnitDescription]"
+                          name="EDM_BusinessUnitDescription" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_OpsCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_OpsCode]"
+                          name="EDM_OpsCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_FS_RegionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_FS_RegionDescription]"
+                          name="EDM_FS_RegionDescription" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_FS_DivisionDescription]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EDM_FS_DivisionDescription]"
+                          name="EDM_FS_DivisionDescription" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Municipality]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Municipality]"
+                          name="SAP_Municipality" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_City]"
+                          name="SAP_City" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Region]"
+                          name="SAP_Region" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Str_CityPostCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Str_CityPostCode]"
+                          name="SAP_Str_CityPostCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDM_AddressPostal1_Line1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDM_AddressPostal1_Line1]"
+                          name="MDM_AddressPostal1_Line1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="164"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_address]"
+                          name="SAP_address" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Post_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_Post_City]"
+                          name="SAP_Post_City" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_TelephoneNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_TelephoneNumber]"
+                          name="SAP_TelephoneNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_FaxNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[SAP_FaxNo]"
+                          name="SAP_FaxNo" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Area_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Area_Description]"
+                          name="Area_Description" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDM_SiteStatusName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDM_SiteStatusName]"
+                          name="MDM_SiteStatusName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task 1.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task 1\Destination - MasterData.Inputs[Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Drop old"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{419F2B3F-563F-4C71-9FC5-CEB4296BA6F2}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Drop old"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7E63038D-2938-4591-8FD2-908DE68F5F7D}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="drop table [Management Assurance].[dbo].[MasterData]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E2D5DF8C-9651-41C3-AF34-E900F87D224A}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0CB0468E-5ECE-4A57-884E-A7CE3AE9F546}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="select COUNT(*) as counted&#xA;  FROM [CentralMasterData].[Subscriber].[vwSiteMasterAllFields]&#xA;  where [MAP_SAPSiteCode] is not null"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="counted"
+                SQLTask:DtsVariableName="User::Variable1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2EF6EBF2-A1A8-43E5-89E2-A6BECA13A027}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7E63038D-2938-4591-8FD2-908DE68F5F7D}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail&#xA;    @profile_name = 'Policy Tracker',&#xA;    @recipients = 'fanievdw@jdg.co.za',&#xA;    @subject = 'Master Data Import Failed'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task 2"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{31D27AA9-E310-4EB7-96DD-30E964C1A6B9}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7E63038D-2938-4591-8FD2-908DE68F5F7D}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail&#xA;    @profile_name = 'Policy Tracker',&#xA;    @recipients = 'fanievdw@jdg.co.za',&#xA;    @subject = 'Master Data Import Successfull'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Preparation SQL Task 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DTSID="{B2B91D42-7818-4B17-B87C-20403A4EBF44}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Preparation SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7E63038D-2938-4591-8FD2-908DE68F5F7D}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="CREATE TABLE [dbo].[MasterData] (&#xA;[MAP_SAPSiteCode] varchar(20),&#xA;[MAP_CeresSiteCode] varchar(5),&#xA;[SAP_Chain] varchar(20),&#xA;[EDM_BusinessUnitDescription] varchar(250),&#xA;[EDM_OpsCode] varchar(250),&#xA;[EDM_FS_RegionDescription] varchar(250),&#xA;[EDM_FS_DivisionDescription] varchar(250)&#xA;,[SAP_Municipality] varchar(250)&#xA;      ,[SAP_City] varchar(250)&#xA;      ,[SAP_Region] varchar(250)&#xA;,[SAP_Str_CityPostCode] varchar(250)&#xA;,[MDM_AddressPostal1_Line1] varchar(250)&#xA;,[SAP_address] varchar(250)&#xA;,[SAP_Post_City] varchar(250)&#xA;,[SAP_TelephoneNumber] varchar(250)&#xA;,[SAP_FaxNo] varchar(250)&#xA;,[Area_Description] varchar(250)&#xA;,[MDM_SiteStatusName] varchar(250)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E2EF94B0-083F-43F3-91E8-CD8C91CFD3E5}"
+          DTS:From="Package\Sequence Container\Drop old"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Preparation SQL Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AB919455-BBF3-4C77-8030-DFBA4954E109}"
+          DTS:From="Package\Sequence Container\Preparation SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Data Flow Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{768F11E6-6DAC-4A5B-808D-EA628D67F415}"
+          DTS:EvalOp="1"
+          DTS:Expression="@Variable1 &gt; 0"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Drop old" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{2B857295-4140-4C59-98F4-981BD3A33389}"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\Execute SQL Task 1"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{5D9EA746-5581-42C0-94F9-C5DEB338C97A}"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Sequence Container\Execute SQL Task 2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Data Flow Task 1"
+          TopLeft="14.2264150943396,387.11320754717" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Drop old"
+          TopLeft="14.7169811320755,225.943396226415" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Execute SQL Task"
+          TopLeft="17.0188679245283,13.9056603773585" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Execute SQL Task 1"
+          TopLeft="228.905660377358,16.8867924528302" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Execute SQL Task 2"
+          TopLeft="207.962264150943,138.735849056604" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Preparation SQL Task 1"
+          TopLeft="14.2264150943396,305.452830188679" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="82.6037735849057,269.867924528302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-0.490566037735846,35.5849056603774"
+              Start="0,0"
+              End="-0.490566037735846,28.0849056603774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7735849056604" />
+                  <mssgle:LineSegment
+                    End="-0.490566037735846,17.7735849056604" />
+                  <mssgle:LineSegment
+                    End="-0.490566037735846,28.0849056603774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="82.1132075471698,349.377358490566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="64.1509433962264,57.8301886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.4528301886792,168.11320754717"
+              Start="0,0"
+              End="18.4528301886792,160.61320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,126.075471698113" />
+                  <mssgle:LineSegment
+                    End="18.4528301886792,126.075471698113" />
+                  <mssgle:LineSegment
+                    End="18.4528301886792,160.61320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.22641509433962,131.075471698113,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="152.792452830189,35.8679245283019">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.1132075471698,2.9811320754717"
+              Start="0,0"
+              End="68.6132075471698,2.9811320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.0377358490566,0" />
+                  <mssgle:LineSegment
+                    End="38.0377358490566,2.9811320754717" />
+                  <mssgle:LineSegment
+                    End="68.6132075471698,2.9811320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="22.7963881928066,-19.7490234375,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="64.1509433962264,57.8301886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211.698113207547,80.9056603773585"
+              Start="0,0"
+              End="211.698113207547,73.4056603773585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.6792452830189" />
+                  <mssgle:LineSegment
+                    End="211.698113207547,60.6792452830189" />
+                  <mssgle:LineSegment
+                    End="211.698113207547,73.4056603773585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="400,445"
+          Size="400,489"
+          Id="Package\Sequence Container"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Data Flow Task 1\Source - Query"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Sequence Container\Data Flow Task 1\Destination - MasterData"
+          TopLeft="5.5,87.1603773584906" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task 1\Source - Query">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

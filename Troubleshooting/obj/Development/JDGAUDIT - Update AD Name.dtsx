@@ -1,0 +1,2661 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/25/2015 8:51:51 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JDGRISK"
+  DTS:CreatorName="JDG\790450"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{688D6B70-557D-477D-9348-9B9704778FF5}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7493.4"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Stage Ad User"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B7257570-F58F-4D90-ADEC-441565D34A45}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D3CCD951-2CBD-48F3-97EE-6038D05C13AD}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgaudit;Initial Catalog=Management Assurance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{33D391D4-4179-470C-905C-92E2D3D96399}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgicdb01;Initial Catalog=jdx_iintegrate;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{F15BD669-1FA3-495E-849E-178B7BBFE7A5}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - stage_ad_user"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - stage_ad_user"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_ad_user]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - stage_ad_user.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[sAMAccountName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="sAMAccountName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sAMAccountName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[canonicalName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="canonicalName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[canonicalName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[canonicalName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[cn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="cn"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[cn]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[cn]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[company]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[department]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="department"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[department]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[department]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[departmentNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="departmentNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[departmentNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[departmentNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[description]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[displayName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="displayName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[displayName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[displayName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[distinguisedName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="distinguisedName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[distinguisedName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[distinguisedName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[division]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="division"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[division]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[division]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[employeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="employeeID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeID]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[employeeNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="employeeNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[employeeType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="employeeType"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeType]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionAttribute1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionAttribute1"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute1]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionAttribute2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionAttribute2"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute2]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionAttribute3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionAttribute3"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute3]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute3]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionAttribute4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionAttribute4"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute4]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute4]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionAttribute5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionAttribute5"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute5]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute5]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[extensionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="extensionName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[facsimileTelephoneNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="facsimileTelephoneNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[facsimileTelephoneNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[facsimileTelephoneNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[forwardingAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="forwardingAddress"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[forwardingAddress]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[forwardingAddress]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[givenName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="givenName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[givenName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[givenName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[importedFrom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="importedFrom"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[importedFrom]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[importedFrom]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[initials]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="initials"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[initials]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[initials]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[jpegPhoto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="jpegPhoto"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[jpegPhoto]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[jpegPhoto]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[lastLogoff]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="lastLogoff"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogoff]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogoff]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[lastLogon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="lastLogon"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogon]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogon]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[lastLogonTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="lastLogonTimestamp"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogonTimestamp]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogonTimestamp]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[logonCount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="logonCount"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[logonCount]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[logonCount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[mail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="mail"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mail]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mail]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[mailNickname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="mailNickname"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mailNickname]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mailNickname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[manager]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="manager"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[manager]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[manager]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[memberOf]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="memberOf"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[memberOf]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[memberOf]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[middleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="middleName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[middleName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[middleName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[mobile]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="mobile"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mobile]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mobile]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[modifyTimeStamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="modifyTimeStamp"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[modifyTimeStamp]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[modifyTimeStamp]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[objectCategory]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="objectCategory"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectCategory]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectCategory]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[objectClass]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="objectClass"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectClass]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectClass]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[objectGUID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="objectGUID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectGUID]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectGUID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[objectSid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="objectSid"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectSid]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectSid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[proxyAddresses]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="proxyAddresses"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[proxyAddresses]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[proxyAddresses]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[pwdLastSet]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="pwdLastSet"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[pwdLastSet]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[pwdLastSet]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[sAMAccountType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="sAMAccountType"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sAMAccountType]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[scriptPath]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="scriptPath"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[scriptPath]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[scriptPath]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[secretary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="secretary"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[secretary]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[secretary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[securityIdentifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="securityIdentifier"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[securityIdentifier]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[securityIdentifier]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[sn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="sn"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sn]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sn]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[targetAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="targetAddress"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[targetAddress]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[targetAddress]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[telephoneNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="telephoneNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[telephoneNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[telephoneNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[uid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="uid"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[uid]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[uid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[url]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="url"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[url]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[url]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[userAccountControl]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="userAccountControl"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userAccountControl]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userAccountControl]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[userPrincipalName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="userPrincipalName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userPrincipalName]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPrincipalName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[userPassword]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="userPassword"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userPassword]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPassword]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[ds_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ds_status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[ds_status]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[ds_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[domain_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="domain_name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[domain_name]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[domain_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].Columns[msrepl_tran_version]"
+                      cachedDataType="guid"
+                      cachedName="msrepl_tran_version"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[msrepl_tran_version]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[msrepl_tran_version]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sAMAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="sAMAccountName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[canonicalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="canonicalName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[cn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="cn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="department" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[departmentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="departmentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[displayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="displayName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[distinguisedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="distinguisedName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="division" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[employeeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionAttribute5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[extensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[facsimileTelephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="facsimileTelephoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[forwardingAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="forwardingAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[givenName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="givenName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[importedFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="importedFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="initials" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[jpegPhoto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="jpegPhoto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogoff]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogoff" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[lastLogonTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogonTimestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[logonCount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="logonCount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mailNickname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mailNickname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[manager]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="manager" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[memberOf]"
+                      codePage="1252"
+                      dataType="text"
+                      name="memberOf" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[middleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="middleName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[mobile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mobile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[modifyTimeStamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="modifyTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectCategory" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectClass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectClass" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectGUID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[objectSid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectSid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[proxyAddresses]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="proxyAddresses" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[pwdLastSet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="pwdLastSet" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sAMAccountType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="sAMAccountType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[scriptPath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="scriptPath" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[secretary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="secretary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[securityIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="securityIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[sn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="sn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[targetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="targetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[telephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="telephoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[uid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="uid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="url" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userAccountControl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userAccountControl" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userPrincipalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userPrincipalName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[userPassword]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userPassword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[ds_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ds_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="domain_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input].ExternalColumns[msrepl_tran_version]"
+                      dataType="guid"
+                      name="msrepl_tran_version" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - stage_ad_user.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - stage_ad_user.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - stage_ad_user.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - stage_ad_user.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - ds_ad_user"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - ds_ad_user"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ds_ad_user]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - ds_ad_user.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountName]"
+                      name="sAMAccountName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[canonicalName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[canonicalName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[canonicalName]"
+                      name="canonicalName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[cn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[cn]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[cn]"
+                      name="cn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[department]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[department]"
+                      name="department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[departmentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[departmentNumber]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[departmentNumber]"
+                      name="departmentNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[displayName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[displayName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[displayName]"
+                      name="displayName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[distinguisedName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[distinguisedName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[distinguisedName]"
+                      name="distinguisedName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[division]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[division]"
+                      name="division"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeID]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeID]"
+                      name="employeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeNumber]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeNumber]"
+                      name="employeeNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeType]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[employeeType]"
+                      name="employeeType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute1]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute1]"
+                      name="extensionAttribute1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute2]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute2]"
+                      name="extensionAttribute2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute3]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute3]"
+                      name="extensionAttribute3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute4]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute4]"
+                      name="extensionAttribute4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute5]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionAttribute5]"
+                      name="extensionAttribute5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[extensionName]"
+                      name="extensionName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[facsimileTelephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[facsimileTelephoneNumber]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[facsimileTelephoneNumber]"
+                      name="facsimileTelephoneNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[forwardingAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[forwardingAddress]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[forwardingAddress]"
+                      name="forwardingAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[givenName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[givenName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[givenName]"
+                      name="givenName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[importedFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[importedFrom]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[importedFrom]"
+                      name="importedFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[initials]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[initials]"
+                      name="initials"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[jpegPhoto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[jpegPhoto]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[jpegPhoto]"
+                      name="jpegPhoto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogoff]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogoff]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogoff]"
+                      name="lastLogoff"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogon]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogon]"
+                      name="lastLogon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogonTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogonTimestamp]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[lastLogonTimestamp]"
+                      name="lastLogonTimestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[logonCount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[logonCount]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[logonCount]"
+                      name="logonCount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mail]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mail]"
+                      name="mail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mailNickname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mailNickname]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mailNickname]"
+                      name="mailNickname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[manager]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[manager]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[manager]"
+                      name="manager"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[memberOf]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[memberOf]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[memberOf]"
+                      name="memberOf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[middleName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[middleName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[middleName]"
+                      name="middleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mobile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mobile]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[mobile]"
+                      name="mobile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[modifyTimeStamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[modifyTimeStamp]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[modifyTimeStamp]"
+                      name="modifyTimeStamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectCategory]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectCategory]"
+                      name="objectCategory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectClass]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectClass]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectClass]"
+                      name="objectClass"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectGUID]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectGUID]"
+                      name="objectGUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectSid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectSid]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[objectSid]"
+                      name="objectSid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[proxyAddresses]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[proxyAddresses]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[proxyAddresses]"
+                      name="proxyAddresses"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[pwdLastSet]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[pwdLastSet]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[pwdLastSet]"
+                      name="pwdLastSet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountType]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sAMAccountType]"
+                      name="sAMAccountType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[scriptPath]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[scriptPath]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[scriptPath]"
+                      name="scriptPath"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[secretary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[secretary]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[secretary]"
+                      name="secretary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[securityIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[securityIdentifier]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[securityIdentifier]"
+                      name="securityIdentifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sn]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[sn]"
+                      name="sn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[targetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[targetAddress]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[targetAddress]"
+                      name="targetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[telephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[telephoneNumber]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[telephoneNumber]"
+                      name="telephoneNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[uid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[uid]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[uid]"
+                      name="uid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[url]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[url]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[url]"
+                      name="url"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userAccountControl]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userAccountControl]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userAccountControl]"
+                      name="userAccountControl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPrincipalName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userPrincipalName]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPrincipalName]"
+                      name="userPrincipalName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPassword]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userPassword]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[userPassword]"
+                      name="userPassword"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[ds_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[ds_status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[ds_status]"
+                      name="ds_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[domain_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[domain_name]"
+                      name="domain_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[msrepl_tran_version]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[msrepl_tran_version]"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].Columns[msrepl_tran_version]"
+                      name="msrepl_tran_version"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="sAMAccountName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[canonicalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="canonicalName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[cn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="cn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="department" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[departmentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="departmentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[displayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="displayName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[distinguisedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="distinguisedName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="division" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[employeeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="employeeType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionAttribute5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionAttribute5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[extensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="extensionName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[facsimileTelephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="facsimileTelephoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[forwardingAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="forwardingAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[givenName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="givenName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[importedFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="importedFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="initials" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[jpegPhoto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="jpegPhoto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogoff]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogoff" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[lastLogonTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="lastLogonTimestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[logonCount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="logonCount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mailNickname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mailNickname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[manager]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="manager" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[memberOf]"
+                      codePage="1252"
+                      dataType="text"
+                      name="memberOf" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[middleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="middleName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[mobile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="mobile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[modifyTimeStamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="modifyTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectCategory" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectClass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectClass" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectGUID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[objectSid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="objectSid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[proxyAddresses]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="proxyAddresses" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[pwdLastSet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="pwdLastSet" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sAMAccountType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="sAMAccountType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[scriptPath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="scriptPath" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[secretary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="secretary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[securityIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="securityIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[sn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="sn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[targetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="targetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[telephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="telephoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[uid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="uid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="url" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userAccountControl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userAccountControl" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userPrincipalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userPrincipalName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[userPassword]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="userPassword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[ds_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ds_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="domain_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output].ExternalColumns[msrepl_tran_version]"
+                      dataType="guid"
+                      name="msrepl_tran_version" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sAMAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sAMAccountName]"
+                      name="sAMAccountName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[canonicalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[canonicalName]"
+                      name="canonicalName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[cn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[cn]"
+                      name="cn" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[company]"
+                      name="company" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[department]"
+                      name="department" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[departmentNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[departmentNumber]"
+                      name="departmentNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[displayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[displayName]"
+                      name="displayName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[distinguisedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[distinguisedName]"
+                      name="distinguisedName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[division]"
+                      name="division" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeID]"
+                      name="employeeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeNumber]"
+                      name="employeeNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[employeeType]"
+                      name="employeeType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute1]"
+                      name="extensionAttribute1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute2]"
+                      name="extensionAttribute2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute3]"
+                      name="extensionAttribute3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute4]"
+                      name="extensionAttribute4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionAttribute5]"
+                      name="extensionAttribute5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[extensionName]"
+                      name="extensionName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[facsimileTelephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[facsimileTelephoneNumber]"
+                      name="facsimileTelephoneNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[forwardingAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[forwardingAddress]"
+                      name="forwardingAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[givenName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[givenName]"
+                      name="givenName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[importedFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[importedFrom]"
+                      name="importedFrom" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[initials]"
+                      name="initials" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[jpegPhoto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[jpegPhoto]"
+                      name="jpegPhoto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogoff]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogoff]"
+                      name="lastLogoff" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogon]"
+                      name="lastLogon" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogonTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[lastLogonTimestamp]"
+                      name="lastLogonTimestamp" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[logonCount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[logonCount]"
+                      name="logonCount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mail]"
+                      name="mail" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mailNickname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mailNickname]"
+                      name="mailNickname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[manager]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[manager]"
+                      name="manager" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[memberOf]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[memberOf]"
+                      name="memberOf" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[middleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[middleName]"
+                      name="middleName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mobile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[mobile]"
+                      name="mobile" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[modifyTimeStamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[modifyTimeStamp]"
+                      name="modifyTimeStamp" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectCategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectCategory]"
+                      name="objectCategory" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectClass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectClass]"
+                      name="objectClass" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectGUID]"
+                      name="objectGUID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectSid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[objectSid]"
+                      name="objectSid" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[proxyAddresses]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[proxyAddresses]"
+                      name="proxyAddresses" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[pwdLastSet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[pwdLastSet]"
+                      name="pwdLastSet" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sAMAccountType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sAMAccountType]"
+                      name="sAMAccountType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[scriptPath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[scriptPath]"
+                      name="scriptPath" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[secretary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[secretary]"
+                      name="secretary" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[securityIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[securityIdentifier]"
+                      name="securityIdentifier" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[sn]"
+                      name="sn" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[targetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[targetAddress]"
+                      name="targetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[telephoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[telephoneNumber]"
+                      name="telephoneNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[title]"
+                      name="title" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[uid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[uid]"
+                      name="uid" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[url]"
+                      name="url" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userAccountControl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userAccountControl]"
+                      name="userAccountControl" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userPrincipalName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userPrincipalName]"
+                      name="userPrincipalName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userPassword]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[userPassword]"
+                      name="userPassword" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ds_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ds_status]"
+                      name="ds_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[domain_name]"
+                      name="domain_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[msrepl_tran_version]"
+                      dataType="guid"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[msrepl_tran_version]"
+                      name="msrepl_tran_version" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - stage_ad_user.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - ds_ad_user.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9D7A57C9-7D60-4CFD-B663-BEF8BA7D0521}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3CCD951-2CBD-48F3-97EE-6038D05C13AD}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Exec [Management Assurance].[dbo].[sp_Update_ADName]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Disabled="True"
+      DTS:DTSID="{79384AB5-85F5-4CB9-8673-C1EC3A3A7242}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3CCD951-2CBD-48F3-97EE-6038D05C13AD}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[stage_ad_user] (&#xA;[sAMAccountName] varchar(255) NOT NULL,&#xA;[canonicalName] varchar(1000),&#xA;[cn] varchar(1000),&#xA;[company] varchar(1000),&#xA;[department] varchar(1000),&#xA;[departmentNumber] varchar(1000),&#xA;[description] varchar(1000),&#xA;[displayName] varchar(1000),&#xA;[distinguisedName] varchar(1000),&#xA;[division] varchar(1000),&#xA;[employeeID] varchar(1000),&#xA;[employeeNumber] varchar(1000),&#xA;[employeeType] varchar(1000),&#xA;[extensionAttribute1] varchar(1000),&#xA;[extensionAttribute2] varchar(1000),&#xA;[extensionAttribute3] varchar(1000),&#xA;[extensionAttribute4] varchar(1000),&#xA;[extensionAttribute5] varchar(1000),&#xA;[extensionName] varchar(1000),&#xA;[facsimileTelephoneNumber] varchar(1000),&#xA;[forwardingAddress] varchar(1000),&#xA;[givenName] varchar(1000),&#xA;[importedFrom] varchar(1000),&#xA;[initials] varchar(1000),&#xA;[jpegPhoto] varchar(1000),&#xA;[lastLogoff] varchar(1000),&#xA;[lastLogon] varchar(1000),&#xA;[lastLogonTimestamp] varchar(1000),&#xA;[logonCount] varchar(1000),&#xA;[mail] varchar(1000),&#xA;[mailNickname] varchar(1000),&#xA;[manager] varchar(1000),&#xA;[memberOf] varchar(max),&#xA;[middleName] varchar(1000),&#xA;[mobile] varchar(1000),&#xA;[modifyTimeStamp] varchar(1000),&#xA;[name] varchar(1000),&#xA;[objectCategory] varchar(1000),&#xA;[objectClass] varchar(1000),&#xA;[objectGUID] varchar(1000),&#xA;[objectSid] varchar(1000),&#xA;[proxyAddresses] varchar(1000),&#xA;[pwdLastSet] varchar(1000),&#xA;[Region] varchar(1000),&#xA;[sAMAccountType] varchar(1000),&#xA;[scriptPath] varchar(1000),&#xA;[secretary] varchar(1000),&#xA;[securityIdentifier] varchar(1000),&#xA;[sn] varchar(1000),&#xA;[targetAddress] varchar(1000),&#xA;[telephoneNumber] varchar(1000),&#xA;[title] varchar(1000),&#xA;[uid] varchar(1000),&#xA;[url] varchar(1000),&#xA;[userAccountControl] varchar(1000),&#xA;[userPrincipalName] varchar(1000),&#xA;[userPassword] varchar(1000),&#xA;[ds_status] varchar(50),&#xA;[domain_name] varchar(50) NOT NULL,&#xA;[msrepl_tran_version] uniqueidentifier NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{662B45D0-5694-42C6-B7DC-026D331545C0}"
+      DTS:From="Package\Data Flow Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{E1466254-A140-4551-86A1-6464330700B1\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{E1466254-A140-4551-86A1-6464330700B1}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E1466254-A140-4551-86A1-6464330700B1}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Task 1"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Execute SQL Task"
+          TopLeft="9.99056603773585,168.632075471698" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,131.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4.49056603773585,37.5471698113207"
+              Start="0,0"
+              End="4.49056603773585,30.0471698113207">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7547169811321" />
+                  <mssgle:LineSegment
+                    End="4.49056603773585,18.7547169811321" />
+                  <mssgle:LineSegment
+                    End="4.49056603773585,30.0471698113207" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{E1466254-A140-4551-86A1-6464330700B1\}]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

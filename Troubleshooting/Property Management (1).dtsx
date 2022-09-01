@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2017 1:12:37 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DESKTOP-7QJS9P6"
+  DTS:CreatorName="JDG\790450"
+  DTS:DTSID="{23DF5964-50C5-4502-AFF3-C558C08D32B0}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Property Management"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{BC92FDF1-EDEB-46F4-858F-FB68FE8AF0CA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[jdgitservices.JDG_PropertyManagement]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1D7E575F-D828-42D1-935D-E30FB4F9BC19}"
+      DTS:ObjectName="jdgitservices.JDG_PropertyManagement">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=jdgitservices;User ID=update;Initial Catalog=JDG_PropertyManagement;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9E78102C-A031-4B94-95B6-B83FA672E72B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C1AFD6AF-0F5A-4610-9B2E-DAE81BE24499}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Fact_Brand]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[jdgitservices.JDG_PropertyManagement]"
+                      connectionManagerRefId="Package.ConnectionManagers[jdgitservices.JDG_PropertyManagement]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Brand (Title)]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Brand (Title)"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Brand]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (Title)]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Brand]"
+                          dataType="nText"
+                          name="Brand" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\SharePoint List Source"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  description="Extract data from SharePoint lists"
+                  name="SharePoint List Source">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.SharePointListSource, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47</property>
+                    <property
+                      dataType="System.String"
+                      description="Path to SharePoint site / subsite that contains the list."
+                      expressionType="Notify"
+                      name="SiteUrl">http://sharepoint/gs/fin</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListName">Property_Management_Brand</property>
+                    <property
+                      dataType="System.String"
+                      description="Name of the view within SharePoint list to load data from."
+                      expressionType="Notify"
+                      name="SiteListViewName">All Items</property>
+                    <property
+                      dataType="System.String"
+                      description="Culture to use when communicating with remote SharePoint Server (en-US)."
+                      expressionType="Notify"
+                      name="SharePointCulture">en-US</property>
+                    <property
+                      dataType="System.String"
+                      description="CAML Query to use to more specifically pull back the rows you are interested in from SharePoint (Look up syntax of using this XML Element: &lt;Query /&gt;)"
+                      expressionType="Notify"
+                      name="CamlQuery">&lt;Query /&gt;</property>
+                    <property
+                      dataType="System.Int16"
+                      description="# of elements to pull from the Webservice at a time."
+                      name="BatchSize"
+                      typeConverter="System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="When loading items, should subfolders within the list also be loaded. Set to 'true' to load child folders."
+                      name="IsRecursive"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to return folders with the list content"
+                      name="IncludeFolders"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to return colunmns SharePoint considers hidden"
+                      name="IncludeHiddenColumns"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to decode lookups and make an ID/Value column for each (newline delimited)"
+                      name="DecodeLookupColumns"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether to use a connection manager for this component"
+                      name="UseConnectionManager"
+                      typeConverter="Microsoft.Samples.SqlServer.SSIS.SharePointListAdapters.Enums.TrueFalseValue, SharePointListAdapters, Version=1.2012.0.0, Culture=neutral, PublicKeyToken=f4b3011e1ece9d47">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output]"
+                      description="Property_Management_Brand"
+                      name="Public List Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[ID]"
+                          dataType="i4"
+                          description="ID"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[ID]"
+                          name="ID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (LinkTitle)]"
+                          dataType="wstr"
+                          description="Brand"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (LinkTitle)]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (LinkTitle)]"
+                          name="Brand (LinkTitle)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkTitle</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Attachments]"
+                          dataType="bool"
+                          description="Attachments"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Attachments]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Attachments]"
+                          name="Attachments">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Attachments</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (Title)]"
+                          dataType="wstr"
+                          description="Brand"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (Title)]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (Title)]"
+                          name="Brand (Title)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Title</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (LinkTitleNoMenu)]"
+                          dataType="wstr"
+                          description="Brand"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (LinkTitleNoMenu)]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Brand (LinkTitleNoMenu)]"
+                          name="Brand (LinkTitleNoMenu)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkTitleNoMenu</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Content Type]"
+                          dataType="wstr"
+                          description="Content Type"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Content Type]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Content Type]"
+                          name="Content Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ContentType</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Modified]"
+                          dataType="dbTimeStamp"
+                          description="Modified"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Modified]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Modified]"
+                          name="Modified">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Modified</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Created]"
+                          dataType="dbTimeStamp"
+                          description="Created"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Created]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Created]"
+                          name="Created">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Created</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Created By]"
+                          dataType="wstr"
+                          description="Created By"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Created By]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Created By]"
+                          name="Created By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Author</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Modified By]"
+                          dataType="wstr"
+                          description="Modified By"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Modified By]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Modified By]"
+                          name="Modified By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Editor</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Version]"
+                          dataType="wstr"
+                          description="Version"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Version]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Version]"
+                          name="Version">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_UIVersionString</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Edit]"
+                          dataType="wstr"
+                          description="Edit"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Edit]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Edit]"
+                          name="Edit">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Edit</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Type]"
+                          dataType="wstr"
+                          description="Type"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Type]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Type]"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">DocIcon</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Item Child Count]"
+                          dataType="wstr"
+                          description="Item Child Count"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Item Child Count]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Item Child Count]"
+                          name="Item Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ItemChildCount</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Folder Child Count]"
+                          dataType="wstr"
+                          description="Folder Child Count"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Folder Child Count]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].Columns[Folder Child Count]"
+                          name="Folder Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FolderChildCount</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          description="ID"
+                          name="ID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ID</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (LinkTitle)]"
+                          dataType="wstr"
+                          description="Brand"
+                          length="4000"
+                          name="Brand (LinkTitle)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkTitle</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Attachments]"
+                          dataType="bool"
+                          description="Attachments"
+                          name="Attachments">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Attachments</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (Title)]"
+                          dataType="wstr"
+                          description="Brand"
+                          length="255"
+                          name="Brand (Title)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Title</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Brand (LinkTitleNoMenu)]"
+                          dataType="wstr"
+                          description="Brand"
+                          length="4000"
+                          name="Brand (LinkTitleNoMenu)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">LinkTitleNoMenu</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Content Type]"
+                          dataType="wstr"
+                          description="Content Type"
+                          length="4000"
+                          name="Content Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ContentType</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Modified]"
+                          dataType="dbTimeStamp"
+                          description="Modified"
+                          name="Modified">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Modified</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Created]"
+                          dataType="dbTimeStamp"
+                          description="Created"
+                          name="Created">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Created</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Created By]"
+                          dataType="wstr"
+                          description="Created By"
+                          length="100"
+                          name="Created By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Author</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Modified By]"
+                          dataType="wstr"
+                          description="Modified By"
+                          length="100"
+                          name="Modified By">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Editor</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Version]"
+                          dataType="wstr"
+                          description="Version"
+                          length="255"
+                          name="Version">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">_UIVersionString</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Edit]"
+                          dataType="wstr"
+                          description="Edit"
+                          length="4000"
+                          name="Edit">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">Edit</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Type]"
+                          dataType="wstr"
+                          description="Type"
+                          length="4000"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">DocIcon</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Item Child Count]"
+                          dataType="wstr"
+                          description="Item Child Count"
+                          length="255"
+                          name="Item Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">ItemChildCount</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output].ExternalColumns[Folder Child Count]"
+                          dataType="wstr"
+                          description="Folder Child Count"
+                          length="255"
+                          name="Folder Child Count">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="SharePoint ID"
+                              name="Id">FolderChildCount</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Public List Output]"
+                  endId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Public List Output"
+                  startId="Package\Sequence Container\Data Flow Task\SharePoint List Source.Outputs[Public List Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="20.9142882639049,18.2117661730229" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="224,240.8"
+          Size="224,284"
+          Id="Package\Sequence Container"
+          TopLeft="128.342859342147,42.0235300123485" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Sequence Container\Data Flow Task\SharePoint List Source"
+          TopLeft="158.057145562464,45.0823535846592" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="140.342859546506,162.541178761387" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Public List Output]"
+          TopLeft="250.057145562464,86.6823535846592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.9142860159582,75.8588251767274"
+              Start="0,0"
+              End="-24.9142860159582,68.3588251767274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9294125883637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9294125883637"
+                    Point2="0,37.9294125883637"
+                    Point3="-4,37.9294125883637" />
+                  <mssgle:LineSegment
+                    End="-20.9142860159582,37.9294125883637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.9142860159582,37.9294125883637"
+                    Point2="-24.9142860159582,37.9294125883637"
+                    Point3="-24.9142860159582,41.9294125883637" />
+                  <mssgle:LineSegment
+                    End="-24.9142860159582,68.3588251767274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
